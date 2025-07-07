@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import axios from 'axios'
+
 
 function LoginForm({ onLogin }) {
   const [email, setEmail] = useState('');
@@ -19,7 +21,9 @@ function LoginForm({ onLogin }) {
         type="email"
         placeholder="Email"
         value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={(e) => setEmail(e.target.value)
+          
+        }
         required
       /><br />
       <input
@@ -30,6 +34,22 @@ function LoginForm({ onLogin }) {
         required
       /><br />
       <button type="submit">Login</button>
+      {/* form on submit */}
+      <button type="button" onClick={() => {
+        axios.post('http://localhost:5000/api/seller/register', { email, password })
+          .then(response => {
+            console.log('Registration successful:', response.data);
+            if (onLogin) {
+              onLogin(response.data);
+            }
+          })
+          .catch(error => {
+            console.error('Login failed:', error);
+          });
+        // Reset the form fields after login
+        setEmail('');
+        setPassword('');
+      }}>Reset</button>
     </form>
   );
 }

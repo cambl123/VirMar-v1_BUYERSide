@@ -1,41 +1,46 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Blog from './pages/Blog.jsx';
-import Login from './pages/Login.jsx';
-import Register from './pages/Register.jsx';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import SellerCard from "./components/sellerCard.jsx";
+import ItemCard from "./components/itemCard.jsx";
+import LoginForm from "./components/LoginForm.jsx";
 
 function App() {
-  return (
-    <Router>
-      <nav style={styles.nav}>
-        <Link to="/blog" style={styles.link}>Blog</Link>
-        <Link to="/login" style={styles.link}>Login</Link>
-        <Link to="/register" style={styles.link}>Register</Link>
-      </nav>
+  const [sellers, setSellers] = useState([]);
+  const [items, setItems] = useState([]);
 
-      <Routes>
-        <Route path="/" element={<Blog />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
-    </Router>
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/") // Replace with your backend URL
+      .then((res) => {
+        setSellers(res.data.sellers);
+        setItems(res.data.items);
+      })
+      .catch((err) => console.error("Error fetching data:", err));
+  }, []);
+
+  return (
+    <div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
+      <h1>Featured Sellers</h1>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
+        {sellers.map((seller, idx) => (
+          <SellerCard key={idx} seller={seller} />
+        ))}
+      </div>
+
+      <h2 style={{ marginTop: "2rem" }}>Random Items</h2>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
+        {items.map((item, idx) => (
+          <ItemCard key={idx} item={item} />
+        ))}
+      </div>
+      <h2 style={{ marginTop: "2rem" }}>Login</h2>
+      <LoginForm onLogin={(data) => console.log("Logged in:", data)} />
+      <p style={{ marginTop: "2rem" }}>
+        This is a simple e-commerce platform showcasing sellers and their items.
+        Feel free to explore!
+      </p>
+    </div>
   );
 }
-
-const styles = {
-  nav: {
-    display: 'flex',
-    gap: '1rem',
-    justifyContent: 'center',
-    padding: '1rem',
-    backgroundColor: '#333',
-  },
-  link: {
-    color: '#fff',
-    textDecoration: 'none',
-    fontWeight: 'bold',
-  }
-};
 
 export default App;

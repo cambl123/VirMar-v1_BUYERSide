@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const notificationSchema = new mongoose.Schema({
     title: {
         type: String,
-        required: true,
+        default: 'Notification of VirMar',
         trim: true
     },
     message: {

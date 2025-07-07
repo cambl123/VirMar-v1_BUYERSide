@@ -1,6 +1,4 @@
-//import e from "express";
 import mongoose from "mongoose";
-//import Price from "./price.schema.js"; // Assuming you have a price schema defined in price.schema.js
 
 const itemSchema = new mongoose.Schema({
     name: {
@@ -21,9 +19,9 @@ const itemSchema = new mongoose.Schema({
         type: Date,
         default: null
 
-       // required: true
+       
     },
-    //price: Price,
+   
     store_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Store', // Assuming you have a store model

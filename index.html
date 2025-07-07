@@ -21,6 +21,65 @@
                 console.log(error);
             }
         });
+    </script>app.post('/api/data', (req, res) => {
+  console.log('Request received:', req.body);
+  try {
+    // your processing logic
+    res.status(200).json({ message: 'Success!' });
+  } catch (err) {
+    console.error('Error in route:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+app.get('/', async (req, res) => {
+    try {
+        const total = await Seller.countDocuments();
+        const half = Math.floor(total / 2);
+       const randomSellers = await Seller.aggregate([
+    { $sample: { size: half } },
+    { $project: { password: 0, __v: 0, createdAt: 0, updatedAt: 0 } }
+]);
+const randomItems = await Item.aggregate([
+  { $sample: { size: half } },
+  {
+    $lookup: {
+      from: 'prices',
+      localField: 'price',
+      foreignField: '_id',
+      as: 'priceInfo'
+    }
+  },
+  { $unwind: '$priceInfo' },
+  {
+    $project: {
+      createdAt: 0,
+      updatedAt: 0,
+      price: 0
+    }
+  },
+  {
+    $addFields: {
+      reservedPrice: '$priceInfo.reservedPrice'
+    }
+  }
+]);
+
+const randomStore = await Store.aggregate([
+    { $sample: { size: half } },
+    { $project: { createdAt: 0, updatedAt: 0 } }        
+]);
+        if (randomSellers.length === 0||  randomItems.length === 0) {
+            res.status(404).json({ error: 'No sellers found' });
+        } else {
+            res.status(200).json({ sellers: randomSellers, items: randomItems });
+        }
+    } catch (error) {
+        console.error('Error in root route:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+    <script>
+
     </script>
 </body>
 </html>

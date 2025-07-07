@@ -7,12 +7,11 @@ dotenv.config()
 const connectDB = async ()=> {
     try {
         const conn = mongoose.connect(process.env.MONGO_URI)
-        console.log(`MongoDB connected: ${conn}`)
-        //mongoose.set('strictQuery', false) // to avoid deprecation warning
-        console.log(`mongo connected`)
+        console.log(`MongoDB connected`)
+        
 
     } catch (error) {
-        console.log(error)
+        console.log(`error while connecting db ${error}`)
         process.exit(1)
 
     }
