@@ -6,7 +6,7 @@ const sellersSchema = new mongoose.Schema({
     fullname: { type: String, trim: true },
     email: { type: String, required: true, unique: true, trim: true },
     phone: { type: String, unique: true, trim: true },
-    store_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Store' },
+    store: { type: mongoose.Schema.Types.ObjectId, ref: 'Store' },
     password: { type: String, required: true, minlength: 6 },
     role: { type: String, enum: ['seller', 'admin'], default: 'seller' },
     isActive: { type: Boolean, default: true },
@@ -15,7 +15,8 @@ const sellersSchema = new mongoose.Schema({
     paymentMethods: [{ type: String, enum: ['cash', 'credit_card', 'mobile_money', 'bank_transfer'], default: 'cash' }],
     notifications: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Notification' }],
     wallet: { type: mongoose.Schema.Types.ObjectId, ref: 'Wallet'}
-     },{timestamps: true});
+     },
+     {timestamps: true});
 
 
 sellersSchema.pre('save', async function(next) {

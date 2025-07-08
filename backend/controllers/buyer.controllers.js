@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs"
 import generateTokenAndSetCookie from "../configs/token.config.buyer.js"
 import Buyer from "../models/buyer.model.js"
 import Wallet from "../models/wallet.schema.js"
+import Item from "../models/items.model.js"
 
 export const register = async (req,res) => {
     console.log('register')
@@ -55,7 +56,7 @@ export const login = async (req,res)=>{
         const isvalidPassword = await bcrypt.compare(password, buyer.password)
         if(!isvalidPassword){return res.status(403).json({message: 'invalid credentials'})}
 
-        generateTokenAndSetCookie;
+        generateTokenAndSetCookie(res,buyer);
 
         const buyerWithoutPassword = buyer.toObject()
         delete buyerWithoutPassword.password
@@ -70,16 +71,55 @@ export const login = async (req,res)=>{
 }
 
 export const logout = async (req,res)=>{
-    req.clearCookie('token')
+    try {
+    res.clearCookie('token'); // Clear the cookie from the browser
 
     res.status(200).json({message: 'successfully logged out'})
+        
+    } catch (error) {
+        console.log(`error logging out ${error}`)
+        res.status(500).json({message: 'error logging out'})
+        
+    }
+    
 }
 
 export const getUserProfile = async (req,res)=>{
     const userid = req.user.id
     try {
         if(!userid){return res.status(404).json({message: 'not authorized'})}
+        const buyer = await Buyer.findById(userid)
+        res.status(200).json({message: 'successfully got profile',buyer:buyer})
+
     } catch (error) {
         console.log(`error getting profile ${error}`)
+        res.status(500).json({message:'error getting profile'})
+    }
+}
+
+
+//cart activities
+
+export const addItemToCart = async (req,res)=>{
+    const {product_id , quantity} = req.body
+    try {
+        const userid = req.user.id
+        if(!userid){return res.status(404).json({message: 'not authorized'})}
+        const buyer = await Buyer.findById(userid)
+        //updating the item status to reserved
+        //update the quantity
+        
+        await Item.findByIdAndUpdate(product_id, {status:'reserved', quantity:quantity})
+        console
+        buyer.cart.push(product_id)
+        await buyer.save()
+        res.status(200).json({message: 'successfully added item to cart'})
+        
+    } catch (error) {     
+        console.log(`error adding item to cart ${error}`)
+        res.statue(500).json({message:'error adding item to cart'})
+
+        
+    
     }
 }

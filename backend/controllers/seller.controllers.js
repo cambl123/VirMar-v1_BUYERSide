@@ -20,8 +20,9 @@ export const register = async (req, res)=> {
   try {
     // Check for existing email
       const emailExist = await Seller.findOne({ email });
+
       if (emailExist) {
-        return res.status(400).json({ message: "Email already exists" });
+        return res.status(400).json({ message: "Email already exists  at validate email" });
       } 
       // Check for existing name
       const nameExist = await Seller.findOne({ name });
@@ -37,33 +38,34 @@ export const register = async (req, res)=> {
         phone: phone
       });
       // Save the new seller
-      await newSeller.save()
+      //await newSeller.save()
       // Create a new store for the seller
-      if (newSeller){
-        try {
+     // if (!newSeller) { return res.status(404).json({ message: "failed to create seller" }); }
+     
           const store =  await Store.create({
           name: `${newSeller.name}'s Store`,
           seller_id: newSeller._id // Use seller_id as required by your Store schema
          });
           
-        } catch (error) {
-          console.log(`error in creating store ${error}`)
-          return res.status(403).json({message:error})
-        }
-        
-     
+       
+
+        // Add the store to the seller's stores array
+        newSeller.store = store._id;
+        await newSeller.save();
+              
       giveTokenAndCookieForSeller(res, newSeller);
       //return response with the new seller and store information
       //remove password from the response
       const SellerNoPassword = newSeller.toObject();
       delete SellerNoPassword.password;
       //send response
+      const storeObj = store.toObject()
       res.status(201).json({
         message: "seller created successfully",
         seller: SellerNoPassword,
-        store: store
+        store: storeObj
       });
-    }
+    
 
     // if there is a new seller provide token and cookie
     
@@ -131,8 +133,9 @@ export const getUserProfile = async (req, res) => {
   try {
     console.log("👤 Decoded user in controller:", req.seller);
     //the user id is gotten from protect routes
-    const sellerId = req.seller._id
-    if (!userId) {
+    console.log("👤 Decoded user in controller:", req.seller);
+    const sellerId = req.seller.id
+    if (!sellerId) {
       return res.status(400).json({ error: "Missing user ID in token" });
     }
 
@@ -163,7 +166,7 @@ export const addItemToStore = async (req, res) => {
     reservedPrice: price,
   });
   const store = await Store.findById(storeId);
-    if (!store || store.seller_id.toString() !== req.user.id) {
+    if (!store || store.seller_id.toString() !== req.seller.id) {
     return res.status(403).json({ message: "Not authorized to add items to this store" });
     }
 
@@ -197,4 +200,25 @@ export const addItemToStore = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
     
   }
+}
+//update item
+export const updateItem = async (req,res)=>{
+    const itemId = req.params
+    // const seller = req.seller
+    console.log(itemId, req.body)
+
+
+  try {
+    const updatedItem = await Item.findByIdAndUpdate(itemId, req.body, { new: true });
+    if (!updatedItem) {
+      return res.status(404).json({ message: "Item not found" });
+    }
+    res.status(200).json({ message: "Item updated successfully", item: updatedItem });
+
+    
+  } catch (error) {
+    console.log(`error updating item ${error} `)
+    res.status(500).json({message: "error updating item"})
+  }
+
 }

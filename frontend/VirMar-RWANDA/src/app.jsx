@@ -1,45 +1,66 @@
-import React, { useEffect, useState } from "react";
+
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import { useState } from "react";
 import axios from "axios";
-import SellerCard from "./components/sellerCard.jsx";
+
+import Login from "./pages/Login.jsx";
+import Register from "./pages/Register.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
 import ItemCard from "./components/itemCard.jsx";
+import SellerCard from "./components/SellerCard.jsx";
+import Blog from "./pages/Blog.jsx";
 import LoginForm from "./components/LoginForm.jsx";
+import './index.css'
 
 function App() {
-  const [sellers, setSellers] = useState([]);
-  const [items, setItems] = useState([]);
+  const [token, setToken] = useState(null);
+  const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000/") // Replace with your backend URL
-      .then((res) => {
-        setSellers(res.data.sellers);
-        setItems(res.data.items);
-      })
-      .catch((err) => console.error("Error fetching data:", err));
-  }, []);
+  const handleLogin = async (credentials) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/seller/login",
+        credentials
+      );
+      setToken(response.data.token);
+      setUser(response.data.seller);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
-    <div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
-      <h1>Featured Sellers</h1>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-        {sellers.map((seller, idx) => (
-          <SellerCard key={idx} seller={seller} />
-        ))}
-      </div>
-
-      <h2 style={{ marginTop: "2rem" }}>Random Items</h2>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-        {items.map((item, idx) => (
-          <ItemCard key={idx} item={item} />
-        ))}
-      </div>
-      <h2 style={{ marginTop: "2rem" }}>Login</h2>
-      <LoginForm onLogin={(data) => console.log("Logged in:", data)} />
-      <p style={{ marginTop: "2rem" }}>
-        This is a simple e-commerce platform showcasing sellers and their items.
-        Feel free to explore!
-      </p>
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            token ? (
+              <Navigate to="/dashboard" />
+            ) : (
+              <Login onLogin={handleLogin} />
+            )
+          }
+        />
+        <Route path="/register" element={<Register />} />
+        <Route
+          path="/dashboard"
+          element={
+            token ? (
+              <Dashboard user={user} token={token} />
+            ) : (
+              <Navigate to="/" />
+            )
+          }
+        />
+      </Routes>
+    </Router>
   );
 }
 

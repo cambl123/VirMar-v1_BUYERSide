@@ -1,18 +1,32 @@
-import React from 'react';
-import LoginForm from '../components/LoginForm';
+import React, { useState } from 'react';
 
-function Login() {
-  const handleLogin = (data) => {
-    console.log('Login data:', data);
+const Login = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // TO DO: implement login logic here
   };
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <h2>Login to VirMar</h2>
-      <LoginForm onLogin={handleLogin} />
+    <div>
+      <h1>Login</h1>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Username:
+          <input type="text" value={username} onChange={(event) => setUsername(event.target.value)} />
+        </label>
+        <br />
+        <label>
+          Password:
+          <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
+        </label>
+        <br />
+        <button type="submit">Login</button>
+      </form>
     </div>
   );
-}
+};
 
 export default Login;
-// This is the login page for the VirMar project, allowing users to log in with their credentials.

@@ -1,12 +1,14 @@
 import mongoose from 'mongoose'
+import bcrypt from 'bcryptjs'
 
 const buyerSchema = new mongoose.Schema({
     name: {type: String, required: true},
     email: {type: String, required: true},
-    transaction:[ { type: mongoose.Schema.types.ObjectId, ref: Transaction, default: [], }],
+   // transaction:[ { type: mongoose.Schema.types.ObjectId, ref: 'Transaction', default: [], }],
     phone: { type: String, minLength: 10, maxLength: 15},
     password: { type: String, minLength: 6, required: true, },
-    userWallet: { type: mongoose.Schema.Types.ObjectId, ref: 'Wallet', required: true }
+    userWallet: { type: mongoose.Schema.Types.ObjectId, ref: 'Wallet' },
+    cart: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Item' }]
 },{timestamps: true})
 
 // password hashing or encrypting 

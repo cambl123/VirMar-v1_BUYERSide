@@ -1,23 +1,20 @@
-import React from "react";
+import React from 'react';
 
-function ItemCard({ item }) {
+const ItemCard = () => {
   return (
-    <div style={styles.card}>
-      <h4>{item.name || "Unnamed Item"}</h4>
-      <p>Price: {item.price || "N/A"}</p>
-      <p>Category: {item.category || "General"}</p>
+    <div className="item-card">
+      <div className="item-image">
+        <img src="https://via.placeholder.com/150" alt="Item Image" />
+      </div>
+      <div className="item-info">
+        <h2>Item Title</h2>
+        <p>Item Description</p>
+        <p>Price: $19.99</p>
+        <button className="add-to-cart">Add to Cart</button>
+        <button className="view-details">View Details</button>
+      </div>
     </div>
   );
-}
-
-const styles = {
-  card: {
-    border: "1px solid #ccc",
-    padding: "1rem",
-    borderRadius: "8px",
-    width: "200px",
-    background: "#f9f9f9"
-  }
 };
 
 export default ItemCard;

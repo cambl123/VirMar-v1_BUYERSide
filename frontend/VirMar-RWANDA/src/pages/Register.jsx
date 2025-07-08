@@ -1,13 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function Register() {
+const Register = () => {
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // TO DO: implement registration logic here
+  };
+
   return (
-    <div style={{ padding: '2rem' }}>
-      <h2>Create Your VirMar Account</h2>
-      <p>Registration form coming soon!</p>
+    <div>
+      <h1>Register</h1>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Username:
+          <input type="text" value={username} onChange={(event) => setUsername(event.target.value)} />
+        </label>
+        <br />
+        <label>
+          Email:
+          <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
+        </label>
+        <br />
+        <label>
+          Password:
+          <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
+        </label>
+        <br />
+        <button type="submit">Register</button>
+      </form>
     </div>
   );
-}
+};
 
 export default Register;
-// This is the registration page for the VirMar project, where users will be able to create their accounts.

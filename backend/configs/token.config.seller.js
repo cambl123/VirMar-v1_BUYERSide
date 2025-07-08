@@ -5,10 +5,11 @@ dotenv.config();
 export const giveTokenAndCookieForSeller = (res, seller) => {
     // Generate a JWT token
     const token = jwt.sign(
-        { id: seller._id, role: seller.role },
+        { id: seller._id },
         process.env.JWT_SECRET_SELLER, // Use a different secret for sellers
         { expiresIn: '1d' }
     );
+    console.log("🚀 ~ file: token.config.seller.js:9 ~ giveTokenAndCookieForSeller ~ token:", token)
 
     // Set the token in a cookie
     res.cookie('token', token, {
@@ -17,6 +18,7 @@ export const giveTokenAndCookieForSeller = (res, seller) => {
         sameSite: 'Strict',
         maxAge: 24 * 60 * 60 * 1000 // 1 day
     });
+    console.log("🚀 ~ file: token.config.seller.js:13 ~ giveTokenAndCookieForSeller ~ res.cookie:", res.cookie)
 
     // Return the token and seller info (excluding password)
     return {
@@ -30,5 +32,6 @@ export const giveTokenAndCookieForSeller = (res, seller) => {
             isVerified: seller.isVerified
         }
     };
+    console.log("🚀 ~ file: token.config.seller.js:19 ~ giveTokenAndCookieForSeller ~ return:")
 }
 

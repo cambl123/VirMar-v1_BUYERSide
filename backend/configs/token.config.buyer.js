@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
-import Buyer from '../models/buyer.model';
+import Buyer from '../models/buyer.model.js';
 dotenv.config();
 
 async function generateTokenAndSetCookie (res, Buyer) {

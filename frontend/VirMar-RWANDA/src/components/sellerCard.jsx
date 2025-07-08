@@ -1,27 +1,20 @@
-import React from "react";
+import React from 'react';
 
-function SellerCard({ seller }) {
+const SellerCard = () => {
   return (
-    <div style={styles.card}>
-      <h3>{seller.name || "Unnamed Seller"}</h3>
-      <p>Email: {seller.email}</p>
-      <p>Location: {seller.location || "Unknown"}</p>
-      <p>Status: {seller.isActive ? "Active" : "Inactive"}</p>
-        <p>Rating: {seller.rating || "No rating"}</p>
-        <p>Items: {seller.items ? seller.items.length : 0}</p>
-
+    <div className="seller-card">
+      <div className="seller-image">
+        <img src="https://via.placeholder.com/150" alt="Seller Image" />
+      </div>
+      <div className="seller-info">
+        <h2>Seller Name</h2>
+        <p>Seller Description</p>
+        <p>Rating: 4.5/5</p>
+        <button className="view-profile">View Profile</button>
+        <button className="contact-seller">Contact Seller</button>
+      </div>
     </div>
   );
-}
-
-const styles = {
-  card: {
-    border: "1px solid #ccc",
-    padding: "1rem",
-    borderRadius: "8px",
-    width: "250px",
-    boxShadow: "0 2px 5px rgba(0,0,0,0.1)"
-  }
 };
 
 export default SellerCard;

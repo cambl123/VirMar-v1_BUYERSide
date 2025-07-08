@@ -7,7 +7,9 @@ import connectDB from './configs/mongo.connect.js'
 
 import sellerRoutes from './routes/seller.routes.js'
 import BuyerRoutes from './routes/buyer.routes.js'
-import transactRoutes from './routes/transact.routes.js'
+import protectBuyerRoute from './configs/middleware/potect.buyerRoute.js'
+import Seller from './models/sellers.model.js'
+//import transactRoutes from './routes/transact.routes.js'
 
 dotenv.config()
 
@@ -27,6 +29,25 @@ app.use('/api/seller',sellerRoutes)
 app.use('/api/buyer',BuyerRoutes)
 
 //app.use('/api/transact',transactRoutes)
+app.get('/',async (req,res)=>{
+    //get suggest sellers for a buyer
+    try {
+    const info = await Seller.find({isActive: true})
+    if(!info){return res.status(404).json({message: 'no sellers'})}
+    const randomSellers = info.sort(() => 0.5 - Math.random()).slice(0, 5);
+    randomSellers.forEach(seller => {
+        seller.password = null
+    })
+    
+    res.json({sellers: randomSellers})
+
+        
+    } catch (error) {
+        res.json({message: error.message})
+    }
+
+
+})
 
 
 
