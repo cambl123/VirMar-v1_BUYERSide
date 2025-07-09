@@ -12,8 +12,8 @@ BuyerRoutes.get('/profile', protectBuyerRoute, getUserProfile)
 
 
 // cart and buying activities
-BuyerRoutes.post('/cart/:cartId/item', protectBuyerRoute, addItemToCart)
-BuyerRoutes.get('/cart')
+// BuyerRoutes.post('/cart/:cartId/item', protectBuyerRoute, addItemToCart)
+// BuyerRoutes.get('/cart')
 
 
 export default BuyerRoutes

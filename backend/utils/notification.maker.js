@@ -1,24 +1,10 @@
 // backend/utils/notifications.js
-import Notification from '../models/notification.schema';
+import Notification from '../models/notification.schema.js';
 
-const createNotification = async ({
-  title,
-  message,
-  recipientId,
-  recipientModel,
-}) => {
-  try {
-    const notification = await Notification.create({
-      title,
-      message,
-      recipientId,
-      recipientModel,
-    });
+  
+export async function generateNotification(title, message, recipientId, recipientModel) {
+    const notification = new Notification({ title, message, recipientId, recipientModel });
+    
+    await notification.save();
     return notification;
-  } catch (error) {
-    console.error('Error creating notification:', error);
-    throw error;
   }
-};
-
-export default createNotification;

@@ -4,6 +4,8 @@ import generateTokenAndSetCookie from "../configs/token.config.buyer.js"
 import Buyer from "../models/buyer.model.js"
 import Wallet from "../models/wallet.schema.js"
 import Item from "../models/items.model.js"
+import { generateNotification } from "../utils/notification.maker.js"
+import { sendEmailNotification } from "../utils/email.notification.js"
 
 export const register = async (req,res) => {
     console.log('register')
@@ -34,6 +36,9 @@ export const register = async (req,res) => {
         await newBuyer.save()
         const buyerNoPassword = newBuyer.toObject()
         delete buyerNoPassword.password
+        // generateNotification('welcome',`welcome ${buyerNoPassword.name}`,buyerNoPassword._id,Buyer)
+        sendEmailNotification(generateNotification('welcome',`welcome ${buyerNoPassword.name}`,buyerNoPassword._id,'Buyer'))
+        console.log('sent email notification')
         res.status(200).json({message:"successfuly registered",buyer:buyerNoPassword })   
         
     } catch (error) {
@@ -60,6 +65,12 @@ export const login = async (req,res)=>{
 
         const buyerWithoutPassword = buyer.toObject()
         delete buyerWithoutPassword.password
+
+        generateNotification('welcome back',`welcome back ${buyerWithoutPassword.name}`,buyerWithoutPassword._id,'Buyer')
+        
+        sendEmailNotification(generateNotification('you are logged in','succesfully logged into virmar account', buyerWithoutPassword.email))
+        console.log(`sent email notification`)
+
 
         res.status(200).json({message:'successfully logged in' , buyer: buyerWithoutPassword})
 
