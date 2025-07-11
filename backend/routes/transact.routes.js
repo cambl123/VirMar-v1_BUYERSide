@@ -1,8 +1,10 @@
-import express from 'express'
-import { createTransaction } from '../controllers/transact.controllers.js'
+// manages all of the wallet operations
 
-const transactRoutes = express.Router()
- 
-transactRoutes.post('/createtransaction', createTransaction)
+import express from "express";
+import { createTransaction } from "../controllers/transact.controllers.js";
 
-export default transactRoutes
+const transactRoutes = express.Router();
+
+transactRoutes.post("/createtransaction", createTransaction);
+
+export default transactRoutes;

@@ -1,23 +1,50 @@
-import jwt from 'jsonwebtoken';
-import 'dotenv/config';
+import express from "express";
+import Stripe from "stripe";
+import dotenv from "dotenv";
 
-const token = jwt.sign({ foo: 'bar' }, process.env.JWT_SECRET_SELLER, { expiresIn: '1d' });
-console.log('Token:', token);
+dotenv.config();
 
-jwt.verify(token, process.env.JWT_SECRET_SELLER, (err, decoded) => {
-  if (err) {
-    console.error('Verify error:', err);
-  } else {
-    console.log('Decoded:', decoded);
+const app = express();
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
+app.get("/test-stripe", async (req, res) => {
+  try {
+    const balance = await stripe.balance.retrieve();
+    res.json({
+      connected: true,
+      message: "Stripe is connected successfully!",
+      currency: balance.available[0]?.currency,
+      amount: balance.available[0]?.amount,
+    });
+  } catch (error) {
+    res.status(500).json({
+      connected: false,
+      error: error.message,
+    });
   }
 });
 
+app.listen(3000, () => {
+  console.log("Server running on http://localhost:3000");
+});
 
+// import jwt from 'jsonwebtoken';
+// import 'dotenv/config';
 
+// const token = jwt.sign({ foo: 'bar' }, process.env.JWT_SECRET_SELLER, { expiresIn: '1d' });
+// console.log('Token:', token);
+
+// jwt.verify(token, process.env.JWT_SECRET_SELLER, (err, decoded) => {
+//   if (err) {
+//     console.error('Verify error:', err);
+//   } else {
+//     console.log('Decoded:', decoded);
+//   }
+// });
 
 // console.log(email)
 
-    //check for existing email
+//check for existing email
 //     const emailExist = await Seller.findOne({email})
 
 //     if(emailExist){return res.status(404).json({message:"existing email"})}
@@ -57,7 +84,6 @@ jwt.verify(token, process.env.JWT_SECRET_SELLER, (err, decoded) => {
 //     }
 
 //     const { token, seller: SellerNoPassword } = giveTokenAndCookieForSeller(res, newSeller);
-
 
 //     res.status(201).json({
 //     message: "seller created successfully",
