@@ -4,7 +4,7 @@ import Buyer from '../models/buyer.model.js';
 dotenv.config();
 
 async function generateTokenAndSetCookie (res, Buyer) {
-    const token = jwt.sign({id: Buyer._id},process.env.JWT_SECRET_BUYER,{expiresIn: '1d'});
+    const token = jwt.sign({id: Buyer._id, role:"buyer"},process.env.JWT_SECRET_BUYER,{expiresIn: '1d'});
     res.cookie('token', token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
@@ -21,6 +21,6 @@ async function generateTokenAndSetCookie (res, Buyer) {
             isActive: Buyer.isActive,
             isVerified: Buyer.isVerified
         }
-    };  
+    };
 }
 export default generateTokenAndSetCookie

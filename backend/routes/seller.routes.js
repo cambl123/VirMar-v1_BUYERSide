@@ -20,4 +20,6 @@ sellerRoutes.get("/profile", protectSellerRoute, getUserProfile);
 //inventory creation like store and items
 sellerRoutes.post("/store/:storeId/item", protectSellerRoute, addItemToStore);
 
+//seller gets money through selling of goods, gifts, deposit, crypto
+
 export default sellerRoutes;

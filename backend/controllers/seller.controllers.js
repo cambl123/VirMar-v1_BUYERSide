@@ -9,13 +9,13 @@ import Store from "../models/store.schema.js";
 import Item from "../models/items.model.js";
 import Price from "../models/price.schema.js";
 
-//TODO: validation required for required in the db 
+//TODO: validation required for required in the db
 //authentication and authorization logic here
 export const register = async (req, res)=> {
     //registeration
-    
+
     const { email, name, password, fullname, phone } = req.body
-   
+
 
   try {
     // Check for existing email
@@ -23,7 +23,7 @@ export const register = async (req, res)=> {
 
       if (emailExist) {
         return res.status(400).json({ message: "Email already exists  at validate email" });
-      } 
+      }
       // Check for existing name
       const nameExist = await Seller.findOne({ name });
       if (nameExist) {
@@ -41,18 +41,18 @@ export const register = async (req, res)=> {
       //await newSeller.save()
       // Create a new store for the seller
      // if (!newSeller) { return res.status(404).json({ message: "failed to create seller" }); }
-     
+
           const store =  await Store.create({
           name: `${newSeller.name}'s Store`,
           seller_id: newSeller._id // Use seller_id as required by your Store schema
          });
-          
-       
+
+
 
         // Add the store to the seller's stores array
         newSeller.store = store._id;
         await newSeller.save();
-              
+
       giveTokenAndCookieForSeller(res, newSeller);
       //return response with the new seller and store information
       //remove password from the response
@@ -65,10 +65,10 @@ export const register = async (req, res)=> {
         seller: SellerNoPassword,
         store: storeObj
       });
-    
+
 
     // if there is a new seller provide token and cookie
-    
+
     } catch (error) {
     console.error("Error during registration:", error);
     console.log("Error details:", error.message);
@@ -79,53 +79,53 @@ export const register = async (req, res)=> {
 }
 export const login = async (req,res)=>{
 
-const { email, name, password } = req.body;
-console.log({ email, name });
+  const { email, name, password } = req.body;
+    console.log({ email, name });
 
-try {
-  const seller = await Seller.findOne({ email }).select("+password"); // add +password if schema hides it
+  try {
+    const seller = await Seller.findOne({ email }).select("+password"); // add +password if schema hides it
 
-  if (!seller) {
-    return res.status(404).json({ message: "oops not found" });
+    if (!seller) {
+      return res.status(404).json({ message: "oops not found" });
+    }
+
+    const isvalidPassword = await bcrypt.compare(password, seller.password);
+    if (!isvalidPassword) {
+      return res.status(401).json({ message: "invalid credential" });
+    }
+
+    // Generate token and set cookie
+    giveTokenAndCookieForSeller(res, seller);
+
+    // Remove password from seller object before sending
+    const SellerNoPassword = seller.toObject();
+    delete SellerNoPassword.password;
+
+    res.status(200).json({
+      message: "successfuly logged in",
+      seller: SellerNoPassword
+    });
+
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "internal server error during log in" });
   }
 
-  const isvalidPassword = await bcrypt.compare(password, seller.password);
-  if (!isvalidPassword) {
-    return res.status(401).json({ message: "invalid credential" });
-  }
 
-  // Generate token and set cookie
-  giveTokenAndCookieForSeller(res, seller);
-
-  // Remove password from seller object before sending
-  const SellerNoPassword = seller.toObject();
-  delete SellerNoPassword.password;
-
-  res.status(200).json({
-    message: "successfuly logged in",
-    seller: SellerNoPassword
-  });
-
-} catch (error) {
-  console.log(error);
-  res.status(500).json({ message: "internal server error during log in" });
-}
-
-   
 }
 export const logout = async (req,res)=>{
   try {
-    
+
     res.clearCookie('token'); // Clear the cookie from the browser
     res.status(200).json({ message: "logged out successfully" });
-    
+
   } catch (error) {
     console.log(error)
     res.status(403).json({message: error})
   }
-    
-    
-    
+
+
+
 }
 
 
@@ -192,13 +192,13 @@ export const addItemToStore = async (req, res) => {
       item: newItem
     });
     // TODO: get the user associated with this store
-   
-    
+
+
 
   } catch (error) {
     console.error("Error adding item to store:", error);
     res.status(500).json({ message: "Internal server error" });
-    
+
   }
 }
 //update item
@@ -215,7 +215,7 @@ export const updateItem = async (req,res)=>{
     }
     res.status(200).json({ message: "Item updated successfully", item: updatedItem });
 
-    
+
   } catch (error) {
     console.log(`error updating item ${error} `)
     res.status(500).json({message: "error updating item"})

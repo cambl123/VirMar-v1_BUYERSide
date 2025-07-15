@@ -1,7 +1,10 @@
 import express from "express";
 import protectBuyerRoute from "../configs/middleware/potect.buyerRoute.js";
 import {
+  withdrawFromWallet,
   addItemToCart,
+  depositToWallet,
+  getCartItems,
   getUserProfile,
   login,
   logout,
@@ -17,6 +20,12 @@ BuyerRoutes.get("/profile", protectBuyerRoute, getUserProfile);
 
 // cart and buying activities
 BuyerRoutes.post("/cart/:cartId/item", protectBuyerRoute, addItemToCart);
-// BuyerRoutes.get('/cart')
+BuyerRoutes.get("/cart", protectBuyerRoute, getCartItems);
+
+// BuyerRoutes.get('/checkout',protect)
+
+//wallet meaning money routes
+BuyerRoutes.post("/deposit", protectBuyerRoute, depositToWallet);
+BuyerRoutes.post("/withdrawal",protectBuyerRoute, withdrawFromWallet)
 
 export default BuyerRoutes;

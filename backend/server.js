@@ -10,6 +10,7 @@ import protectBuyerRoute from "./configs/middleware/potect.buyerRoute.js";
 import Seller from "./models/sellers.model.js";
 import publicRouter from "./routes/public.routes.js";
 //import transactRoutes from './routes/transact.routes.js'
+// import router from "./routes/testDeposit.routes.js";
 
 dotenv.config();
 
@@ -26,6 +27,7 @@ app.use(cors());
 app.use("/api/seller", sellerRoutes);
 
 app.use("/api/buyer", BuyerRoutes);
+// app.use("/api/momo", router);
 
 //app.use('/api/transact',transactRoutes)
 app.use("/", publicRouter);

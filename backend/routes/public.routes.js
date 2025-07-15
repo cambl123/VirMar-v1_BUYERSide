@@ -1,6 +1,7 @@
 import express from "express";
 import Seller from "../models/sellers.model.js";
 import Item from "../models/items.model.js";
+import protectRoutes from "../configs/middleware/protectRoutes.js"
 
 const publicRouter = express.Router();
 
@@ -24,6 +25,23 @@ publicRouter.get("/", async (req, res) => {
     res.json({ message: error.message });
   }
 });
+publicRouter.get('/Info',protectRoutes,async (req, res)=>{
+  console.log('you hit getting the seller info')
+  const {role, id} = req.user
+  try {
+    if(role==="buyer"){
+      // he should get sellers  info of which he sells product he likes and product inthe cart
+      return res.status(200).json({message:"you are a buyer"})}
+    /// if he is a seller he should get customers who liked him recommendend customers who likes his products
+    return res.status(200).json({message:"you are seller"})
+
+  } catch (error) {
+    console.log('error getting info',error)
+    res.status(500).json({message:error})
+  }
+
+
+})
 // get all products,featured products
 
 export default publicRouter;

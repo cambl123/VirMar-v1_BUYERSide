@@ -5,7 +5,7 @@ dotenv.config();
 export const giveTokenAndCookieForSeller = (res, seller) => {
     // Generate a JWT token
     const token = jwt.sign(
-        { id: seller._id },
+        { id: seller._id, role:"seller" },
         process.env.JWT_SECRET_SELLER, // Use a different secret for sellers
         { expiresIn: '1d' }
     );

@@ -1,39 +1,42 @@
 import mongoose from "mongoose";
 
-const transactionSchema = new mongoose.Schema({
+const transactionSchema = new mongoose.Schema(
+  {
+    type: {
+      type: String,
+      enum: ["purchase", "return", "deposit", "withdrawal", "transfer"],
+      required: true,
+    },
     item_id: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Item', // Assuming you have an Item model
-        required: true
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Item",
+      // Only required for purchase/return
     },
-    buyer_id: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Buyer', // Assuming you have a Buyer model
-        required: true
+    from_user_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      // Who is sending money/items
     },
-    seller_id: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Seller', // Assuming you have a Seller model
-        required: true
+    to_user_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      // Who is receiving money/items
     },
-    quantity: {
-        type: Number,
-        required: true,
-        min: 1
-    },
-    totalPrice: {
-        type: Number,
-        required: true
-    },
+    quantity: Number,
+    totalPrice: Number,
     transactionDate: {
-        type: Date,
-        default: Date.now
+      type: Date,
+      default: Date.now,
     },
     status: {
-        type: String,
-        enum: ['pending', 'completed', 'cancelled'],
-        default: 'pending'
-    }
-}, { timestamps: true });
-const Transaction = mongoose.model('Transaction', transactionSchema);
+      type: String,
+      enum: ["pending", "completed", "cancelled"],
+      default: "pending",
+    },
+  },
+  { timestamps: true }
+);
+
+
+const Transaction = mongoose.model("Transaction", transactionSchema);
 export default Transaction;
