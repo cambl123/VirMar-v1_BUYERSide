@@ -253,5 +253,10 @@ export const depositToWallet = async (req, res) => {
 export const withdrawFromWallet = async (req,res)=>{
   const userId = req.user.id
   console.log(userId)
+  //not yet done
+  /**
+   * algorithm logic
+   * 
+   */
 
 }

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -66,7 +66,7 @@ const randomItems = await Item.aggregate([
 
 const randomStore = await Store.aggregate([
     { $sample: { size: half } },
-    { $project: { createdAt: 0, updatedAt: 0 } }        
+    { $project: { createdAt: 0, updatedAt: 0 } }
 ]);
         if (randomSellers.length === 0||  randomItems.length === 0) {
             res.status(404).json({ error: 'No sellers found' });
@@ -81,5 +81,102 @@ const randomStore = await Store.aggregate([
     <script>
 
     </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* CSS */
+/* styles.css */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('bg.jpg') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-screen {
+  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.15);
+  padding: 60px;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+}
+
+.login-box {
+  width: 300px;
+  text-align: center;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.username {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #fff;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background-color: #0078d4;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #005a9e;
+}
+
+.footer-msg {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #eee;
+}
+
+  </style>
+</head>
+<body>
+  <!-- HTML -->
+<!-- index.html -->
+<div class="login-screen">
+  <div class="login-box">
+    <img src="avatar.png" alt="User Avatar" class="avatar" />
+    <h2 class="username">Camble</h2>
+    <input type="password" placeholder="Enter your PIN" />
+    <button>Sign In</button>
+    <p class="footer-msg">Forgot your PIN?</p>
+  </div>
+</div>
+
+
 </body>
 </html>

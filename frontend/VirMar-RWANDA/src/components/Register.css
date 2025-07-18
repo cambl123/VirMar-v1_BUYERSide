@@ -1,0 +1,101 @@
+.render {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center; /* Optional: centers container vertically */
+}
+
+/* Container with 4 stacked blocks and a 2-item row at the bottom */
+#container {
+  width: 60%;
+  background: rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  gap: 10px;
+  border-radius: 15px;
+  border: 1px solid black;
+  box-shadow: 1px 4px 454px rgba(152, 7, 7, 0.4); /* Fixed typo: '4444px' */
+}
+
+/* Each full-width block */
+.block {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+/* Wrapper for the final two spaced elements */
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  border-radius: 14px;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #f1f1f1;
+  transition: all 500ms ease-in-out;
+}
+
+.btn:hover {
+  background-color: rgb(57, 60, 62);
+  border: 0.5px solid rgb(57, 60, 62);
+  color: #fff;
+}
+
+/* Input styling */
+input {
+  padding: 13px;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+}
+
+/* General spacing for any div */
+div {
+  padding: 10px;
+}
+#show{
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.6);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  flex-direction: column;
+
+}
+#bar {
+  background: rgba(152, 7, 7, 0.4);
+  display: flex;
+  gap: 2px;
+  align-items: end;
+
+}
+#bar div{
+  margin: 2px;
+  /* background: ; */
+  transition-property: all;
+  transition-duration: 500ms;
+
+}
+#bar div:hover{
+  background-color: rgba(0,0,0,0.4);
+  cursor: pointer;
+}
+#bar div:active{
+  transform: translateY(-10px);
+}
