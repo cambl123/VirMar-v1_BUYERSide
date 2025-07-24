@@ -1,21 +1,15 @@
+// src/App.jsx
 import React from 'react';
-import Register from './components/register.jsx'; // ✅ fixed
-import LandingPage from './components/landingPage.jsx'; // ✅ fixed
-import { useState } from 'react'
+import  AppRouter from "./router"
 
 
-
-export default function App() {
-   const [show, setshow] = useState(true)
-  function handleClick(){
-    alert("clicked camble")
-    setshow(false)
-    console.log(show)
-  }
+// Global App wrapper using Navigation Context
+function App() {
   return (
-    <div>
-      <Register  handler={handleClick}/>
-      { show === false ? <LandingPage /> : null } 
-    </div>
+<>
+<AppRouter />
+</>
   );
 }
+
+export default App;

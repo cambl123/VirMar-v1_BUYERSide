@@ -4,38 +4,62 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import connectDB from "./configs/mongo.connect.js";
 
+// Core route handlers
 import sellerRoutes from "./routes/seller.routes.js";
-import BuyerRoutes from "./routes/buyer.routes.js";
-import protectBuyerRoute from "./configs/middleware/potect.buyerRoute.js";
-import Seller from "./models/sellers.model.js";
-import publicRouter from "./routes/public.routes.js";
-//import transactRoutes from './routes/transact.routes.js'
-// import router from "./routes/testDeposit.routes.js";
+import buyerRoutes from "./routes/buyer.routes.js";
+import publicRoutes from "./routes/public.routes.js";
 
+// Extended feature routes
+import transactRoutes from "./routes/transact.routes.js";
+import orderRoutes from "./routes/order.routes.js";
+import reviewRoutes from "./routes/review.routes.js";
+import inventoryRoutes from "./routes/inventory.routes.js";
+import analyticsRoutes from "./routes/analytics.routes.js";
+import shippingRoutes from "./routes/shipping.routes.js";
+
+// Optional middleware (imported but unused)
+import protectBuyerRoute from "./configs/middleware/potect.buyerRoute.js";
+
+// Load environment variables
 dotenv.config();
 
-const PORT = process.env.PORT || 5000;
+// Initialize app and port
 const app = express();
-//express middlewares for parsing json data format
+const PORT = process.env.PORT || 5000;
+
+// Connect to MongoDB using existing connectDB utility
+
+// Middleware
 app.use(cookieParser());
-app.use(express.urlencoded({ extended: true })); //if you want to parse urlencoded data
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors());
 
-//the main endpoint API
+app.use(cors({
+  origin: "http://localhost:5173", // Frontend origin
+  credentials: true,               // Allow cookies
+}));
 
+// Register Routes
 app.use("/api/seller", sellerRoutes);
+app.use("/api/buyer", buyerRoutes);
+app.use("/api/public", publicRoutes);
 
-app.use("/api/buyer", BuyerRoutes);
-// app.use("/api/momo", router);
+app.use("/api/transactions", transactRoutes);
+app.use("/api/orders", orderRoutes);
+app.use("/api/reviews", reviewRoutes);
+app.use("/api/inventory", inventoryRoutes);
+app.use("/api/analytics", analyticsRoutes);
+app.use("/api/shipping", shippingRoutes);
 
-//app.use('/api/transact',transactRoutes)
-app.use("/", publicRouter);
+// Global error handler
+app.use((err, req, res, next) => {
+  console.error("💥 Server Error:", err.stack);
+  res.status(500).json({ message: "Internal Server Error" });
+});
 
-connectDB(); //connect to the database
-//this is the main entry point of the application
+
+connectDB();
+// Start server
 app.listen(PORT, () => {
-  //connectDB
-  //connectDB(); this caused the error at this place
-  console.log(`server is running at http://localhost:${PORT}`);
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
 });

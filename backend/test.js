@@ -1,32 +1,25 @@
-import express from "express";
-import Stripe from "stripe";
-import dotenv from "dotenv";
-
+import dotenv from 'dotenv';
 dotenv.config();
 
-const app = express();
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+import redisClient from './utils/redis.connect.js';
 
-app.get("/test-stripe", async (req, res) => {
+async function testRedis() {
   try {
-    const balance = await stripe.balance.retrieve();
-    res.json({
-      connected: true,
-      message: "Stripe is connected successfully!",
-      currency: balance.available[0]?.currency,
-      amount: balance.available[0]?.amount,
-    });
-  } catch (error) {
-    res.status(500).json({
-      connected: false,
-      error: error.message,
-    });
-  }
-});
+    await redisClient.connect();
 
-app.listen(3000, () => {
-  console.log("Server running on http://localhost:3000");
-});
+    await redisClient.set('virmar_test_key', 'It works!');
+    const value = await redisClient.get('virmar_test_key');
+
+    console.log('🧠 Redis Test Value:', value);
+
+    await redisClient.quit();
+  } catch (err) {
+    console.error('🚨 Redis Test Error:', err);
+  }
+}
+
+testRedis();
+
 
 // import jwt from 'jsonwebtoken';
 // import 'dotenv/config';

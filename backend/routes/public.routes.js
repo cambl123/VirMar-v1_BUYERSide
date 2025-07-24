@@ -2,6 +2,7 @@ import express from "express";
 import Seller from "../models/sellers.model.js";
 import Item from "../models/items.model.js";
 import protectRoutes from "../configs/middleware/protectRoutes.js"
+import Buyer from "../models/buyer.model.js"
 
 const publicRouter = express.Router();
 
@@ -10,7 +11,8 @@ publicRouter.get("/", async (req, res) => {
   try {
     const info = await Seller.find({ isActive: true });
     const products = await Item.find({});
-    console.log(products);
+    const buyer = await Buyer.find({})
+    // console.log(products);
     if (!info || !products) {
       return res.status(404).json({ message: "no sellers or products" });
     }
@@ -20,7 +22,7 @@ publicRouter.get("/", async (req, res) => {
     });
     const randomProducts = info.sort(() => 0.5 - Math.random()).slice(0, 5);
 
-    res.json({ seller: randomSellers, product: randomProducts });
+    res.json({ seller: info, product: products, buyers: buyer });
   } catch (error) {
     res.json({ message: error.message });
   }

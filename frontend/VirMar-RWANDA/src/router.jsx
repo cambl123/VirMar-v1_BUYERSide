@@ -1,21 +1,18 @@
-import  { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+// src/router.jsx
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import react from "react"
+import LandingPage from './public/pages/LandingPage';
 
-
-import React from 'react'
-/**
- * this will be for routing in different pages 
- */
-
-function Router() {
+function AppRouter() {
   return (
-
-        <Router >
-            <Routes>
-                <Route>
-                </Route>
-            </Routes>
-        </Router>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="*" element={<LandingPage />} />
+        {/* Seller and Public routes later */}
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default Router
+
+export default AppRouter

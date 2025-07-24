@@ -260,3 +260,20 @@ export const withdrawFromWallet = async (req,res)=>{
    */
 
 }
+
+
+
+export const deleteCartItem = async (req,res) =>{
+  const item_id = req.params
+  const user = req.user
+
+  try {
+    // const deleteItem = await Item.findByIdAndUpdate({ })
+    res.status(400).json({message:'this is delete cart item route'})
+    
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({message:'error visiting the delete cart item route'})
+
+  }
+}
