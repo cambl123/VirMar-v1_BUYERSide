@@ -47,3 +47,4 @@ publicRouter.get('/Info',protectRoutes,async (req, res)=>{
 // get all products,featured products
 
 export default publicRouter;
+// this route don't have controller file still in production

@@ -1,14 +1,15 @@
 import express from "express";
-
+import protectSellerRoute from "../configs/middleware/protect.sellerRoute.js";
 import {
-  addItemToStore,
-  getUserProfile,
+  register,
   login,
   logout,
-  register,
+  getUserProfile,
+  addItemToStore,
+  getStoreItems,
+  updateItem,
+  deleteItem,
 } from "../controllers/seller.controllers.js";
-
-import protectSellerRoute from "../configs/middleware/protect.sellerRoute.js";
 
 const sellerRoutes = express.Router();
 
@@ -17,9 +18,10 @@ sellerRoutes.post("/login", login);
 sellerRoutes.get("/logout", logout);
 sellerRoutes.get("/profile", protectSellerRoute, getUserProfile);
 
-//inventory creation like store and items
+// Items CRUD
 sellerRoutes.post("/store/:storeId/item", protectSellerRoute, addItemToStore);
-
-//seller gets money through selling of goods, gifts, deposit, crypto
+sellerRoutes.get("/store/:storeId/items", protectSellerRoute, getStoreItems);
+sellerRoutes.patch("/item/:itemId", protectSellerRoute, updateItem);
+sellerRoutes.delete("/item/:itemId", protectSellerRoute, deleteItem);
 
 export default sellerRoutes;

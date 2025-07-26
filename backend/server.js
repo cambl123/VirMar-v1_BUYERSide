@@ -63,3 +63,4 @@ connectDB();
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
+// stay tuned to my channel to see the sample frontend i build with ai i will rebuild it understanding the concepts if you can help i will send the code ....bye

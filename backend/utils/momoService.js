@@ -114,3 +114,4 @@ async function initiatePayment(partyId, externalId, amount, currency = 'EUR') {
 }
 
 export { checkBalance, initiatePayment };
+// to intergrate momo payment

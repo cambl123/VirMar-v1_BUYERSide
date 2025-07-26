@@ -36,3 +36,4 @@ buyerSchema.pre("save", async function (next) {
 const Buyer = mongoose.model("Buyer", buyerSchema);
 
 export default Buyer;
+// i will add other things like followers
