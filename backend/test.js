@@ -87,3 +87,6 @@ testRedis();
 //     //     message:"seller created successfully",
 //     //     seller:SellerNoPassword
 //     // })
+// i am goin to show you my code base and you will help me create ui
+// hi coder and programmers either new or old help me out 
+// what am building is virmar in rwanda a marketplace for locals

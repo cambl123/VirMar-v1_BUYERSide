@@ -30,3 +30,4 @@ async function protectBuyerRoute(req, res, next) {
 }
 
 export default protectBuyerRoute;
+// these are middlewares to protect routes

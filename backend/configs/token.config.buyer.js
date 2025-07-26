@@ -24,3 +24,4 @@ async function generateTokenAndSetCookie (res, Buyer) {
     };
 }
 export default generateTokenAndSetCookie
+// token configuration

@@ -1,5 +1,8 @@
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
+/**
+ * this is public protect routes the one v0 told me to use
+ */
 
 dotenv.config();
 
