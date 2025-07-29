@@ -11,6 +11,8 @@ import { generateNotification } from "../utils/notification.maker.js";
 import { sendEmailNotification } from "../utils/email.notification.js";
 import { checkDeliveryEligibility } from "../controllers/shipping.controllers.js"; // Import the new helper
 import mongoose from "mongoose";
+import { createEscrowForOrder as createEscrow } from './escrow.controllers.js';
+
 
 // Create order from cart - this is the main checkout process
 export const createOrderFromCart = async (req, res) => {

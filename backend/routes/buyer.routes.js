@@ -10,6 +10,13 @@ import {
   logout,
   register,
 } from "../controllers/buyer.controllers.js";
+// 📦 Order Controller Imports
+import {
+  createOrderFromCart,
+  getBuyerOrders,
+  cancelOrder
+} from "../controllers/order.controllers.js";
+// bbb brb 
 
 const BuyerRoutes = express.Router();
 
@@ -21,6 +28,16 @@ BuyerRoutes.get("/profile", protectBuyerRoute, getUserProfile);
 // cart and buying activities
 BuyerRoutes.post("/cart/:cartId/item", protectBuyerRoute, addItemToCart);
 BuyerRoutes.get("/cart", protectBuyerRoute, getCartItems);
+
+// 🛍️ Create Order (from Cart)
+BuyerRoutes.post('/order', protectBuyerRoute, createOrderFromCart); // POST /api/buyer/order
+
+// 📜 Get All Buyer Orders
+BuyerRoutes.get('/orders', protectBuyerRoute, getBuyerOrders); // GET /api/buyer/orders
+
+// ❌ Cancel an Order
+BuyerRoutes.patch('/order/:orderId/cancel', protectBuyerRoute, cancelOrder); // PATCH /api/buyer/order/:orderId/cancel
+
 
 // BuyerRoutes.get('/checkout',protect)
 

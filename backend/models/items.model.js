@@ -36,7 +36,8 @@ const itemSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Price', // Assuming you have a price model
         required: true
-    }
+    },
+    
 
 },{timestamps: true});
 

@@ -1,18 +1,19 @@
-// src/router.jsx
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import react from "react"
-import LandingPage from './public/pages/LandingPage';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import PublicRouter from './Public/Router';
+import BuyerRouter from './Buyer/Router';
+import SellerContextWrapper from './seller/SellerContextWrapper';  // <-- use wrapper here
+import NotFoundPage from './pages/NotFoundPage';
 
-function AppRouter() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="*" element={<LandingPage />} />
-        {/* Seller and Public routes later */}
-      </Routes>
-    </BrowserRouter>
-  );
-}
+const MainRouter = () => (
+  <Router>
+    <Routes>
+      <Route path="/*" element={<PublicRouter />} />
+      <Route path="/buyer/*" element={<BuyerRouter />} />
+      <Route path="/seller/*" element={<SellerContextWrapper />} />  {/* context + routes */}
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
+  </Router>
+);
 
-
-export default AppRouter
+export default MainRouter;

@@ -1,0 +1,5808 @@
+Summary:
+ - Directory: c:\Users\HIRWA\Desktop\VirMar-RWANDA
+ - Files processed: 64
+ - Total lines: 5271
+ - Duration: 4.45 seconds
+================================================================================
+Directory Structure:
+
+├── backend/
+│   ├── configs/
+│   │   ├── middleware/
+│   │   │   ├── potect.buyerRoute.js
+│   │   │   ├── protect.admin.js
+│   │   │   ├── protect.sellerRoute.js
+│   │   │   └── protectRoutes.js
+│   │   ├── mongo.connect.js
+│   │   ├── token.config.buyer.js
+│   │   └── token.config.seller.js
+│   ├── controllers/
+│   │   ├── analyticscontrollers.js
+│   │   ├── buyer.controllers.js
+│   │   ├── inventory.controllers.js
+│   │   ├── order.controllers.js
+│   │   ├── seller.controllers.js
+│   │   ├── shipping.controllers.js
+│   │   └── transact.controllers.js
+│   ├── models/
+│   │   ├── analytics.model.js
+│   │   ├── buyer.model.js
+│   │   ├── category.model.js
+│   │   ├── commission.model.js
+│   │   ├── coupon.model.js
+│   │   ├── inventory.model.js
+│   │   ├── items.model.js
+│   │   ├── location.model.js
+│   │   ├── notification.schema.js
+│   │   ├── order.model.js
+│   │   ├── payout.model.js
+│   │   ├── price.schema.js
+│   │   ├── review.model.js
+│   │   ├── sellers.model.js
+│   │   ├── store.schema.js
+│   │   ├── transaction.schema.js
+│   │   └── wallet.schema.js
+│   ├── routes/
+│   │   ├── buyer.routes.js
+│   │   ├── public.routes.js
+│   │   ├── seller.routes.js
+│   │   └── transact.routes.js
+│   ├── utils/
+│   │   ├── email.notification.js
+│   │   ├── initiate.payment.js
+│   │   ├── momoService.js
+│   │   ├── notification.maker.js
+│   │   ├── redis.connect.js
+│   │   ├── requests.validate.js
+│   │   └── transaction.init.js
+│   ├── server.js
+│   └── test.js
+├── frontend/
+│   └── VirMar-RWANDA/
+│       ├── src/
+│       │   ├── public/
+│       │   │   ├── components/
+│       │   │   │   ├── Body.jsx
+│       │   │   │   ├── Footer.jsx
+│       │   │   │   └── NavBar.jsx
+│       │   │   └── pages/
+│       │   │       └── LandingPage.jsx
+│       │   ├── app.jsx
+│       │   ├── index.css
+│       │   ├── index.js
+│       │   ├── main.jsx
+│       │   └── router.jsx
+│       ├── eslint.config.js
+│       ├── index.html
+│       ├── package.json
+│       ├── README.md
+│       └── vite.config.js
+├── eslint.config.js
+├── git.test.js
+├── index.html
+├── package.json
+├── README.md
+└── vite.config.js
+
+Files extracted:
+eslint.config.js (starts at line 1)
+git.test.js (starts at line 31)
+index.html (starts at line 221)
+package.json (starts at line 404)
+README.md (starts at line 440)
+vite.config.js (starts at line 461)
+backend\server.js (starts at line 469)
+backend\test.js (starts at line 535)
+backend\configs\mongo.connect.js (starts at line 627)
+backend\configs\token.config.buyer.js (starts at line 648)
+backend\configs\token.config.seller.js (starts at line 676)
+backend\configs\middleware\potect.buyerRoute.js (starts at line 714)
+backend\configs\middleware\protect.admin.js (starts at line 747)
+backend\configs\middleware\protect.sellerRoute.js (starts at line 764)
+backend\configs\middleware\protectRoutes.js (starts at line 819)
+backend\controllers\analyticscontrollers.js (starts at line 864)
+backend\controllers\buyer.controllers.js (starts at line 1453)
+backend\controllers\inventory.controllers.js (starts at line 1768)
+backend\controllers\order.controllers.js (starts at line 2262)
+backend\controllers\seller.controllers.js (starts at line 2816)
+backend\controllers\shipping.controllers.js (starts at line 3004)
+backend\controllers\transact.controllers.js (starts at line 3234)
+backend\models\analytics.model.js (starts at line 3299)
+backend\models\buyer.model.js (starts at line 3417)
+backend\models\category.model.js (starts at line 3457)
+backend\models\commission.model.js (starts at line 3532)
+backend\models\coupon.model.js (starts at line 3601)
+backend\models\inventory.model.js (starts at line 3712)
+backend\models\items.model.js (starts at line 3885)
+backend\models\location.model.js (starts at line 3930)
+backend\models\notification.schema.js (starts at line 4012)
+backend\models\order.model.js (starts at line 4046)
+backend\models\payout.model.js (starts at line 4232)
+backend\models\price.schema.js (starts at line 4339)
+backend\models\review.model.js (starts at line 4359)
+backend\models\sellers.model.js (starts at line 4451)
+backend\models\store.schema.js (starts at line 4500)
+backend\models\transaction.schema.js (starts at line 4557)
+backend\models\wallet.schema.js (starts at line 4600)
+backend\routes\buyer.routes.js (starts at line 4622)
+backend\routes\public.routes.js (starts at line 4671)
+backend\routes\seller.routes.js (starts at line 4735)
+backend\routes\transact.routes.js (starts at line 4763)
+backend\utils\email.notification.js (starts at line 4778)
+backend\utils\initiate.payment.js (starts at line 4813)
+backend\utils\momoService.js (starts at line 4817)
+backend\utils\notification.maker.js (starts at line 4935)
+backend\utils\redis.connect.js (starts at line 4945)
+backend\utils\requests.validate.js (starts at line 4962)
+backend\utils\transaction.init.js (starts at line 4969)
+frontend\VirMar-RWANDA\eslint.config.js (starts at line 4977)
+frontend\VirMar-RWANDA\index.html (starts at line 5007)
+frontend\VirMar-RWANDA\package.json (starts at line 5021)
+frontend\VirMar-RWANDA\README.md (starts at line 5059)
+frontend\VirMar-RWANDA\vite.config.js (starts at line 5072)
+frontend\VirMar-RWANDA\src\app.jsx (starts at line 5080)
+frontend\VirMar-RWANDA\src\index.css (starts at line 5096)
+frontend\VirMar-RWANDA\src\index.js (starts at line 5160)
+frontend\VirMar-RWANDA\src\main.jsx (starts at line 5164)
+frontend\VirMar-RWANDA\src\router.jsx (starts at line 5181)
+frontend\VirMar-RWANDA\src\public\components\Body.jsx (starts at line 5199)
+frontend\VirMar-RWANDA\src\public\components\Footer.jsx (starts at line 5219)
+frontend\VirMar-RWANDA\src\public\components\NavBar.jsx (starts at line 5231)
+frontend\VirMar-RWANDA\src\public\pages\LandingPage.jsx (starts at line 5254)
+
+================================================================================
+
+File: eslint.config.js (starts at line 1)
+
+import js from '@eslint/js'
+import globals from 'globals'
+import reactHooks from 'eslint-plugin-react-hooks'
+import reactRefresh from 'eslint-plugin-react-refresh'
+import { defineConfig, globalIgnores } from 'eslint/config'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{js,jsx}'],
+    extends: [
+      js.configs.recommended,
+      reactHooks.configs['recommended-latest'],
+      reactRefresh.configs.vite,
+    ],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        ecmaFeatures: { jsx: true },
+        sourceType: 'module',
+      },
+    },
+    rules: {
+      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+    },
+  },
+])
+
+
+
+================================================================================
+
+File: git.test.js (starts at line 31)
+
+// import express from "express";
+
+// const app = express();
+// const port = 3000;
+
+// // app.get('/', (req, res) => {
+// //   res.send('Hello World!');
+// //   setInterval(() => {
+// //   const buf = Buffer.alloc(1024); // Allocate 1KB briefly
+// //   console.log("Memory tick...");
+// // }, 600000); // Every 10 minutes
+
+// //})
+
+// app.listen(port, () => {
+//   setInterval(() => {
+//     const buf = Buffer.alloc(1024); // Allocate 1KB briefly
+//     console.log("Memory tick...");
+//   }, 600000); // Every 10 minutes
+
+//   console.log(`Server running at http://localhost:${port}`);
+// });
+
+
+const express = require('express');
+const app = express();
+app.use(express.json());
+
+// In-memory simulation stores
+let buyerProfiles = {};
+let sellerProfiles = {};
+let transactions = [];
+let marketInventory = [];
+let buyerEngagements = [];
+let userNotifications = [];
+let reputations = {
+  buyers: {},
+  sellers: {},
+};
+
+// ---------------------------
+// Buyer Actions
+// ---------------------------
+
+// Deposit RWF to wallet
+app.post('/buyer/deposit', (req, res) => {
+  const { buyerId, amount } = req.body;
+  buyerProfiles[buyerId] = buyerProfiles[buyerId] || { balance: 0, purchases: [], loyaltyPoints: 0 };
+  buyerProfiles[buyerId].balance += amount;
+  res.send(`Buyer ${buyerId} deposited ${amount} RWF`);
+});
+
+// Log product view
+app.post('/buyer/view', (req, res) => {
+  const { buyerId, productId } = req.body;
+  const product = marketInventory.find(p => p.id === productId);
+  if (!product) return res.status(404).send('Product not found.');
+
+  buyerEngagements.push({ buyerId, sellerId: product.sellerId, productId, time: Date.now() });
+
+  userNotifications.push({
+    sellerId: product.sellerId,
+    message: `👀 Buyer ${buyerId} viewed your product: ${product.name}`,
+  });
+
+  res.send(`Interaction logged for buyer ${buyerId}`);
+});
+
+// Recommend products by past categories
+app.get('/buyer/recommendations/:buyerId', (req, res) => {
+  const buyer = buyerProfiles[req.params.buyerId];
+  if (!buyer) return res.status(404).send('Buyer not found.');
+
+  const categories = buyer.purchases.map(p => p.category);
+  const recommended = marketInventory.filter(p => categories.includes(p.category));
+  res.send(recommended);
+});
+
+// Initiate purchase transaction
+app.post('/buyer/pay', (req, res) => {
+  const { buyerId, sellerId, amount, item, category } = req.body;
+
+  const buyer = buyerProfiles[buyerId];
+  if (!buyer || buyer.balance < amount) {
+    return res.status(400).send('Insufficient balance');
+  }
+
+  buyer.balance -= amount;
+
+  const record = {
+    buyerId,
+    sellerId,
+    amount,
+    item,
+    category,
+    fulfilled: false,
+    verifiedPayment: true,
+    verifiedDelivery: false,
+    timestamp: Date.now(),
+  };
+
+  transactions.push(record);
+  res.send(`Transaction initiated for ${item}`);
+});
+
+// ---------------------------
+// Seller Actions
+// ---------------------------
+
+// Register a new product
+app.post('/seller/product', (req, res) => {
+  const { sellerId, name, price, category } = req.body;
+  const id = `${sellerId}-${Date.now()}`;
+  marketInventory.push({ id, sellerId, name, price, category });
+  res.send(`📦 Product ${name} listed with ID ${id}`);
+});
+
+// Fulfill a buyer's order
+app.post('/seller/fulfill', (req, res) => {
+  const { sellerId, buyerId, item } = req.body;
+
+  let order = transactions.find(o =>
+    o.buyerId === buyerId &&
+    o.sellerId === sellerId &&
+    o.item === item &&
+    !o.fulfilled
+  );
+
+  if (!order) return res.status(404).send('Order not found');
+
+  order.fulfilled = true;
+  order.verifiedDelivery = true;
+
+  sellerProfiles[sellerId] = sellerProfiles[sellerId] || { earnings: 0, fulfilledOrders: 0, badges: [] };
+  sellerProfiles[sellerId].earnings += order.amount;
+  sellerProfiles[sellerId].fulfilledOrders++;
+
+  if (sellerProfiles[sellerId].fulfilledOrders >= 3 && !sellerProfiles[sellerId].badges.includes("Reliable Seller")) {
+    sellerProfiles[sellerId].badges.push("Reliable Seller");
+  }
+
+  reputations.sellers[sellerId] = (reputations.sellers[sellerId] || 0) + 1;
+  reputations.buyers[buyerId] = (reputations.buyers[buyerId] || 0) + 1;
+
+  buyerProfiles[buyerId].loyaltyPoints += 10;
+  buyerProfiles[buyerId].purchases.push({ item, category: order.category });
+
+  res.send(`Order fulfilled. Reputation updated for Buyer ${buyerId} and Seller ${sellerId}`);
+});
+
+// Fetch seller's notifications
+app.get('/seller/notifications/:sellerId', (req, res) => {
+  const { sellerId } = req.params;
+  const sellerNotes = userNotifications.filter(n => n.sellerId === sellerId);
+  res.send(sellerNotes);
+});
+
+// ---------------------------
+// Growth & Reputation System
+// ---------------------------
+
+// Fetch reputation score
+app.get('/reputation/:role/:id', (req, res) => {
+  const { role, id } = req.params;
+  const score = reputations[role + 's'][id] || 0;
+  res.send(`${role} ${id} has a reputation score of ${score}`);
+});
+
+// Check wallet or seller earnings
+app.get('/wallet/:role/:id', (req, res) => {
+  const { role, id } = req.params;
+  if (role === 'buyer') {
+    const b = buyerProfiles[id];
+    if (!b) return res.status(404).send('Buyer not found');
+    res.send({ balance: b.balance, loyaltyPoints: b.loyaltyPoints });
+  } else {
+    const s = sellerProfiles[id];
+    if (!s) return res.status(404).send('Seller not found');
+    res.send({ earnings: s.earnings, badges: s.badges });
+  }
+});
+
+// ---------------------------
+// Server Start
+// ---------------------------
+
+app.listen(3000, () => {
+  console.log('🚀 Fintech Relationship Engine active on port 3000');
+});
+
+
+
+================================================================================
+
+File: index.html (starts at line 221)
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>try fetch</title>
+</head>
+<body>
+    <div class="container">
+        <input type="text">
+        <button id="btn">click me</button>
+    </div>
+    <script>
+        const btn = document.getElementById('btn');
+        btn.addEventListener('click', async () => {
+            try {
+                const response = await fetch('http://localhost:5000/');
+                const result = await response.text();
+                document.querySelector('div').innerText = result;
+            } catch (error) {
+                console.log(error);vjbl dswd uvfd fcwe
+            }
+        });
+    </script>app.post('/api/data', (req, res) => {
+  console.log('Request received:', req.body);
+  try {
+    // your processing logic
+    res.status(200).json({ message: 'Success!' });
+  } catch (err) {
+    console.error('Error in route:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+app.get('/', async (req, res) => {
+    try {
+        const total = await Seller.countDocuments();
+        const half = Math.floor(total / 2);
+       const randomSellers = await Seller.aggregate([
+    { $sample: { size: half } },
+    { $project: { password: 0, __v: 0, createdAt: 0, updatedAt: 0 } }
+]);
+const randomItems = await Item.aggregate([
+  { $sample: { size: half } },
+  {
+    $lookup: {
+      from: 'prices',
+      localField: 'price',
+      foreignField: '_id',
+      as: 'priceInfo'
+    }
+  },
+  { $unwind: '$priceInfo' },
+  {
+    $project: {
+      createdAt: 0,
+      updatedAt: 0,
+      price: 0
+    }
+  },
+  {
+    $addFields: {
+      reservedPrice: '$priceInfo.reservedPrice'
+    }
+  }
+]);
+
+const randomStore = await Store.aggregate([
+    { $sample: { size: half } },
+    { $project: { createdAt: 0, updatedAt: 0 } }
+]);
+        if (randomSellers.length === 0||  randomItems.length === 0) {
+            res.status(404).json({ error: 'No sellers found' });
+        } else {
+            res.status(200).json({ sellers: randomSellers, items: randomItems });
+        }
+    } catch (error) {
+        console.error('Error in root route:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+    <script>
+
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* CSS */
+/* styles.css */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('bg.jpg') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-screen {
+  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.15);
+  padding: 60px;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+}
+
+.login-box {
+  width: 300px;
+  text-align: center;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.username {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #fff;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background-color: #0078d4;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #005a9e;
+}
+
+.footer-msg {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #eee;
+}
+
+  </style>
+</head>
+<body>
+  <!-- HTML -->
+<!-- index.html -->
+<div class="login-screen">
+  <div class="login-box">
+    <img src="avatar.png" alt="User Avatar" class="avatar" />
+    <h2 class="username">Camble</h2>
+    <input type="password" placeholder="Enter your PIN" />
+    <button>Sign In</button>
+    <p class="footer-msg">Forgot your PIN?</p>
+  </div>
+</div>
+
+
+</body>
+</html>
+
+
+
+================================================================================
+
+File: package.json (starts at line 404)
+
+{
+  "name": "virmar-rwanda",
+  "version": "1.0.0",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "nodemon backend/server.js"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "camble",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@chakra-ui/react": "^3.21.1",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "axios": "^1.10.0",
+    "bcryptjs": "^3.0.2",
+    "bootstrap": "^5.3.7",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.0",
+    "express": "^5.1.0",
+    "framer-motion": "^12.23.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.16.1",
+    "nodemailer": "^7.0.5",
+    "nodemon": "^3.1.10",
+    "odbc": "^2.4.9",
+    "react-router-dom": "^7.6.3",
+    "redis": "^5.6.1",
+    "stripe": "^18.3.0",
+    "uuid": "^11.1.0"
+  }
+}
+
+
+
+================================================================================
+
+File: README.md (starts at line 440)
+
+# THE VIRMAR RWANDA
+
+
+meaning virtual market for rwandans
+build by camble to empower rwandan markets enforce research in economy and consumer&producer soveirignit 
+
+# KEY FEATURES
+
+1, authorization and authentication
+2, wallet,store,cart and account creation for both buyer and seller
+3, consumer->consumer relationships consumer->producer relationships
+4, geolocation based seller grouping 
+5, secure way to buy and sell products escrow qr codes etc 
+6, real time messaging  likes
+7, notification handling sms emils internal notifications
+8, budgeting and accounting for resources both seller and buyer
+9, econmic data analysis
+10, 
+
+#pages
+currently working on it
+
+
+================================================================================
+
+File: vite.config.js (starts at line 461)
+
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react()],
+})
+
+
+
+================================================================================
+
+File: backend\server.js (starts at line 469)
+
+import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
+import cookieParser from "cookie-parser";
+import connectDB from "./configs/mongo.connect.js";
+
+// Core route handlers
+import sellerRoutes from "./routes/seller.routes.js";
+import buyerRoutes from "./routes/buyer.routes.js";
+import publicRoutes from "./routes/public.routes.js";
+
+// Extended feature routes
+// import transactRoutes from "./routes/transact.routes.js";
+// import orderRoutes from "./routes/order.routes.js";
+// import reviewRoutes from "./routes/review.routes.js";
+// import inventoryRoutes from "./routes/inventory.routes.js";
+// import analyticsRoutes from "./routes/analytics.routes.js";
+// import shippingRoutes from "./routes/shipping.routes.js";
+
+// Optional middleware (imported but unused)
+// import protectBuyerRoute from "./configs/middleware/potect.buyerRoute.js";
+
+// Load environment variables
+dotenv.config();
+
+// Initialize app and port
+const app = express();
+const PORT = process.env.PORT || 5000;
+
+// Connect to MongoDB using existing connectDB utility
+
+// Middleware
+app.use(cookieParser());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.use(cors({
+  origin: "http://localhost:5173", // Frontend origin
+  credentials: true,               // Allow cookies
+}));
+
+// Register Routes hi
+app.use("/api/seller", sellerRoutes);
+app.use("/api/buyer", buyerRoutes);
+app.use("/api/public", publicRoutes);
+
+// app.use("/api/transactions", transactRoutes);
+// app.use("/api/orders", orderRoutes);
+// app.use("/api/reviews", reviewRoutes);
+// app.use("/api/inventory", inventoryRoutes);
+// app.use("/api/analytics", analyticsRoutes);
+// app.use("/api/shipping", shippingRoutes);
+
+// Global error handler
+app.use((err, req, res, next) => {
+  console.error("💥 Server Error:", err.stack);
+  res.status(500).json({ message: "Internal Server Error" });
+});
+
+
+connectDB();
+// Start server
+app.listen(PORT, () => {
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
+});
+// stay tuned to my channel to see the sample frontend i build with ai i will rebuild it understanding the concepts if you can help i will send the code ....bye
+
+
+================================================================================
+
+File: backend\test.js (starts at line 535)
+
+import dotenv from 'dotenv';
+dotenv.config();
+
+import redisClient from './utils/redis.connect.js';
+
+async function testRedis() {
+  try {
+    await redisClient.connect();
+
+    await redisClient.set('virmar_test_key', 'It works!');
+    const value = await redisClient.get('virmar_test_key');
+
+    console.log('🧠 Redis Test Value:', value);
+
+    await redisClient.quit();
+  } catch (err) {
+    console.error('🚨 Redis Test Error:', err);
+  }
+}
+
+testRedis();
+
+
+// import jwt from 'jsonwebtoken';
+// import 'dotenv/config';
+
+// const token = jwt.sign({ foo: 'bar' }, process.env.JWT_SECRET_SELLER, { expiresIn: '1d' });
+// console.log('Token:', token);
+
+// jwt.verify(token, process.env.JWT_SECRET_SELLER, (err, decoded) => {
+//   if (err) {
+//     console.error('Verify error:', err);
+//   } else {
+//     console.log('Decoded:', decoded);
+//   }
+// });
+
+// console.log(email)
+
+//check for existing email
+//     const emailExist = await Seller.findOne({email})
+
+//     if(emailExist){return res.status(404).json({message:"existing email"})}
+
+//     const nameExist = await Seller.findOne({name})
+
+//     if(nameExist){return res.status(404).json({message:"existing username"})}
+
+//     const newSeller = new Seller({
+//         name:name,
+//         password:password, //i will hash it later
+//         email:email,
+//         fullname:fullname,
+//         phone:phone
+//     })
+
+//     if(newSeller){
+//       await newSeller.save();
+
+//       const store  = await Store.create({
+//         name: `${newSeller.name}'s Store`,
+//         seller_id: newSeller._id // Use seller_id as required by your Store schema
+//       });
+
+//       // Optionally, you can associate the store with the seller if needed
+//       // newSeller.store = store._id;
+//       // await newSeller.save();
+
+//       // Token and response
+//       const { token, seller: SellerNoPassword } = giveTokenAndCookieForSeller(res, newSeller);
+
+//       res.status(201).json({
+//         message: "seller created successfully",
+//         seller: SellerNoPassword
+//       });
+//       return;
+//     }
+
+//     const { token, seller: SellerNoPassword } = giveTokenAndCookieForSeller(res, newSeller);
+
+//     res.status(201).json({
+//     message: "seller created successfully",
+//     seller: SellerNoPassword
+// });
+//     // const SellerNoPassword = await Seller.findById(newSeller._id).select('-password')
+//     // res.status(201).json({
+//     //     message:"seller created successfully",
+//     //     seller:SellerNoPassword
+//     // })
+// i am goin to show you my code base and you will help me create ui
+// hi coder and programmers either new or old help me out 
+// what am building is virmar in rwanda a marketplace for locals
+
+
+================================================================================
+
+File: backend\configs\mongo.connect.js (starts at line 627)
+
+import mongoose from "mongoose";
+import dotenv from 'dotenv'
+
+dotenv.config()
+
+
+const connectDB = async ()=> {
+    try {
+        const conn = mongoose.connect(process.env.MONGO_URI)
+        console.log(`MongoDB connected`)
+        
+
+    } catch (error) {
+        console.log(`error while connecting db ${error}`)
+        process.exit(1)
+
+    }
+    
+}
+
+export default connectDB
+
+
+================================================================================
+
+File: backend\configs\token.config.buyer.js (starts at line 648)
+
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+import Buyer from '../models/buyer.model.js';
+dotenv.config();
+
+async function generateTokenAndSetCookie (res, Buyer) {
+    const token = jwt.sign({id: Buyer._id, role:"buyer"},process.env.JWT_SECRET_BUYER,{expiresIn: '1d'});
+    res.cookie('token', token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'Strict',
+        maxAge: 24 * 60 * 60 * 1000
+    });
+    return {
+        token,
+        buyer: {
+            _id: Buyer._id,
+            name: Buyer.name,
+            email: Buyer.email,
+            role: Buyer.role,
+            isActive: Buyer.isActive,
+            isVerified: Buyer.isVerified
+        }
+    };
+}
+export default generateTokenAndSetCookie
+// token configuration
+
+
+
+================================================================================
+
+File: backend\configs\token.config.seller.js (starts at line 676)
+
+import jwt from 'jsonwebtoken'
+import dotenv from 'dotenv';
+dotenv.config();
+
+export const giveTokenAndCookieForSeller = (res, seller) => {
+    // Generate a JWT token
+    const token = jwt.sign(
+        { id: seller._id, role:"seller" },
+        process.env.JWT_SECRET_SELLER, // Use a different secret for sellers
+        { expiresIn: '1d' }
+    );
+    console.log("🚀 ~ file: token.config.seller.js:9 ~ giveTokenAndCookieForSeller ~ token:", token)
+
+    // Set the token in a cookie
+    res.cookie('token', token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
+        sameSite: 'Strict',
+        maxAge: 24 * 60 * 60 * 1000 // 1 day
+    });
+    console.log("🚀 ~ file: token.config.seller.js:13 ~ giveTokenAndCookieForSeller ~ res.cookie:", res.cookie)
+
+    // Return the token and seller info (excluding password)
+    return {
+        token,
+        seller: {
+            _id: seller._id,
+            name: seller.name,
+            email: seller.email,
+            role: seller.role,
+            isActive: seller.isActive,
+            isVerified: seller.isVerified
+        }
+    };
+    console.log("🚀 ~ file: token.config.seller.js:19 ~ giveTokenAndCookieForSeller ~ return:")
+}
+
+
+
+
+================================================================================
+
+File: backend\configs\middleware\potect.buyerRoute.js (starts at line 714)
+
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+dotenv.config();
+
+async function protectBuyerRoute(req, res, next) {
+  try {
+    const token = req.cookies.token || req.headers.authorization?.split("")[1];
+
+    if (!token) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    let decoded;
+    try {
+      decoded = jwt.verify(token, process.env.JWT_SECRET_BUYER);
+    } catch (error) {
+      if (error.name === "TokenExpiredError") {
+        return res.status(401).json({ message: "Token expired" });
+      }
+      console.log(error);
+      res.status(403).json({ message: "Invalid token" });
+    }
+    req.user = decoded;
+    next();
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Internal Server Error from protect routes", error: error.message });
+    next();
+  }
+}
+
+export default protectBuyerRoute;
+// these are middlewares to protect routes
+
+
+================================================================================
+
+File: backend\configs\middleware\protect.admin.js (starts at line 747)
+
+// This is a conceptual middleware. You need to implement it based on your token structure.
+// It should typically decode the token and check the user's role.
+
+const protectAdminRoute = (req, res, next) => {
+  // Assuming your authentication middleware (e.g., protectBuyerRoute or protectSellerRoute)
+  // has already populated req.user or req.seller with user/seller details including role.
+  // Or, you might have a separate generic authentication middleware that populates req.auth.user.
+
+  // For simplicity, let's assume req.user is populated by a generic auth middleware
+  // and it contains a 'role' field.
+  if (!req.user || req.user.role !== 'admin') {
+    return res.status(403).json({ message: "Forbidden: Admin access required" });
+  }
+  next();
+};
+
+export default protectAdminRoute;
+
+
+================================================================================
+
+File: backend\configs\middleware\protect.sellerRoute.js (starts at line 764)
+
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+dotenv.config();
+
+async function protectSellerRoute(req, res, next) {
+  try {
+    // Extract token from cookie or Authorization header
+    const authHeader = req.headers.authorization;
+    const token =
+      req.cookies.token ||
+      (authHeader && authHeader.startsWith("Bearer ") && authHeader.split(" ")[1]);
+
+    if (!token) {
+      return res.status(401).json({ message: "Unauthorized: No token provided" });
+    }
+
+    // Debug logs (optional during development)
+    console.log("🔐 Token received:", token);
+    console.log("🔑 Using seller secret:", process.env.JWT_SECRET_SELLER);
+
+    // Verify token using seller secret
+    let decoded;
+    try {
+      decoded = jwt.verify(token, process.env.JWT_SECRET_SELLER);
+      console.log("✅ Decoded Token:", decoded);
+    } catch (error) {
+      if (error.name === "TokenExpiredError") {
+        return res.status(401).json({ message: "Token expired" });
+      }
+      return res.status(403).json({ message: "Invalid token" });
+    }
+
+    // Ensure decoded payload contains seller ID
+    if (!decoded || !decoded.id) {
+      return res.status(401).json({ message: "Unauthorized: Invalid payload" });
+    }
+
+    // Attach seller info to request for downstream use
+    req.seller = decoded // thought i got enough but THIS ERROR HMM
+   // req.user = decoded; // attaches { id: '...' } directly
+   console.log("🚀 ~ file: protect.sellerRoute.js:45 ~ protectSellerRoute ~ req.user:", req.seller)
+
+    next();
+
+  } catch (error) {
+    console.error("🚨 Middleware error:", error.message );
+    return res.status(500).json({
+      message: "Internal Server Error from protectSellerRoute",
+      error: error.message
+    });
+  }
+}
+
+export default protectSellerRoute;
+
+
+
+================================================================================
+
+File: backend\configs\middleware\protectRoutes.js (starts at line 819)
+
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+/**
+ * this is public protect routes the one v0 told me to use
+ */
+
+dotenv.config();
+
+async function protectRoutes(req, res, next) {
+  try {
+    const token =
+      req.cookies?.token || req.headers.authorization?.split(' ')[1];
+
+    if (!token) {
+      return res.status(403).json({ message: 'Unauthorized: No token provided' });
+    }
+
+    let decoded;
+
+    try {
+      decoded = jwt.verify(token, process.env.JWT_SECRET_BUYER);
+    } catch (errBuyer) {
+      try {
+        decoded = jwt.verify(token, process.env.JWT_SECRET_SELLER);
+      } catch (errSeller) {
+        return res.status(401).json({ error: 'Invalid token' });
+      }
+    }
+
+    const { role, id } = decoded;
+    req.user = { role, id };
+    // attach for downstream use
+    console.log('Decoded payload:', decoded);
+    console.log('req.user being set:', { role, id });
+
+    next();
+
+  } catch (error) {
+    console.error('Error protecting routes:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+}
+
+export default protectRoutes
+
+
+
+================================================================================
+
+File: backend\controllers\analyticscontrollers.js (starts at line 864)
+
+import Analytics from "../models/analytics.model.js";
+import Order from "../models/order.model.js";
+import Buyer from "../models/buyer.model.js";
+import Seller from "../models/sellers.model.js";
+import Item from "../models/items.model.js";
+import Category from "../models/category.model.js";
+import Review from "../models/review.model.js";
+import Wallet from "../models/wallet.schema.js";
+import mongoose from "mongoose";
+
+// Generate comprehensive analytics for a specific period
+export const generateAnalytics = async (req, res) => {
+  console.log("📊 Generating marketplace analytics");
+  const { period = "daily", date } = req.body;
+  
+  try {
+    const targetDate = date ? new Date(date) : new Date();
+    const startDate = getStartDate(targetDate, period);
+    const endDate = getEndDate(targetDate, period);
+    
+    console.log(`📅 Analyzing period: ${period} from ${startDate} to ${endDate}`);
+    
+    // Check if analytics already exist for this period
+    let analytics = await Analytics.findOne({ period, date: targetDate });
+    
+    if (!analytics) {
+      analytics = new Analytics({ period, date: targetDate });
+    }
+    
+    // 1. Calculate marketplace-wide metrics
+    const marketplaceMetrics = await calculateMarketplaceMetrics(startDate, endDate);
+    analytics.marketplace = marketplaceMetrics;
+    
+    // 2. Calculate category metrics
+    const categoryMetrics = await calculateCategoryMetrics(startDate, endDate);
+    analytics.categoryMetrics = categoryMetrics;
+    
+    // 3. Calculate top performers
+    const topSellers = await calculateTopSellers(startDate, endDate);
+    const topProducts = await calculateTopProducts(startDate, endDate);
+    analytics.topSellers = topSellers;
+    analytics.topProducts = topProducts;
+    
+    // 4. Calculate payment method analytics
+    const paymentMetrics = await calculatePaymentMetrics(startDate, endDate);
+    analytics.paymentMetrics = paymentMetrics;
+    
+    // 5. Calculate health scores
+    const healthScores = await calculateHealthScores(marketplaceMetrics);
+    analytics.healthScores = healthScores;
+    
+    await analytics.save();
+    
+    res.status(200).json({
+      message: "Analytics generated successfully",
+      analytics,
+      period: { start: startDate, end: endDate }
+    });
+    
+  } catch (error) {
+    console.log(`❌ Error generating analytics: ${error}`);
+    res.status(500).json({ message: "Error generating analytics", error: error.message });
+  }
+};
+
+// Get analytics dashboard data
+export const getDashboardAnalytics = async (req, res) => {
+  console.log("📈 Getting dashboard analytics");
+  const { period = "daily", limit = 30 } = req.query;
+  
+  try {
+    // Get recent analytics
+    const recentAnalytics = await Analytics.find({ period })
+      .sort({ date: -1 })
+      .limit(parseInt(limit));
+    
+    // Get current period analytics
+    const currentAnalytics = recentAnalytics[0];
+    
+    // Calculate trends (compare with previous period)
+    const previousAnalytics = recentAnalytics[1];
+    const trends = calculateTrends(currentAnalytics, previousAnalytics);
+    
+    // Get real-time metrics (today's data)
+    const realTimeMetrics = await getRealTimeMetrics();
+    
+    res.status(200).json({
+      message: "Dashboard analytics retrieved successfully",
+      current: currentAnalytics,
+      trends,
+      realTime: realTimeMetrics,
+      historical: recentAnalytics
+    });
+    
+  } catch (error) {
+    console.log(`❌ Error getting dashboard analytics: ${error}`);
+    res.status(500).json({ message: "Error retrieving dashboard analytics" });
+  }
+};
+
+// Get economic health report
+export const getEconomicHealthReport = async (req, res) => {
+  console.log("🏥 Generating economic health report");
+  
+  try {
+    // Get latest analytics
+    const latestAnalytics = await Analytics.findOne()
+      .sort({ date: -1 });
+    
+    if (!latestAnalytics) {
+      return res.status(404).json({ message: "No analytics data available" });
+    }
+    
+    // Calculate detailed economic indicators
+    const economicIndicators = await calculateEconomicIndicators();
+    
+    // Risk assessment
+    const riskAssessment = await calculateRiskAssessment();
+    
+    // Growth projections
+    const growthProjections = await calculateGrowthProjections();
+    
+    // Market concentration analysis
+    const marketConcentration = await calculateMarketConcentration();
+    
+    const healthReport = {
+      overview: {
+        overallHealth: latestAnalytics.healthScores.overall,
+        lastUpdated: latestAnalytics.date,
+        period: latestAnalytics.period
+      },
+      economicIndicators,
+      riskAssessment,
+      growthProjections,
+      marketConcentration,
+      recommendations: generateHealthRecommendations(latestAnalytics)
+    };
+    
+    res.status(200).json({
+      message: "Economic health report generated successfully",
+      healthReport
+    });
+    
+  } catch (error) {
+    console.log(`❌ Error generating health report: ${error}`);
+    res.status(500).json({ message: "Error generating health report" });
+  }
+};
+
+// Get seller performance analytics
+export const getSellerAnalytics = async (req, res) => {
+  console.log("🏪 Getting seller analytics");
+  const sellerId = req.seller.id;
+  const { period = "monthly", months = 6 } = req.query;
+  
+  try {
+    const endDate = new Date();
+    const startDate = new Date();
+    startDate.setMonth(startDate.getMonth() - parseInt(months));
+    
+    // Get seller's orders for the period
+    const orders = await Order.find({
+      seller_id: sellerId,
+      createdAt: { $gte: startDate, $lte: endDate }
+    }).populate('items.item_id');
+    
+    // Calculate seller metrics
+    const sellerMetrics = {
+      // Revenue metrics
+      totalRevenue: orders.reduce((sum, order) => sum + order.economicMetrics.sellerRevenue, 0),
+      totalOrders: orders.length,
+      averageOrderValue: orders.length > 0 ? 
+        orders.reduce((sum, order) => sum + order.totalAmount, 0) / orders.length : 0,
+      
+      // Performance metrics
+      completionRate: orders.length > 0 ? 
+        (orders.filter(order => order.status === "completed").length / orders.length) * 100 : 0,
+      cancellationRate: orders.length > 0 ? 
+        (orders.filter(order => order.status === "cancelled").length / orders.length) * 100 : 0,
+      
+      // Product metrics
+      totalProducts: await Item.countDocuments({ seller_id: sellerId }),
+      activeProducts: await Item.countDocuments({ seller_id: sellerId, status: "available" }),
+      
+      // Time-based analysis
+      monthlyBreakdown: await getSellerMonthlyBreakdown(sellerId, startDate, endDate),
+      
+      // Top performing products
+      topProducts: await getSellerTopProducts(sellerId, startDate, endDate),
+      
+      // Customer satisfaction
+      averageRating: await getSellerAverageRating(sellerId),
+      totalReviews: await Review.countDocuments({ seller_id: sellerId, status: "approved" })
+    };
+    
+    // Calculate growth trends
+    const growthTrends = await calculateSellerGrowthTrends(sellerId, startDate, endDate);
+    
+    // Generate recommendations
+    const recommendations = generateSellerRecommendations(sellerMetrics);
+    
+    res.status(200).json({
+      message: "Seller analytics retrieved successfully",
+      metrics: sellerMetrics,
+      trends: growthTrends,
+      recommendations
+    });
+    
+  } catch (error) {
+    console.log(`❌ Error getting seller analytics: ${error}`);
+    res.status(500).json({ message: "Error retrieving seller analytics" });
+  }
+};
+
+// Helper functions for analytics calculations
+
+const calculateMarketplaceMetrics = async (startDate, endDate) => {
+  console.log("🔢 Calculating marketplace metrics");
+  
+  // Orders analysis
+  const orders = await Order.find({
+    createdAt: { $gte: startDate, $lte: endDate }
+  });
+  
+  const totalRevenue = orders.reduce((sum, order) => sum + order.totalAmount, 0);
+  const platformRevenue = orders.reduce((sum, order) => sum + order.platformFee, 0);
+  const sellerRevenue = orders.reduce((sum, order) => sum + order.economicMetrics.sellerRevenue, 0);
+  const taxRevenue = orders.reduce((sum, order) => sum + order.tax, 0);
+  
+  // User metrics
+  const newBuyers = await Buyer.countDocuments({
+    createdAt: { $gte: startDate, $lte: endDate }
+  });
+  
+  const newSellers = await Seller.countDocuments({
+    createdAt: { $gte: startDate, $lte: endDate }
+  });
+  
+  // Active users (users who made transactions in this period)
+  const activeBuyerIds = [...new Set(orders.map(order => order.buyer_id.toString()))];
+  const activeSellerIds = [...new Set(orders.map(order => order.seller_id.toString()))];
+  
+  // Product metrics
+  const newProducts = await Item.countDocuments({
+    createdAt: { $gte: startDate, $lte: endDate }
+  });
+  
+  const soldProducts = orders.reduce((sum, order) => 
+    sum + order.items.reduce((itemSum, item) => itemSum + item.quantity, 0), 0
+  );
+  
+  // Calculate financial health indicators
+  const totalWalletBalance = await Wallet.aggregate([
+    { $group: { _id: null, total: { $sum: "$balance" } } }
+  ]);
+  
+  const liquidityRatio = totalWalletBalance[0]?.total / (totalRevenue || 1);
+  
+  return {
+    totalRevenue,
+    platformRevenue,
+    sellerRevenue,
+    taxRevenue,
+    totalOrders: orders.length,
+    completedOrders: orders.filter(order => order.status === "completed").length,
+    cancelledOrders: orders.filter(order => order.status === "cancelled").length,
+    averageOrderValue: orders.length > 0 ? totalRevenue / orders.length : 0,
+    newBuyers,
+    newSellers,
+    activeBuyers: activeBuyerIds.length,
+    activeSellers: activeSellerIds.length,
+    totalProducts: await Item.countDocuments(),
+    newProducts,
+    soldProducts,
+    conversionRate: activeBuyerIds.length > 0 ? (orders.length / activeBuyerIds.length) * 100 : 0,
+    liquidityRatio: liquidityRatio || 0,
+    marketplaceVelocity: orders.length / ((endDate - startDate) / (1000 * 60 * 60 * 24)) // Orders per day
+  };
+};
+
+const calculateCategoryMetrics = async (startDate, endDate) => {
+  console.log("📂 Calculating category metrics");
+  
+  const categoryMetrics = await Order.aggregate([
+    {
+      $match: {
+        createdAt: { $gte: startDate, $lte: endDate }
+      }
+    },
+    { $unwind: "$items" },
+    {
+      $lookup: {
+        from: "items",
+        localField: "items.item_id",
+        foreignField: "_id",
+        as: "itemDetails"
+      }
+    },
+    { $unwind: "$itemDetails" },
+    {
+      $lookup: {
+        from: "categories",
+        localField: "itemDetails.category_id",
+        foreignField: "_id",
+        as: "categoryDetails"
+      }
+    },
+    { $unwind: "$categoryDetails" },
+    {
+      $group: {
+        _id: "$categoryDetails._id",
+        categoryName: { $first: "$categoryDetails.name" },
+        revenue: { $sum: "$items.totalPrice" },
+        orders: { $sum: 1 },
+        products: { $addToSet: "$items.item_id" },
+        totalQuantity: { $sum: "$items.quantity" }
+      }
+    },
+    {
+      $project: {
+        category_id: "$_id",
+        categoryName: 1,
+        revenue: 1,
+        orders: 1,
+        products: { $size: "$products" },
+        averagePrice: { $divide: ["$revenue", "$totalQuantity"] }
+      }
+    },
+    { $sort: { revenue: -1 } }
+  ]);
+  
+  // Calculate market share for each category
+  const totalRevenue = categoryMetrics.reduce((sum, cat) => sum + cat.revenue, 0);
+  
+  return categoryMetrics.map(category => ({
+    ...category,
+    marketShare: totalRevenue > 0 ? (category.revenue / totalRevenue) * 100 : 0
+  }));
+};
+
+const calculateTopSellers = async (startDate, endDate) => {
+  console.log("🏆 Calculating top sellers");
+  
+  const topSellers = await Order.aggregate([
+    {
+      $match: {
+        createdAt: { $gte: startDate, $lte: endDate },
+        status: { $in: ["completed", "delivered"] }
+      }
+    },
+    {
+      $group: {
+        _id: "$seller_id",
+        revenue: { $sum: "$economicMetrics.sellerRevenue" },
+        orders: { $sum: 1 }
+      }
+    },
+    {
+      $lookup: {
+        from: "sellers",
+        localField: "_id",
+        foreignField: "_id",
+        as: "sellerDetails"
+      }
+    },
+    { $unwind: "$sellerDetails" },
+    {
+      $lookup: {
+        from: "reviews",
+        let: { sellerId: "$_id" },
+        pipeline: [
+          { $match: { $expr: { $eq: ["$seller_id", "$$sellerId"] }, status: "approved" } },
+          { $group: { _id: null, avgRating: { $avg: "$rating" } } }
+        ],
+        as: "ratingData"
+      }
+    },
+    {
+      $project: {
+        seller_id: "$_id",
+        sellerName: "$sellerDetails.name",
+        revenue: 1,
+        orders: 1,
+        rating: { $ifNull: [{ $arrayElemAt: ["$ratingData.avgRating", 0] }, 0] }
+      }
+    },
+    { $sort: { revenue: -1 } },
+    { $limit: 10 }
+  ]);
+  
+  return topSellers;
+};
+
+const calculateTopProducts = async (startDate, endDate) => {
+  console.log("🥇 Calculating top products");
+  
+  const topProducts = await Order.aggregate([
+    {
+      $match: {
+        createdAt: { $gte: startDate, $lte: endDate },
+        status: { $in: ["completed", "delivered"] }
+      }
+    },
+    { $unwind: "$items" },
+    {
+      $group: {
+        _id: "$items.item_id",
+        revenue: { $sum: "$items.totalPrice" },
+        unitsSold: { $sum: "$items.quantity" }
+      }
+    },
+    {
+      $lookup: {
+        from: "items",
+        localField: "_id",
+        foreignField: "_id",
+        as: "itemDetails"
+      }
+    },
+    { $unwind: "$itemDetails" },
+    {
+      $lookup: {
+        from: "reviews",
+        let: { itemId: "$_id" },
+        pipeline: [
+          { $match: { $expr: { $eq: ["$item_id", "$$itemId"] }, status: "approved" } },
+          { $group: { _id: null, avgRating: { $avg: "$rating" } } }
+        ],
+        as: "ratingData"
+      }
+    },
+    {
+      $project: {
+        item_id: "$_id",
+        productName: "$itemDetails.name",
+        revenue: 1,
+        unitsSold: 1,
+        rating: { $ifNull: [{ $arrayElemAt: ["$ratingData.avgRating", 0] }, 0] }
+      }
+    },
+    { $sort: { revenue: -1 } },
+    { $limit: 10 }
+  ]);
+  
+  return topProducts;
+};
+
+const calculatePaymentMetrics = async (startDate, endDate) => {
+  console.log("💳 Calculating payment metrics");
+  
+  const paymentMetrics = await Order.aggregate([
+    {
+      $match: {
+        createdAt: { $gte: startDate, $lte: endDate }
+      }
+    },
+    {
+      $group: {
+        _id: "$paymentMethod",
+        usage: { $sum: 1 },
+        revenue: { $sum: "$totalAmount" },
+        successful: {
+          $sum: { $cond: [{ $eq: ["$paymentStatus", "completed"] }, 1, 0] }
+        }
+      }
+    },
+    {
+      $project: {
+        method: "$_id",
+        usage: 1,
+        revenue: 1,
+        successRate: { $multiply: [{ $divide: ["$successful", "$usage"] }, 100] }
+      }
+    }
+  ]);
+  
+  return paymentMetrics;
+};
+
+const calculateHealthScores = async (marketplaceMetrics) => {
+  console.log("🏥 Calculating health scores");
+  
+  // Overall health score (weighted average of other scores)
+  const liquidityScore = Math.min(marketplaceMetrics.liquidityRatio * 20, 100);
+  const growthScore = Math.min(marketplaceMetrics.marketplaceVelocity * 10, 100);
+  const stabilityScore = Math.min((marketplaceMetrics.completedOrders / marketplaceMetrics.totalOrders) * 100, 100);
+  const competitionScore = Math.min(marketplaceMetrics.activeSellers * 2, 100);
+  
+  const overallScore = (liquidityScore + growthScore + stabilityScore + competitionScore) / 4;
+  
+  return {
+    overall: Math.round(overallScore),
+    liquidity: Math.round(liquidityScore),
+    growth: Math.round(growthScore),
+    stability: Math.round(stabilityScore),
+    competition: Math.round(competitionScore)
+  };
+};
+
+// Helper function to get date ranges
+const getStartDate = (date, period) => {
+  const start = new Date(date);
+  switch (period) {
+    case "daily":
+      start.setHours(0, 0, 0, 0);
+      break;
+    case "weekly":
+      start.setDate(start.getDate() - start.getDay());
+      start.setHours(0, 0, 0, 0);
+      break;
+    case "monthly":
+      start.setDate(1);
+      start.setHours(0, 0, 0, 0);
+      break;
+    case "quarterly":
+      start.setMonth(Math.floor(start.getMonth() / 3) * 3, 1);
+      start.setHours(0, 0, 0, 0);
+      break;
+    case "yearly":
+      start.setMonth(0, 1);
+      start.setHours(0, 0, 0, 0);
+      break;
+  }
+  return start;
+};
+
+const getEndDate = (date, period) => {
+  const end = new Date(date);
+  switch (period) {
+    case "daily":
+      end.setHours(23, 59, 59, 999);
+      break;
+    case "weekly":
+      end.setDate(end.getDate() - end.getDay() + 6);
+      end.setHours(23, 59, 59, 999);
+      break;
+    case "monthly":
+      end.setMonth(end.getMonth() + 1, 0);
+      end.setHours(23, 59, 59, 999);
+      break;
+    case "quarterly":
+      end.setMonth(Math.floor(end.getMonth() / 3) * 3 + 3, 0);
+      end.setHours(23, 59, 59, 999);
+      break;
+    case "yearly":
+      end.setMonth(11, 31);
+      end.setHours(23, 59, 59, 999);
+      break;
+  }
+  return end;
+};
+
+// Additional helper functions for comprehensive analytics
+const calculateTrends = (current, previous) => {
+  if (!current || !previous) return {};
+  
+  const calculateChange = (currentVal, previousVal) => {
+    if (!previousVal) return 0;
+    return ((currentVal - previousVal) / previousVal) * 100;
+  };
+  
+  return {
+    revenue: calculateChange(current.marketplace.totalRevenue, previous.marketplace.totalRevenue),
+    orders: calculateChange(current.marketplace.totalOrders, previous.marketplace.totalOrders),
+    users: calculateChange(current.marketplace.activeBuyers, previous.marketplace.activeBuyers),
+    conversion: calculateChange(current.marketplace.conversionRate, previous.marketplace.conversionRate)
+  };
+};
+
+const getRealTimeMetrics = async () => {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  
+  const todayOrders = await Order.countDocuments({
+    createdAt: { $gte: today }
+  });
+  
+  const todayRevenue = await Order.aggregate([
+    { $match: { createdAt: { $gte: today } } },
+    { $group: { _id: null, total: { $sum: "$totalAmount" } } }
+  ]);
+  
+  return {
+    todayOrders,
+    todayRevenue: todayRevenue[0]?.total || 0,
+    onlineUsers: 0, // Would need WebSocket tracking
+    pendingOrders: await Order.countDocuments({ status: "pending" })
+  };
+};
+
+
+================================================================================
+
+File: backend\controllers\buyer.controllers.js (starts at line 1453)
+
+// i want to start fresh
+import bcrypt from "bcryptjs";
+import generateTokenAndSetCookie from "../configs/token.config.buyer.js";
+import Buyer from "../models/buyer.model.js";
+import Wallet from "../models/wallet.schema.js";
+import Item from "../models/items.model.js";
+import { generateNotification } from "../utils/notification.maker.js";
+import { sendEmailNotification } from "../utils/email.notification.js";
+import { initiatePayment } from "../utils/momoService.js";
+// import { verifyTransaction } from "../utils/transaction.init.js";
+
+// more to do in this register function like caching
+
+export const register = async (req, res) => {
+  console.log("register");
+  const { email, name, password, phone } = req.body;
+  try {
+    if (!email || !name || !password) {
+      return res.status(404).json({ message: "missing fields" });
+    }
+    const emailExist = await Buyer.findOne({ email });
+    if (emailExist) {
+      return res.status(404).json({ message: "existing email" });
+    }
+    const nameExist = await Buyer.findOne({ name });
+    if (nameExist) {
+      return res.status(404).json({ message: "existing username" });
+    }
+    const newBuyer = new Buyer({
+      name: name,
+      password: password,
+      email: email,
+      phone: phone,
+    });
+    if (newBuyer) {
+      //create a wallet
+      const newWallet = new Wallet({
+        balance: 0,
+        owner: newBuyer._id,
+        ownerModel: "Buyer",
+        currency: "RWF",
+      });
+      await newWallet.save();
+      newBuyer.wallet_id = newWallet._id;
+      console.log("wallet created", newWallet);
+      generateTokenAndSetCookie(res, newBuyer);
+    }
+
+    await newBuyer.save();
+    const buyerNoPassword = newBuyer.toObject();
+    delete buyerNoPassword.password;
+    // generateNotification('welcome',`welcome ${buyerNoPassword.name}`,buyerNoPassword._id,Buyer)
+    // sendEmailNotification(generateNotification('welcome',`welcome ${buyerNoPassword.name}`,buyerNoPassword._id,'Buyer'))
+    generateNotification(
+      "welcome back",
+      `welcome back ${buyerNoPassword.name}`,
+      buyerNoPassword._id,
+      "Buyer"
+    );
+
+    sendEmailNotification(
+      "welcome back",
+      "you are successfuly logged in with virmar account",
+      buyerNoPassword.email
+    );
+    console.log(`sent email notification`);
+    res
+      .status(200)
+      .json({ message: "successfuly registered", buyer: buyerNoPassword });
+  } catch (error) {
+    console.log("error in register" + error);
+    res.status(500).json({ message: error });
+  }
+};
+
+export const login = async (req, res) => {
+  console.log(req.body);
+  const { email, password, name } = req.body;
+
+  try {
+    console.log(email);
+    //validate emails
+    const buyer = await Buyer.findOne({ email });
+
+    if (!buyer) {
+      return res.status(403).json({ message: "no user please register" });
+    }
+
+    //check if the password is matched
+    const isvalidPassword = await bcrypt.compare(password, buyer.password);
+    if (!isvalidPassword) {
+      return res.status(403).json({ message: "invalid credentials" });
+    }
+
+    generateTokenAndSetCookie(res, buyer);
+
+    const buyerWithoutPassword = buyer.toObject();
+    delete buyerWithoutPassword.password;
+
+    res
+      .status(200)
+      .json({ message: "successfully logged in", buyer: buyerWithoutPassword });
+  } catch (error) {
+    console.log(`erro logging in ${error}`);
+    res.status(500).json({ meesage: "error loging in" });
+  }
+};
+
+export const logout = async (req, res) => {
+  try {
+    res.clearCookie("token"); // Clear the cookie from the browser
+
+    res.status(200).json({ message: "successfully logged out" });
+  } catch (error) {
+    console.log(`error logging out ${error}`);
+    res.status(500).json({ message: "error logging out" });
+  }
+};
+
+export const getUserProfile = async (req, res) => {
+  const userid = req.user.id;
+  try {
+    if (!userid) {
+      return res.status(404).json({ message: "not authorized" });
+    }
+    const buyer = await Buyer.findById(userid);
+    res.status(200).json({ message: "successfully got profile", buyer: buyer });
+  } catch (error) {
+    console.log(`error getting profile ${error}`);
+    res.status(500).json({ message: "error getting profile" });
+  }
+};
+
+//cart activities
+
+// export const addItemToCart = async (req, res) => {
+//   // when the item is added to cart
+//   const product_id = req.params;
+//   const { quantity } = req.body;
+//   try {
+//     const userid = req.user.id;
+//     if (!userid) {
+//       return res.status(404).json({ message: "not authorized" });
+//     }
+//     const buyer = await Buyer.findById(userid);
+//     //updating the item status to reserved
+//     //update the quantity
+
+//     await Item.findByIdAndUpdate(product_id, {
+//       status: "reserved",
+//       quantity: quantity,
+//     });
+//     console;
+//     buyer.cart.push(product_id);
+//     await buyer.save();
+//     res.status(200).json({ message: "successfully added item to cart" });
+//   } catch (error) {
+//     console.log(`error adding item to cart ${error}`);
+//     res.statue(500).json({ message: "error adding item to cart" });
+//   }
+// };
+
+export const getCartItems = async (req, res) => {
+  const info = req.user.id;
+
+  console.log(info);
+
+  try {
+    if (!info) {
+      return res.status(400).json({ message: "unauthorized" });
+    }
+    const CartItems = await Buyer.findOne({ info });
+    console.log("fetched data");
+    if (!CartItems) {
+      return res.status(401).json({ message: "no item in your cart" });
+    }
+    return res.status(404).json({ message: "success", data: CartItems });
+    //TODO some operations
+  } catch (error) {
+    console.log("error getting item", error);
+  }
+};
+
+export const depositToWallet = async (req, res) => {
+  const userId = req.user.id;
+  const { amount, externalId, payer } = req.body;
+
+  // ✅ Flatten frontend structure for cleaner payloads
+  const { partyIdType, partyId } = payer || {};
+
+  // ✅ Validate incoming fields
+  if (!partyId || !amount || !externalId || !userId) {
+    return res.status(400).json({ error: "Missing required fields" });
+  }
+
+  try {
+    // ✅ Step 1: Initiate payment (request funds from payer)
+    const paymentRequest = await initiatePayment(partyId, amount, externalId);
+
+    // ✅ Step 2: Confirm that payment was completed externally (e.g., via MoMo verification)
+    const isVerified = await verifyPaymentStatus(externalId);
+    if (!isVerified) {
+      return res.status(402).json({ error: "Payment not verified yet. Please retry once confirmed." });
+    }
+
+    // ✅ Step 3: Load buyer
+    const buyer = await Buyer.findById(userId);
+    if (!buyer) throw new Error("Buyer not found");
+
+    // ✅ Step 4: Load wallet
+    const wallet = await Wallet.findById(buyer.wallet_id);
+    if (!wallet) throw new Error("Wallet not found");
+
+    // ✅ Step 5: Update wallet balance
+    wallet.balance += Number(amount);
+    await wallet.save();
+
+    // ✅ Step 6: Log this deposit as a financial transaction
+    await Transaction.create({
+      item_id: null,           // This is a deposit, not linked to an item
+      buyer_id: userId,
+      seller_id: null,         // No seller involved in deposits
+      quantity: 1,
+      totalPrice: amount,
+      type: "deposit",         // Custom flag to distinguish from purchases
+      timestamp: new Date()
+    });
+
+    // ✅ Optional: Notify the user of successful deposit
+    await createNotification({
+      title: "Deposit Confirmed",
+      message: `Your deposit of ${amount} RWF has been credited.`,
+      recipientId: userId,
+      recipientModel: "Buyer"
+    });
+
+    // ✅ Final response
+    res.status(200).json({
+      status: "✅ Deposit complete",
+      payment: paymentRequest,
+      wallet
+    });
+
+  } catch (error) {
+    console.error(`Deposit error: ${error.message}`);
+    res.status(500).json({ error: error.message });
+  }
+}
+// export const
+
+//buyer gets money through deposit, gift, good return, transaction fail, crypto
+
+export const withdrawFromWallet = async (req,res)=>{
+  const userId = req.user.id
+  console.log(userId)
+  //not yet done
+  /**
+   * algorithm logic
+   * 
+   */
+
+}
+
+
+
+export const deleteCartItem = async (req,res) =>{
+  const item_id = req.params
+  const user = req.user
+
+  try {
+    // const deleteItem = await Item.findByIdAndUpdate({ })
+    res.status(400).json({message:'this is delete cart item route'})
+    
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({message:'error visiting the delete cart item route'})
+
+  }
+}
+
+// backend/controllers/cart.controller.js
+
+
+export const addItemToCart = async (req, res) => {
+  const buyerId = req.user.id;
+  const { itemId, quantity } = req.body;
+
+  try {
+    const item = await Item.findById(itemId);
+    if (!item || item.quantity < quantity) {
+      return res.status(400).json({ message: "Item unavailable or insufficient quantity" });
+    }
+
+    const buyer = await Buyer.findById(buyerId);
+    if (!buyer) {
+      return res.status(404).json({ message: "Buyer not found" });
+    }
+
+    // Optionally check if item already in cart to update quantity instead of pushing again
+    const existingIndex = buyer.cart.findIndex(id => id.toString() === itemId);
+    if (existingIndex >= 0) {
+      // if you store quantities, update it here
+      // assuming cart only stores item IDs for now, skip or extend as needed
+    } else {
+      buyer.cart.push(itemId);
+    }
+
+    await buyer.save();
+
+    res.status(200).json({ message: "Item added to cart" });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to add item to cart", error: error.message });
+  }
+};
+
+
+
+================================================================================
+
+File: backend\controllers\inventory.controllers.js (starts at line 1768)
+
+import Inventory from "../models/inventory.model.js";
+import Item from "../models/items.model.js";
+import Order from "../models/order.model.js";
+import { generateNotification } from "../utils/notification.maker.js";
+import { sendEmailNotification } from "../utils/email.notification.js";
+import mongoose from "mongoose";
+
+// Initialize inventory for a new item
+export const initializeInventory = async (req, res) => {
+  console.log("📦 Initializing inventory for new item");
+  const { itemId } = req.params;
+  const { 
+    initialStock, 
+    costPrice, 
+    sellingPrice, 
+    minStockLevel = 5,
+    maxStockLevel = 1000,
+    reorderQuantity = 50,
+    supplier 
+  } = req.body;
+  
+  try {
+    // Check if item exists and belongs to the seller
+    const item = await Item.findById(itemId).populate('store_id');
+    if (!item || item.store_id.seller_id.toString() !== req.seller.id) {
+      return res.status(404).json({ message: "Item not found or unauthorized" });
+    }
+    
+    // Check if inventory already exists
+    const existingInventory = await Inventory.findOne({ item_id: itemId });
+    if (existingInventory) {
+      return res.status(400).json({ message: "Inventory already exists for this item" });
+    }
+    
+    // Create new inventory record
+    const inventory = new Inventory({
+      item_id: itemId,
+      currentStock: initialStock,
+      availableStock: initialStock,
+      minStockLevel,
+      maxStockLevel,
+      reorderQuantity,
+      costPrice,
+      sellingPrice,
+      supplier,
+      movements: [{
+        type: "in",
+        quantity: initialStock,
+        reason: "Initial stock",
+        balanceAfter: initialStock
+      }],
+      analytics: {
+        profitMargin: ((sellingPrice - costPrice) / sellingPrice) * 100
+      }
+    });
+    
+    await inventory.save();
+    
+    // Update item quantity
+    item.quantity = initialStock;
+    await item.save();
+    
+    res.status(201).json({
+      message: "Inventory initialized successfully",
+      inventory
+    });
+    
+  } catch (error) {
+    console.log(`❌ Error initializing inventory: ${error}`);
+    res.status(500).json({ message: "Error initializing inventory" });
+  }
+};
+
+// Update stock levels (restock, adjustment, etc.)
+export const updateStock = async (req, res) => {
+  console.log("📈 Updating stock levels");
+  const { itemId } = req.params;
+  const { 
+    type, // "in", "out", "adjustment"
+    quantity, 
+    reason, 
+    reference,
+    newCostPrice,
+    newSellingPrice 
+  } = req.body;
+  
+  const session = await mongoose.startSession();
+  session.startTransaction();
+  
+  try {
+    // Get inventory record
+    const inventory = await Inventory.findOne({ item_id: itemId }).session(session);
+    if (!inventory) {
+      await session.abortTransaction();
+      return res.status(404).json({ message: "Inventory not found" });
+    }
+    
+    // Validate seller ownership
+    const item = await Item.findById(itemId).populate('store_id').session(session);
+    if (item.store_id.seller_id.toString() !== req.seller.id) {
+      await session.abortTransaction();
+      return res.status(403).json({ message: "Unauthorized" });
+    }
+    
+    // Calculate new stock level
+    let newStock = inventory.currentStock;
+    switch (type) {
+      case "in":
+        newStock += quantity;
+        break;
+      case "out":
+        newStock -= quantity;
+        break;
+      case "adjustment":
+        newStock = quantity; // Direct adjustment to specific quantity
+        break;
+      default:
+        await session.abortTransaction();
+        return res.status(400).json({ message: "Invalid stock movement type" });
+    }
+    
+    // Validate stock levels
+    if (newStock < 0) {
+      await session.abortTransaction();
+      return res.status(400).json({ message: "Insufficient stock" });
+    }
+    
+    // Update inventory
+    inventory.currentStock = newStock;
+    inventory.lastStockUpdate = new Date();
+    
+    // Update pricing if provided
+    if (newCostPrice) inventory.costPrice = newCostPrice;
+    if (newSellingPrice) inventory.sellingPrice = newSellingPrice;
+    
+    // Add movement record
+    inventory.movements.push({
+      type,
+      quantity: type === "adjustment" ? quantity - inventory.currentStock : quantity,
+      reason,
+      reference,
+      balanceAfter: newStock
+    });
+    
+    // Check for alerts
+    await checkAndCreateAlerts(inventory);
+    
+    await inventory.save({ session });
+    
+    // Update item quantity
+    item.quantity = newStock;
+    await item.save({ session });
+    
+    await session.commitTransaction();
+    
+    res.status(200).json({
+      message: "Stock updated successfully",
+      inventory,
+      newStock
+    });
+    
+  } catch (error) {
+    await session.abortTransaction();
+    console.log(`❌ Error updating stock: ${error}`);
+    res.status(500).json({ message: "Error updating stock" });
+  } finally {
+    session.endSession();
+  }
+};
+
+// Reserve stock for pending orders
+export const reserveStock = async (req, res) => {
+  console.log("🔒 Reserving stock for order");
+  const { itemId } = req.params;
+  const { quantity, orderId } = req.body;
+  
+  try {
+    const inventory = await Inventory.findOne({ item_id: itemId });
+    if (!inventory) {
+      return res.status(404).json({ message: "Inventory not found" });
+    }
+    
+    // Check if enough stock is available
+    if (inventory.availableStock < quantity) {
+      return res.status(400).json({ 
+        message: "Insufficient available stock",
+        available: inventory.availableStock,
+        requested: quantity
+      });
+    }
+    
+    // Reserve stock
+    inventory.reservedStock += quantity;
+    inventory.movements.push({
+      type: "reserved",
+      quantity,
+      reason: "Order reservation",
+      reference: orderId,
+      balanceAfter: inventory.currentStock
+    });
+    
+    await inventory.save();
+    
+    res.status(200).json({
+      message: "Stock reserved successfully",
+      reservedQuantity: quantity,
+      availableStock: inventory.availableStock
+    });
+    
+  } catch (error) {
+    console.log(`❌ Error reserving stock: ${error}`);
+    res.status(500).json({ message: "Error reserving stock" });
+  }
+};
+
+// Release reserved stock (when order is cancelled)
+export const releaseReservedStock = async (req, res) => {
+  console.log("🔓 Releasing reserved stock");
+  const { itemId } = req.params;
+  const { quantity, orderId } = req.body;
+  
+  try {
+    const inventory = await Inventory.findOne({ item_id: itemId });
+    if (!inventory) {
+      return res.status(404).json({ message: "Inventory not found" });
+    }
+    
+    // Release reserved stock
+    inventory.reservedStock = Math.max(0, inventory.reservedStock - quantity);
+    inventory.movements.push({
+      type: "unreserved",
+      quantity,
+      reason: "Order cancellation",
+      reference: orderId,
+      balanceAfter: inventory.currentStock
+    });
+    
+    await inventory.save();
+    
+    res.status(200).json({
+      message: "Reserved stock released successfully",
+      releasedQuantity: quantity,
+      availableStock: inventory.availableStock
+    });
+    
+  } catch (error) {
+    console.log(`❌ Error releasing reserved stock: ${error}`);
+    res.status(500).json({ message: "Error releasing reserved stock" });
+  }
+};
+
+// Get inventory status for seller's items
+export const getSellerInventory = async (req, res) => {
+  console.log("📊 Getting seller inventory");
+  const sellerId = req.seller.id;
+  const { status, sortBy = "currentStock", order = "asc" } = req.query;
+  
+  try {
+    // Get all items for this seller
+    const sellerItems = await Item.find({ seller_id: sellerId }).select('_id');
+    const itemIds = sellerItems.map(item => item._id);
+    
+    // Build query
+    const query = { item_id: { $in: itemIds } };
+    if (status) query.status = status;
+    
+    // Get inventory records
+    const inventoryRecords = await Inventory.find(query)
+      .populate('item_id', 'name description')
+      .sort({ [sortBy]: order === "desc" ? -1 : 1 });
+    
+    // Calculate summary statistics
+    const summary = {
+      totalItems: inventoryRecords.length,
+      totalValue: inventoryRecords.reduce((sum, inv) => 
+        sum + (inv.currentStock * inv.sellingPrice), 0),
+      totalCost: inventoryRecords.reduce((sum, inv) => 
+        sum + (inv.currentStock * inv.costPrice), 0),
+      lowStockItems: inventoryRecords.filter(inv => inv.status === "low_stock").length,
+      outOfStockItems: inventoryRecords.filter(inv => inv.status === "out_of_stock").length,
+      averageTurnover: inventoryRecords.reduce((sum, inv) => 
+        sum + inv.analytics.turnoverRate, 0) / inventoryRecords.length || 0
+    };
+    
+    summary.totalProfit = summary.totalValue - summary.totalCost;
+    summary.profitMargin = summary.totalValue > 0 ? 
+      (summary.totalProfit / summary.totalValue) * 100 : 0;
+    
+    res.status(200).json({
+      message: "Inventory retrieved successfully",
+      inventory: inventoryRecords,
+      summary
+    });
+    
+  } catch (error) {
+    console.log(`❌ Error getting seller inventory: ${error}`);
+    res.status(500).json({ message: "Error retrieving inventory" });
+  }
+};
+
+// Get low stock alerts
+export const getLowStockAlerts = async (req, res) => {
+  console.log("⚠️ Getting low stock alerts");
+  const sellerId = req.seller.id;
+  
+  try {
+    // Get seller's items
+    const sellerItems = await Item.find({ seller_id: sellerId }).select('_id');
+    const itemIds = sellerItems.map(item => item._id);
+    
+    // Get low stock and out of stock items
+    const lowStockItems = await Inventory.find({
+      item_id: { $in: itemIds },
+      status: { $in: ["low_stock", "out_of_stock"] }
+    }).populate('item_id', 'name');
+    
+    // Get active alerts
+    const activeAlerts = lowStockItems.filter(inv => 
+      inv.alerts.some(alert => alert.isActive)
+    );
+    
+    res.status(200).json({
+      message: "Low stock alerts retrieved successfully",
+      alerts: activeAlerts,
+      summary: {
+        lowStock: lowStockItems.filter(inv => inv.status === "low_stock").length,
+        outOfStock: lowStockItems.filter(inv => inv.status === "out_of_stock").length,
+        totalAlerts: activeAlerts.length
+      }
+    });
+    
+  } catch (error) {
+    console.log(`❌ Error getting low stock alerts: ${error}`);
+    res.status(500).json({ message: "Error retrieving alerts" });
+  }
+};
+
+// Generate inventory forecast
+export const generateInventoryForecast = async (req, res) => {
+  console.log("🔮 Generating inventory forecast");
+  const { itemId } = req.params;
+  const { days = 30 } = req.query;
+  
+  try {
+    const inventory = await Inventory.findOne({ item_id: itemId })
+      .populate('item_id', 'name');
+    
+    if (!inventory) {
+      return res.status(404).json({ message: "Inventory not found" });
+    }
+    
+    // Get historical sales data
+    const historicalOrders = await Order.find({
+      "items.item_id": itemId,
+      status: { $in: ["completed", "delivered"] },
+      createdAt: { $gte: new Date(Date.now() - 90 * 24 * 60 * 60 * 1000) } // Last 90 days
+    });
+    
+    // Calculate sales velocity
+    const totalSold = historicalOrders.reduce((sum, order) => {
+      const item = order.items.find(item => item.item_id.toString() === itemId);
+      return sum + (item ? item.quantity : 0);
+    }, 0);
+    
+    const salesVelocity = totalSold / 90; // Average daily sales
+    
+    // Generate forecast
+    const forecast = {
+      currentStock: inventory.currentStock,
+      availableStock: inventory.availableStock,
+      dailySalesVelocity: salesVelocity,
+      forecastPeriod: days,
+      predictedSales: salesVelocity * days,
+      stockoutDate: salesVelocity > 0 ? 
+        new Date(Date.now() + (inventory.availableStock / salesVelocity) * 24 * 60 * 60 * 1000) : null,
+      reorderRecommendation: {
+        shouldReorder: inventory.availableStock <= (salesVelocity * 14), // 2 weeks buffer
+        recommendedQuantity: Math.max(inventory.reorderQuantity, salesVelocity * 30), // 30 days supply
+        urgency: inventory.availableStock <= (salesVelocity * 7) ? "high" : 
+                inventory.availableStock <= (salesVelocity * 14) ? "medium" : "low"
+      }
+    };
+    
+    // Update inventory analytics
+    inventory.analytics.predictedDemand = forecast.predictedSales;
+    inventory.analytics.reorderDate = forecast.stockoutDate;
+    await inventory.save();
+    
+    res.status(200).json({
+      message: "Inventory forecast generated successfully",
+      forecast
+    });
+    
+  } catch (error) {
+    console.log(`❌ Error generating forecast: ${error}`);
+    res.status(500).json({ message: "Error generating forecast" });
+  }
+};
+
+// Helper function to check and create alerts
+const checkAndCreateAlerts = async (inventory) => {
+  console.log("🚨 Checking for inventory alerts");
+  
+  // Clear existing alerts
+  inventory.alerts = inventory.alerts.filter(alert => !alert.isActive);
+  
+  // Check for low stock
+  if (inventory.currentStock <= inventory.minStockLevel && inventory.currentStock > 0) {
+    inventory.alerts.push({
+      type: "low_stock",
+      message: `Stock is running low. Current: ${inventory.currentStock}, Minimum: ${inventory.minStockLevel}`,
+      isActive: true
+    });
+  }
+  
+  // Check for out of stock
+  if (inventory.currentStock === 0) {
+    inventory.alerts.push({
+      type: "out_of_stock",
+      message: "Item is out of stock",
+      isActive: true
+    });
+  }
+  
+  // Check for overstock
+  if (inventory.currentStock > inventory.maxStockLevel) {
+    inventory.alerts.push({
+      type: "overstock",
+      message: `Stock level exceeds maximum. Current: ${inventory.currentStock}, Maximum: ${inventory.maxStockLevel}`,
+      isActive: true
+    });
+  }
+  
+  // Check for reorder needed
+  const salesVelocity = inventory.analytics.averageSalesPerDay || 0;
+  if (salesVelocity > 0 && inventory.currentStock <= (salesVelocity * 14)) {
+    inventory.alerts.push({
+      type: "reorder_needed",
+      message: `Reorder recommended. Current stock will last approximately ${Math.floor(inventory.currentStock / salesVelocity)} days`,
+      isActive: true
+    });
+  }
+  
+  // Send notifications for critical alerts
+  if (inventory.alerts.some(alert => alert.type === "out_of_stock" || alert.type === "low_stock")) {
+    // Get item details for notification
+    const item = await Item.findById(inventory.item_id).populate('store_id');
+    if (item) {
+      await generateNotification(
+        "Inventory Alert",
+        `${item.name} is ${inventory.currentStock === 0 ? 'out of stock' : 'running low'}`,
+        item.store_id.seller_id,
+        "Seller"
+      );
+    }
+  }
+};
+
+// Automated inventory update when order is completed
+export const updateInventoryOnOrderComplete = async (orderId) => {
+  console.log("🔄 Updating inventory after order completion");
+  
+  try {
+    const order = await Order.findById(orderId);
+    if (!order) return;
+    
+    for (const orderItem of order.items) {
+      const inventory = await Inventory.findOne({ item_id: orderItem.item_id });
+      if (inventory) {
+        // Remove from reserved stock and add to sold analytics
+        inventory.reservedStock = Math.max(0, inventory.reservedStock - orderItem.quantity);
+        inventory.analytics.totalSold += orderItem.quantity;
+        inventory.analytics.totalRevenue += orderItem.totalPrice;
+        inventory.lastSale = new Date();
+        
+        // Update sales velocity
+        const daysSinceCreation = Math.max(1, 
+          (new Date() - inventory.createdAt) / (1000 * 60 * 60 * 24)
+        );
+        inventory.analytics.averageSalesPerDay = inventory.analytics.totalSold / daysSinceCreation;
+        
+        // Calculate turnover rate
+        if (inventory.currentStock > 0) {
+          inventory.analytics.turnoverRate = inventory.analytics.totalSold / inventory.currentStock;
+        }
+        
+        await inventory.save();
+        console.log(`📊 Updated inventory analytics for item: ${orderItem.item_id}`);
+      }
+    }
+  } catch (error) {
+    console.log(`❌ Error updating inventory on order complete: ${error}`);
+  }
+};
+
+
+================================================================================
+
+File: backend\controllers\order.controllers.js (starts at line 2262)
+
+import Order from "../models/order.model.js";
+import Item from "../models/items.model.js";
+import Buyer from "../models/buyer.model.js";
+import Seller from "../models/sellers.model.js";
+import Wallet from "../models/wallet.schema.js";
+import Transaction from "../models/transaction.schema.js";
+import Commission from "../models/commission.model.js";
+import Coupon from "../models/coupon.model.js";
+import Store from "../models/store.schema.js"; // Import Store model
+import { generateNotification } from "../utils/notification.maker.js";
+import { sendEmailNotification } from "../utils/email.notification.js";
+import { checkDeliveryEligibility } from "../controllers/shipping.controllers.js"; // Import the new helper
+import mongoose from "mongoose";
+
+// Create order from cart - this is the main checkout process
+export const createOrderFromCart = async (req, res) => {
+  console.log("🛒 Creating order from cart");
+  const buyerId = req.user.id;
+  const { 
+    shippingAddress, 
+    paymentMethod, 
+    couponCode,
+    notes,
+    selectedDeliveryOption // New field for selected delivery option
+  } = req.body;
+
+  // Start database session for transaction
+  const session = await mongoose.startSession();
+  session.startTransaction();
+
+  try {
+    // Step 1: Get buyer and validate
+    const buyer = await Buyer.findById(buyerId).populate('cart').session(session);
+    if (!buyer || buyer.cart.length === 0) {
+      await session.abortTransaction();
+      return res.status(400).json({ message: "Cart is empty" });
+    }
+
+    // Step 2: Group cart items by seller (marketplace requirement)
+    const itemsBySeller = {};
+    let totalCartValue = 0;
+
+    for (const itemId of buyer.cart) {
+      const item = await Item.findById(itemId).populate('store_id').session(session);
+      if (!item || item.quantity <= 0) {
+        await session.abortTransaction();
+        return res.status(400).json({ 
+          message: `Item ${item?.name || 'unknown'} is not available` 
+        });
+      }
+
+      const sellerId = item.store_id.seller_id.toString();
+      if (!itemsBySeller[sellerId]) {
+        itemsBySeller[sellerId] = [];
+      }
+      
+      itemsBySeller[sellerId].push({
+        item,
+        quantity: 1, // Default quantity, can be modified
+        unitPrice: item.price,
+        totalPrice: item.price
+      });
+      
+      totalCartValue += item.price;
+    }
+
+    // Step 3: Apply coupon if provided
+    let discount = 0;
+    let couponDoc = null;
+    if (couponCode) {
+      couponDoc = await Coupon.findOne({ 
+        code: couponCode.toUpperCase(),
+        isActive: true,
+        validFrom: { $lte: new Date() },
+        validUntil: { $gte: new Date() }
+      }).session(session);
+
+      if (couponDoc && totalCartValue >= couponDoc.minOrderAmount) {
+        if (couponDoc.type === "percentage") {
+          discount = (totalCartValue * couponDoc.value) / 100;
+          if (couponDoc.maxDiscountAmount) {
+            discount = Math.min(discount, couponDoc.maxDiscountAmount);
+          }
+        } else if (couponDoc.type === "fixed") {
+          discount = Math.min(couponDoc.value, totalCartValue);
+        }
+        
+        // Update coupon usage
+        couponDoc.usedCount += 1;
+        couponDoc.analytics.totalUsage += 1;
+        couponDoc.analytics.totalDiscount += discount;
+        await couponDoc.save({ session });
+      }
+    }
+
+    // Step 3.5: Validate delivery eligibility for each seller
+    for (const [sellerId, orderItems] of Object.entries(itemsBySeller)) {
+      const sellerStore = await Store.findOne({ seller_id: sellerId }).session(session);
+      if (!sellerStore) {
+        await session.abortTransaction();
+        return res.status(400).json({ message: `Seller store not found for seller ID: ${sellerId}` });
+      }
+
+      // If seller_delivery is chosen, check eligibility
+      if (selectedDeliveryOption.type === "seller_delivery") {
+        const deliveryCheck = await checkDeliveryEligibility(sellerStore._id, shippingAddress);
+        if (!deliveryCheck.eligible) {
+          await session.abortTransaction();
+          return res.status(400).json({ message: `Delivery not available from seller ${sellerStore.name} to the specified address: ${deliveryCheck.message}` });
+        }
+      }
+    }
+
+    // Step 4: Create separate orders for each seller
+    const createdOrders = [];
+    
+    for (const [sellerId, orderItems] of Object.entries(itemsBySeller)) {
+      // Calculate order totals
+      const subtotal = orderItems.reduce((sum, item) => sum + item.totalPrice, 0);
+      
+      // Get commission rate for this seller/category
+      const commission = await Commission.findOne({ 
+        isActive: true,
+        $or: [
+          { sellers: sellerId },
+          { sellers: { $size: 0 } } // Default commission
+        ]
+      }).session(session);
+      
+      const platformFee = commission ? 
+        (commission.type === "percentage" ? (subtotal * commission.rate) / 100 : commission.rate) : 
+        subtotal * 0.05; // Default 5% commission
+      
+      // Calculate proportional discount for this seller
+      const sellerDiscount = (subtotal / totalCartValue) * discount;
+      const tax = subtotal * 0.18; // 18% VAT in Rwanda
+      
+      // Calculate shipping cost based on selected delivery option
+      let orderShippingCost = 0;
+      if (selectedDeliveryOption.type === "seller_delivery") {
+        const sellerStore = await Store.findOne({ seller_id: sellerId }).session(session);
+        orderShippingCost = sellerStore?.deliveryCoverage?.deliveryFee || 0;
+      } else if (selectedDeliveryOption.type === "third_party_courier") {
+        orderShippingCost = selectedDeliveryOption.cost; // Cost provided by frontend for 3rd party
+      }
+      
+      const totalAmount = subtotal + platformFee + tax + orderShippingCost - sellerDiscount;
+
+      // Create order
+      const order = new Order({
+        buyer_id: buyerId,
+        seller_id: sellerId,
+        items: orderItems.map(item => ({
+          item_id: item.item._id,
+          quantity: item.quantity,
+          unitPrice: item.unitPrice,
+          totalPrice: item.totalPrice
+        })),
+        subtotal,
+        platformFee,
+        tax,
+        discount: sellerDiscount,
+        totalAmount,
+        paymentMethod,
+        shippingAddress,
+        selectedDeliveryOption: {
+          type: selectedDeliveryOption.type,
+          providerName: selectedDeliveryOption.providerName,
+          cost: orderShippingCost
+        },
+        shippingCost: orderShippingCost, // Store calculated shipping cost
+        notes,
+        economicMetrics: {
+          sellerRevenue: subtotal - platformFee,
+          platformRevenue: platformFee,
+          taxRevenue: tax,
+          shippingCost: orderShippingCost // Add shipping cost to economic metrics
+        }
+      });
+
+      await order.save({ session });
+      createdOrders.push(order);
+
+      // Update item quantities and status
+      for (const orderItem of orderItems) {
+        await Item.findByIdAndUpdate(
+          orderItem.item._id,
+          { 
+            $inc: { quantity: -orderItem.quantity },
+            status: "sold" // Or "reserved" if you want a more granular inventory
+          },
+          { session }
+        );
+      }
+
+      // Create transaction record
+      await Transaction.create([{
+        type: "purchase",
+        from_user_id: buyerId,
+        to_user_id: sellerId,
+        quantity: orderItems.reduce((sum, item) => sum + item.quantity, 0),
+        totalPrice: totalAmount,
+        status: "pending"
+      }], { session });
+
+      // Notify seller
+      await generateNotification(
+        "New Order",
+        `You have received a new order #${order.orderNumber}`,
+        sellerId,
+        "Seller"
+      );
+
+      console.log(`📦 Order created: ${order.orderNumber} for seller: ${sellerId}`);
+    }
+
+    // Step 5: Process payment
+    if (paymentMethod === "wallet") {
+      const wallet = await Wallet.findById(buyer.wallet_id).session(session);
+      const totalOrderAmount = createdOrders.reduce((sum, order) => sum + order.totalAmount, 0);
+      
+      if (wallet.balance < totalOrderAmount) {
+        await session.abortTransaction();
+        return res.status(400).json({ message: "Insufficient wallet balance" });
+      }
+
+      // Deduct from buyer wallet
+      wallet.balance -= totalOrderAmount;
+      await wallet.save({ session });
+
+      // Update order payment status
+      for (const order of createdOrders) {
+        order.paymentStatus = "completed";
+        order.status = "confirmed";
+        order.confirmedAt = new Date();
+        await order.save({ session });
+      }
+    }
+
+    // Step 6: Clear buyer's cart
+    buyer.cart = [];
+    await buyer.save({ session });
+
+    // Commit transaction
+    await session.commitTransaction();
+
+    // Send confirmation email
+    await sendEmailNotification(
+      "Order Confirmation",
+      `Your order(s) have been confirmed. Order numbers: ${createdOrders.map(o => o.orderNumber).join(', ')}`,
+      buyer.email
+    );
+
+    res.status(201).json({
+      message: "Orders created successfully",
+      orders: createdOrders,
+      totalAmount: createdOrders.reduce((sum, order) => sum + order.totalAmount, 0)
+    });
+
+  } catch (error) {
+    await session.abortTransaction();
+    console.log(`❌ Error creating order: ${error}`);
+    res.status(500).json({ message: "Error creating order", error: error.message });
+  } finally {
+    session.endSession();
+  }
+};
+
+// Get buyer's order history
+export const getBuyerOrders = async (req, res) => {
+  console.log("📋 Getting buyer orders");
+  const buyerId = req.user.id;
+  const { page = 1, limit = 10, status } = req.query;
+
+  try {
+    const query = { buyer_id: buyerId };
+    if (status) query.status = status;
+
+    const orders = await Order.find(query)
+      .populate('seller_id', 'name fullname')
+      .populate('items.item_id', 'name price')
+      .sort({ createdAt: -1 })
+      .limit(limit * 1)
+      .skip((page - 1) * limit);
+
+    const totalOrders = await Order.countDocuments(query);
+
+    res.status(200).json({
+      message: "Orders retrieved successfully",
+      orders,
+      pagination: {
+        currentPage: page,
+        totalPages: Math.ceil(totalOrders / limit),
+        totalOrders
+      }
+    });
+
+  } catch (error) {
+    console.log(`❌ Error getting buyer orders: ${error}`);
+    res.status(500).json({ message: "Error retrieving orders" });
+  }
+};
+
+// Get seller's orders
+export const getSellerOrders = async (req, res) => {
+  console.log("🏪 Getting seller orders");
+  const sellerId = req.seller.id;
+  const { page = 1, limit = 10, status } = req.query;
+
+  try {
+    const query = { seller_id: sellerId };
+    if (status) query.status = status;
+
+    const orders = await Order.find(query)
+      .populate('buyer_id', 'name email')
+      .populate('items.item_id', 'name price')
+      .sort({ createdAt: -1 })
+      .limit(limit * 1)
+      .skip((page - 1) * limit);
+
+    const totalOrders = await Order.countDocuments(query);
+
+    // Calculate seller analytics
+    const analytics = await Order.aggregate([
+      { $match: { seller_id: new mongoose.Types.ObjectId(sellerId) } },
+      {
+        $group: {
+          _id: null,
+          totalOrders: { $sum: 1 },
+          totalRevenue: { $sum: "$economicMetrics.sellerRevenue" },
+          averageOrderValue: { $avg: "$totalAmount" },
+          pendingOrders: {
+            $sum: { $cond: [{ $eq: ["$status", "pending"] }, 1, 0] }
+          },
+          completedOrders: {
+            $sum: { $cond: [{ $eq: ["$status", "completed"] }, 1, 0] }
+          }
+        }
+      }
+    ]);
+
+    res.status(200).json({
+      message: "Orders retrieved successfully",
+      orders,
+      analytics: analytics[0] || {},
+      pagination: {
+        currentPage: page,
+        totalPages: Math.ceil(totalOrders / limit),
+        totalOrders
+      }
+    });
+
+  } catch (error) {
+    console.log(`❌ Error getting seller orders: ${error}`);
+    res.status(500).json({ message: "Error retrieving orders" });
+  }
+};
+
+// Update order status (seller action)
+export const updateOrderStatus = async (req, res) => {
+  console.log("🔄 Updating order status");
+  const { orderId } = req.params;
+  const { status, trackingNumber, notes } = req.body;
+  const sellerId = req.seller.id;
+
+  try {
+    const order = await Order.findOne({ 
+      _id: orderId, 
+      seller_id: sellerId 
+    }).populate('buyer_id');
+
+    if (!order) {
+      return res.status(404).json({ message: "Order not found" });
+    }
+
+    // Validate status transition
+    const validTransitions = {
+      "pending": ["confirmed", "cancelled"],
+      "confirmed": ["processing", "cancelled"],
+      "processing": ["shipped", "cancelled"],
+      "shipped": ["delivered"],
+      "delivered": ["completed"]
+    };
+
+    if (!validTransitions[order.status]?.includes(status)) {
+      return res.status(400).json({ 
+        message: `Cannot change status from ${order.status} to ${status}` 
+      });
+    }
+
+    // Update order
+    order.status = status;
+    if (trackingNumber) order.trackingNumber = trackingNumber;
+    if (notes) order.notes = notes;
+
+    // Set timestamps based on status
+    switch (status) {
+      case "confirmed":
+        order.confirmedAt = new Date();
+        break;
+      case "shipped":
+        order.shippedAt = new Date();
+        break;
+      case "delivered":
+        order.deliveredAt = new Date();
+        break;
+      case "completed":
+        order.completedAt = new Date();
+        // Transfer money to seller wallet
+        await transferOrderPaymentToSeller(order);
+        break;
+    }
+
+    await order.save();
+
+    // Notify buyer
+    await generateNotification(
+      "Order Update",
+      `Your order #${order.orderNumber} status has been updated to ${status}`,
+      order.buyer_id._id,
+      "Buyer"
+    );
+
+    // Send email notification
+    await sendEmailNotification(
+      "Order Status Update",
+      `Your order #${order.orderNumber} is now ${status}`,
+      order.buyer_id.email
+    );
+
+    res.status(200).json({
+      message: "Order status updated successfully",
+      order
+    });
+
+  } catch (error) {
+    console.log(`❌ Error updating order status: ${error}`);
+    res.status(500).json({ message: "Error updating order status" });
+  }
+};
+
+// Helper function to transfer payment to seller
+const transferOrderPaymentToSeller = async (order) => {
+  try {
+    const seller = await Seller.findById(order.seller_id);
+    const sellerWallet = await Wallet.findOne({ 
+      owner: seller._id, 
+      ownerModel: "Seller" 
+    });
+
+    if (sellerWallet) {
+      sellerWallet.balance += order.economicMetrics.sellerRevenue;
+      await sellerWallet.save();
+
+      // Create transaction record
+      await Transaction.create({
+        type: "transfer",
+        from_user_id: null, // Platform
+        to_user_id: seller._id,
+        totalPrice: order.economicMetrics.sellerRevenue,
+        status: "completed"
+      });
+
+      console.log(`💰 Transferred ${order.economicMetrics.sellerRevenue} to seller ${seller.name}`);
+    }
+  } catch (error) {
+    console.log(`❌ Error transferring payment to seller: ${error}`);
+  }
+};
+
+// Cancel order
+export const cancelOrder = async (req, res) => {
+  console.log("❌ Cancelling order");
+  const { orderId } = req.params;
+  const { reason } = req.body;
+  const userId = req.user?.id || req.seller?.id;
+
+  try {
+    const order = await Order.findById(orderId);
+    if (!order) {
+      return res.status(404).json({ message: "Order not found" });
+    }
+
+    // Check if user can cancel this order
+    const canCancel = order.buyer_id.toString() === userId || 
+                     order.seller_id.toString() === userId;
+    
+    if (!canCancel) {
+      return res.status(403).json({ message: "Not authorized to cancel this order" });
+    }
+
+    // Check if order can be cancelled
+    if (!["pending", "confirmed", "processing"].includes(order.status)) {
+      return res.status(400).json({ 
+        message: "Order cannot be cancelled at this stage" 
+      });
+    }
+
+    order.status = "cancelled";
+    order.cancelReason = reason;
+    await order.save();
+
+    // Refund if payment was completed
+    if (order.paymentStatus === "completed") {
+      await refundOrderPayment(order);
+    }
+
+    // Restore item quantities
+    for (const item of order.items) {
+      await Item.findByIdAndUpdate(item.item_id, {
+        $inc: { quantity: item.quantity },
+        status: "available"
+      });
+    }
+
+    res.status(200).json({
+      message: "Order cancelled successfully",
+      order
+    });
+
+  } catch (error) {
+    console.log(`❌ Error cancelling order: ${error}`);
+    res.status(500).json({ message: "Error cancelling order" });
+  }
+};
+
+// Helper function to refund order payment
+const refundOrderPayment = async (order) => {
+  try {
+    const buyer = await Buyer.findById(order.buyer_id);
+    const buyerWallet = await Wallet.findById(buyer.wallet_id);
+
+    if (buyerWallet) {
+      buyerWallet.balance += order.totalAmount;
+      await buyerWallet.save();
+
+      // Create refund transaction
+      await Transaction.create({
+        type: "refund",
+        from_user_id: null, // Platform
+        to_user_id: buyer._id,
+        totalPrice: order.totalAmount,
+        status: "completed"
+      });
+
+      order.paymentStatus = "refunded";
+      await order.save();
+
+      console.log(`💸 Refunded ${order.totalAmount} to buyer ${buyer.name}`);
+    }
+  } catch (error) {
+    console.log(`❌ Error processing refund: ${error}`);
+  }
+};
+
+
+================================================================================
+
+File: backend\controllers\seller.controllers.js (starts at line 2816)
+
+import { giveTokenAndCookieForSeller } from "../configs/token.config.seller.js";
+import bcrypt from "bcryptjs";
+import Seller from "../models/sellers.model.js";
+import Store from "../models/store.schema.js";
+import Item from "../models/items.model.js";
+import Price from "../models/price.schema.js";
+
+// Register
+export const register = async (req, res) => {
+  const { email, name, password, fullname, phone } = req.body;
+  try {
+    const emailExist = await Seller.findOne({ email });
+    if (emailExist) {
+      return res.status(400).json({ message: "Email already exists" });
+    }
+    const nameExist = await Seller.findOne({ name });
+    if (nameExist) {
+      return res.status(400).json({ message: "Username already exists" });
+    }
+    const newSeller = new Seller({
+      name,
+      password,
+      email,
+      fullname,
+      phone,
+    });
+    // Save seller first to get _id
+    await newSeller.save();
+
+    const store = await Store.create({
+      name: `${newSeller.name}'s Store`,
+      seller_id: newSeller._id,
+    });
+
+    newSeller.store = store._id;
+    await newSeller.save();
+
+    giveTokenAndCookieForSeller(res, newSeller);
+
+    const SellerNoPassword = newSeller.toObject();
+    delete SellerNoPassword.password;
+    const storeObj = store.toObject();
+
+    res.status(201).json({
+      message: "seller created successfully",
+      seller: SellerNoPassword,
+      store: storeObj,
+    });
+  } catch (error) {
+    console.error("Error during registration:", error);
+    res.status(500).json({ message: "Internal server error during register" });
+  }
+};
+
+// Login
+export const login = async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const seller = await Seller.findOne({ email }).select("+password");
+    if (!seller) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    const isvalidPassword = await bcrypt.compare(password, seller.password);
+    if (!isvalidPassword) {
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+    giveTokenAndCookieForSeller(res, seller);
+
+    const SellerNoPassword = seller.toObject();
+    delete SellerNoPassword.password;
+
+    res.status(200).json({
+      message: "Successfully logged in",
+      seller: SellerNoPassword,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Internal server error during login" });
+  }
+};
+
+// Logout
+export const logout = async (req, res) => {
+  try {
+    res.clearCookie("token");
+    res.status(200).json({ message: "Logged out successfully" });
+  } catch (error) {
+    console.log(error);
+    res.status(403).json({ message: error });
+  }
+};
+
+// Get Profile
+export const getUserProfile = async (req, res) => {
+  try {
+    const sellerId = req.seller.id;
+    if (!sellerId) {
+      return res.status(400).json({ error: "Missing user ID in token" });
+    }
+    const seller = await Seller.findById(sellerId).select("-password");
+    if (!seller) {
+      return res.status(404).json({ error: "User not found in DB" });
+    }
+    res.status(200).json(seller);
+  } catch (err) {
+    console.error("getUserProfile Error:", err);
+    res.status(500).json({ error: "Server error", message: err.message });
+  }
+};
+
+// Add Item to Store
+export const addItemToStore = async (req, res) => {
+  const { storeId } = req.params;
+  const { name, quantity, price, description } = req.body;
+  try {
+    const priceDoc = await Price.create({ reservedPrice: price });
+    const store = await Store.findById(storeId);
+    if (!store || store.seller_id.toString() !== req.seller.id) {
+      return res.status(403).json({ message: "Not authorized to add items" });
+    }
+    const newItem = new Item({
+      name,
+      quantity,
+      price: priceDoc._id,
+      description,
+      store_id: storeId,
+    });
+    await newItem.save();
+    res.status(201).json({
+      message: "Item added to store successfully",
+      item: newItem,
+    });
+  } catch (error) {
+    console.error("Error adding item:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+// Get Items of Store
+export const getStoreItems = async (req, res) => {
+  try {
+    const { storeId } = req.params;
+    const store = await Store.findById(storeId);
+    if (!store || store.seller_id.toString() !== req.seller.id) {
+      return res.status(403).json({ message: "Not authorized to view items" });
+    }
+    const items = await Item.find({ store_id: storeId }).populate("price");
+    res.status(200).json({ items });
+  } catch (error) {
+    console.error("Error fetching store items:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+// Update Item
+export const updateItem = async (req, res) => {
+  try {
+    const { itemId } = req.params;
+    const updatedItem = await Item.findByIdAndUpdate(itemId, req.body, { new: true });
+    if (!updatedItem) {
+      return res.status(404).json({ message: "Item not found" });
+    }
+    res.status(200).json({ message: "Item updated successfully", item: updatedItem });
+  } catch (error) {
+    console.error("Error updating item:", error);
+    res.status(500).json({ message: "Error updating item" });
+  }
+};
+
+// Delete Item
+export const deleteItem = async (req, res) => {
+  try {
+    const { itemId } = req.params;
+    const item = await Item.findById(itemId);
+    if (!item) return res.status(404).json({ message: "Item not found" });
+
+    const store = await Store.findById(item.store_id);
+    if (!store || store.seller_id.toString() !== req.seller.id) {
+      return res.status(403).json({ message: "Not authorized to delete this item" });
+    }
+    await Item.findByIdAndDelete(itemId);
+    res.status(200).json({ message: "Item deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting item:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+
+
+================================================================================
+
+File: backend\controllers\shipping.controllers.js (starts at line 3004)
+
+import Order from "../models/order.model.js";
+import Store from "../models/store.schema.js"; // Import Store model
+import Location from "../models/location.model.js"; // Import Location model
+import { generateNotification } from "../utils/notification.maker.js";
+import { sendEmailNotification } from "../utils/email.notification.js";
+import mongoose from "mongoose";
+
+// Helper function to check if a buyer's address is within a seller's delivery coverage
+const checkDeliveryEligibility = async (sellerStoreId, buyerAddress) => {
+  console.log("🗺️ Checking delivery eligibility");
+  try {
+    const store = await Store.findById(sellerStoreId).populate('location.province location.district location.sector location.cell');
+    if (!store) {
+      console.log("Store not found for delivery eligibility check.");
+      return { eligible: false, message: "Seller's store not found." };
+    }
+
+    const storeLocation = store.location;
+    const deliveryCoverage = store.deliveryCoverage;
+
+    // Fetch full paths for comparison
+    const buyerCell = await Location.findById(buyerAddress.cell);
+    const buyerSector = await Location.findById(buyerAddress.sector);
+    const buyerDistrict = await Location.findById(buyerAddress.district);
+    const buyerProvince = await Location.findById(buyerAddress.province);
+
+    if (!buyerCell || !buyerSector || !buyerDistrict || !buyerProvince) {
+      console.log("Invalid buyer address components.");
+      return { eligible: false, message: "Invalid buyer address." };
+    }
+
+    // Determine eligibility based on coverage type
+    switch (deliveryCoverage.type) {
+      case "national":
+        return { eligible: true, message: "National delivery." };
+
+      case "specific_provinces":
+        const specificProvinces = deliveryCoverage.value.map(id => id.toString());
+        if (specificProvinces.includes(buyerAddress.province.toString())) {
+          return { eligible: true, message: "Within specific provinces." };
+        }
+        break;
+
+      case "specific_districts":
+        const specificDistricts = deliveryCoverage.value.map(id => id.toString());
+        if (specificDistricts.includes(buyerAddress.district.toString())) {
+          return { eligible: true, message: "Within specific districts." };
+        }
+        break;
+
+      case "specific_sectors":
+        const specificSectors = deliveryCoverage.value.map(id => id.toString());
+        if (specificSectors.includes(buyerAddress.sector.toString())) {
+          return { eligible: true, message: "Within specific sectors." };
+        }
+        break;
+
+      case "specific_cells":
+        const specificCells = deliveryCoverage.value.map(id => id.toString());
+        if (specificCells.includes(buyerAddress.cell.toString())) {
+          return { eligible: true, message: "Within specific cells." };
+        }
+        break;
+
+      case "radius_cells":
+        // This requires traversing the location hierarchy or using coordinates
+        // For simplicity, let's assume a "radius" means within the same district for now,
+        // or a direct comparison if cells are directly related in a flat list.
+        // A more complex implementation would involve fetching all cells within N hops from store's cell.
+        // For now, let's check if it's within the same sector for a small radius.
+        const radius = deliveryCoverage.value || 1; // Default to 1 cell radius (i.e., same cell)
+
+        // Simple check: if radius is 0 or 1, must be same cell.
+        if (radius <= 1 && storeLocation.cell.toString() === buyerAddress.cell.toString()) {
+          return { eligible: true, message: "Within same cell radius." };
+        }
+        // More complex logic for larger radius would involve fetching neighbors
+        // For now, if it's within the same sector, assume it's covered by a small radius
+        if (storeLocation.sector.toString() === buyerAddress.sector.toString()) {
+          return { eligible: true, message: "Within same sector (simulated radius)." };
+        }
+        break;
+
+      default:
+        console.log(`Unknown delivery coverage type: ${deliveryCoverage.type}`);
+        return { eligible: false, message: "Invalid delivery coverage configuration." };
+    }
+
+    return { eligible: false, message: "Outside seller's delivery coverage." };
+
+  } catch (error) {
+    console.error(`Error in checkDeliveryEligibility: ${error}`);
+    return { eligible: false, message: "Error checking delivery eligibility." };
+  }
+};
+
+// Seller updates delivery status for an order (e.g., "preparing", "out for delivery", "delivered")
+export const updateOrderDeliveryStatus = async (req, res) => {
+  console.log("🚚 Updating order delivery status");
+  const { orderId } = req.params;
+  const { 
+    status, // e.g., "processing", "shipped", "delivered"
+    deliveryNotes, 
+    actualDeliveryDate 
+  } = req.body;
+  const sellerId = req.seller.id; // From seller authentication middleware
+
+  try {
+    // Step 1: Find the order and ensure it belongs to the seller
+    const order = await Order.findOne({ _id: orderId, seller_id: sellerId }).populate('buyer_id');
+
+    if (!order) {
+      return res.status(404).json({ message: "Order not found or unauthorized" });
+    }
+
+    // Step 2: Validate status transition
+    const validTransitions = {
+      "confirmed": ["processing", "cancelled"],
+      "processing": ["shipped", "cancelled"],
+      "shipped": ["delivered"],
+      "delivered": ["completed"] // Buyer confirms delivery, then seller marks completed
+    };
+
+    if (!validTransitions[order.status]?.includes(status)) {
+      return res.status(400).json({ 
+        message: `Cannot change status from ${order.status} to ${status}` 
+      });
+    }
+
+    // Step 3: Update order details
+    order.status = status;
+    if (deliveryNotes) order.notes = deliveryNotes;
+    if (actualDeliveryDate) order.actualDelivery = new Date(actualDeliveryDate);
+    
+    // Set timestamps based on status
+    switch (status) {
+      case "shipped":
+        order.shippedAt = new Date();
+        break;
+      case "delivered":
+        order.deliveredAt = new Date();
+        break;
+      case "completed":
+        order.completedAt = new Date();
+        // Transfer money to seller wallet (handled by order.controllers.js helper)
+        // This is typically triggered by buyer confirmation or automated after delivery
+        break;
+    }
+
+    await order.save();
+
+    // Step 4: Notify buyer about delivery update
+    await generateNotification(
+      "Order Delivery Update",
+      `Your order #${order.orderNumber} is now ${status}.`,
+      order.buyer_id._id,
+      "Buyer"
+    );
+
+    await sendEmailNotification(
+      "Your Order Status Update",
+      `Your order #${order.orderNumber} is now ${status}.`,
+      order.buyer_id.email
+    );
+
+    res.status(200).json({
+      message: "Order delivery status updated successfully",
+      order
+    });
+
+  } catch (error) {
+    console.log(`❌ Error updating delivery status: ${error}`);
+    res.status(500).json({ message: "Error updating delivery status", error: error.message });
+  }
+};
+
+// Buyer confirms delivery of an order
+export const confirmOrderDeliveryByBuyer = async (req, res) => {
+  console.log("✅ Buyer confirming order delivery");
+  const { orderId } = req.params;
+  const buyerId = req.user.id; // From buyer authentication middleware
+
+  try {
+    // Step 1: Find the order and ensure it belongs to the buyer
+    const order = await Order.findOne({ _id: orderId, buyer_id: buyerId });
+
+    if (!order) {
+      return res.status(404).json({ message: "Order not found or unauthorized" });
+    }
+
+    // Step 2: Validate order status
+    if (order.status !== "shipped") {
+      return res.status(400).json({ message: "Order must be in 'shipped' status to confirm delivery" });
+    }
+
+    // Step 3: Update order status to delivered and then completed
+    order.status = "delivered";
+    order.deliveredAt = new Date();
+    await order.save();
+
+    // Automatically mark as completed after delivery confirmation
+    order.status = "completed";
+    order.completedAt = new Date();
+    await order.save();
+
+    // Step 4: Trigger payment transfer to seller (handled by order.controllers.js helper)
+    // This is now handled by the `transferOrderPaymentToSeller` helper called when order status becomes 'completed'
+    // in order.controllers.js
+        
+    // Step 5: Notify seller about delivery confirmation
+    await generateNotification(
+      "Order Delivered!",
+      `Order #${order.orderNumber} has been confirmed as delivered by the buyer.`,
+      order.seller_id,
+      "Seller"
+    );
+
+    res.status(200).json({
+      message: "Order delivery confirmed successfully. Order marked as completed.",
+      order
+    });
+
+  } catch (error) {
+    console.log(`❌ Error confirming delivery: ${error}`);
+    res.status(500).json({ message: "Error confirming delivery", error: error.message });
+  }
+};
+
+// Export the helper for use in order creation
+export { checkDeliveryEligibility };
+
+
+================================================================================
+
+File: backend\controllers\transact.controllers.js (starts at line 3234)
+
+/**
+ * Redis throttling per buyer to avoid spamming multiple requests
+ *  WebSocket push notifications for real-time seller alerts
+ * Activity logs to track transaction attempts and triggers
+*/
+
+// transactionService.js
+import createNotification from "../utils/notification.maker.js";
+import Transaction from "../models/Transaction.js";
+import Item from "../models/Item.js";
+import Seller from "../models/Seller.js";
+
+export async function createTransaction({
+  item_id,
+  buyer_id,
+  seller_id,
+  quantity,
+  totalPrice,
+  caller_id,
+  caller_role // from auth context
+}) {
+  try {
+    // ✅ Validate payload
+    if (!item_id || !seller_id || !buyer_id || quantity <= 0 || totalPrice <= 0) {
+      throw new Error("Invalid transaction data");
+    }
+
+    // ✅ Authorization
+    if (caller_role !== "buyer" || caller_id !== buyer_id) {
+      throw new Error("Unauthorized transaction attempt");
+    }
+
+    // ✅ Validate seller & item
+    const seller = await Seller.findById(seller_id);
+    const item = await Item.findOne({ _id: item_id, seller_id });
+
+    if (!seller || !item) {
+      throw new Error("Seller or item not found");
+    }
+
+    // ✅ Create transaction
+    const transaction = await Transaction.create({
+      item_id,
+      buyer_id,
+      seller_id,
+      quantity,
+      totalPrice
+    });
+
+    // ✅ Notify seller
+    await createNotification({
+      title: "New Transaction",
+      message: "A new transaction has been requested",
+      recipientId: seller_id,
+      recipientModel: "Seller"
+    });
+
+    return { success: true, message: "Transaction created", transaction };
+
+  } catch (error) {
+    console.error("Transaction creation failed:", error.message);
+    return { success: false, error: error.message };
+  }
+}
+
+
+
+================================================================================
+
+File: backend\models\analytics.model.js (starts at line 3299)
+
+import mongoose from "mongoose";
+
+// Economic analytics aggregation model for real-time business intelligence
+const analyticsSchema = new mongoose.Schema(
+  {
+    // Time period for this analytics record
+    period: {
+      type: String,
+      enum: ["daily", "weekly", "monthly", "quarterly", "yearly"],
+      required: true
+    },
+    date: { 
+      type: Date, 
+      required: true 
+    },
+    
+    // Overall marketplace metrics
+    marketplace: {
+      // Revenue metrics
+      totalRevenue: { type: Number, default: 0 },
+      platformRevenue: { type: Number, default: 0 },
+      sellerRevenue: { type: Number, default: 0 },
+      taxRevenue: { type: Number, default: 0 },
+      
+      // Transaction metrics
+      totalOrders: { type: Number, default: 0 },
+      completedOrders: { type: Number, default: 0 },
+      cancelledOrders: { type: Number, default: 0 },
+      averageOrderValue: { type: Number, default: 0 },
+      
+      // User metrics
+      newBuyers: { type: Number, default: 0 },
+      newSellers: { type: Number, default: 0 },
+      activeBuyers: { type: Number, default: 0 },
+      activeSellers: { type: Number, default: 0 },
+      
+      // Product metrics
+      totalProducts: { type: Number, default: 0 },
+      newProducts: { type: Number, default: 0 },
+      soldProducts: { type: Number, default: 0 },
+      
+      // Financial health indicators
+      conversionRate: { type: Number, default: 0 }, // Orders/Visitors
+      customerAcquisitionCost: { type: Number, default: 0 },
+      customerLifetimeValue: { type: Number, default: 0 },
+      
+      // Economic indicators
+      economicGrowthRate: { type: Number, default: 0 },
+      marketplaceVelocity: { type: Number, default: 0 }, // Speed of transactions
+      liquidityRatio: { type: Number, default: 0 } // Available funds/Total transactions
+    },
+    
+    // Category-wise breakdown
+    categoryMetrics: [{
+      category_id: { type: mongoose.Schema.Types.ObjectId, ref: "Category" },
+      categoryName: String,
+      revenue: { type: Number, default: 0 },
+      orders: { type: Number, default: 0 },
+      products: { type: Number, default: 0 },
+      averagePrice: { type: Number, default: 0 },
+      marketShare: { type: Number, default: 0 } // Percentage of total marketplace
+    }],
+    
+    // Top performers
+    topSellers: [{
+      seller_id: { type: mongoose.Schema.Types.ObjectId, ref: "Seller" },
+      sellerName: String,
+      revenue: { type: Number, default: 0 },
+      orders: { type: Number, default: 0 },
+      rating: { type: Number, default: 0 }
+    }],
+    
+    topProducts: [{
+      item_id: { type: mongoose.Schema.Types.ObjectId, ref: "Item" },
+      productName: String,
+      revenue: { type: Number, default: 0 },
+      unitsSold: { type: Number, default: 0 },
+      rating: { type: Number, default: 0 }
+    }],
+    
+    // Geographic distribution (if applicable)
+    geographicMetrics: [{
+      region: String,
+      revenue: { type: Number, default: 0 },
+      orders: { type: Number, default: 0 },
+      buyers: { type: Number, default: 0 },
+      sellers: { type: Number, default: 0 }
+    }],
+    
+    // Payment method analytics
+    paymentMetrics: [{
+      method: String,
+      usage: { type: Number, default: 0 },
+      revenue: { type: Number, default: 0 },
+      successRate: { type: Number, default: 0 }
+    }],
+    
+    // Economic health scores (0-100)
+    healthScores: {
+      overall: { type: Number, default: 0 },
+      liquidity: { type: Number, default: 0 },
+      growth: { type: Number, default: 0 },
+      stability: { type: Number, default: 0 },
+      competition: { type: Number, default: 0 }
+    }
+  },
+  { 
+    timestamps: true,
+    indexes: [
+      { period: 1, date: -1 },
+      { "marketplace.totalRevenue": -1 },
+      { date: -1 }
+    ]
+  }
+);
+
+const Analytics = mongoose.model("Analytics", analyticsSchema);
+export default Analytics;
+
+
+================================================================================
+
+File: backend\models\buyer.model.js (starts at line 3417)
+
+import mongoose from "mongoose";
+import bcrypt from "bcryptjs";
+
+const buyerSchema = new mongoose.Schema(
+  {
+    name: { type: String, required: true },
+    email: { type: String, required: true },
+    // transaction:[ { type: mongoose.Schema.types.ObjectId, ref: 'Transaction', default: [], }],
+    phone: { type: String, minLength: 10, maxLength: 15 },
+    password: { type: String, minLength: 6, required: true },
+    wallet_id: { type: mongoose.Schema.Types.ObjectId, ref: "Wallet" },
+    cart: [{ type: mongoose.Schema.Types.ObjectId, ref: "Item" }],
+  },
+  { timestamps: true }
+);
+
+// password hashing or encrypting
+
+buyerSchema.pre("save", async function (next) {
+  if (this.isModified("password")) {
+    const hashedPassword = await bcrypt.hash(this.password, 10);
+    this.password = hashedPassword;
+  }
+  next();
+  //what if it is not modified
+});
+
+// buyerSchema.methods.comparePassword = async function (password) {
+//     return await bcrypt.compare(password, this.password)
+
+// }
+
+//password compare
+//so i do not have to use bcrypt.compare in the controller
+
+const Buyer = mongoose.model("Buyer", buyerSchema);
+
+export default Buyer;
+// i will add other things like followers
+
+
+
+================================================================================
+
+File: backend\models\category.model.js (starts at line 3457)
+
+import mongoose from "mongoose";
+
+const categorySchema = new mongoose.Schema(
+  {
+    name: { 
+      type: String, 
+      required: true, 
+      trim: true,
+      unique: true 
+    },
+    slug: { 
+      type: String, 
+      required: true, 
+      unique: true,
+      lowercase: true 
+    },
+    description: { 
+      type: String, 
+      trim: true 
+    },
+    
+    // Category hierarchy - for subcategories
+    parentCategory: { 
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: "Category",
+      default: null 
+    },
+    
+    // Category image for display
+    image: String,
+    
+    // SEO and display
+    metaTitle: String,
+    metaDescription: String,
+    
+    // Category status
+    isActive: { 
+      type: Boolean, 
+      default: true 
+    },
+    
+    // Economic analytics for categories
+    analytics: {
+      totalProducts: { type: Number, default: 0 },
+      totalSales: { type: Number, default: 0 },
+      totalRevenue: { type: Number, default: 0 },
+      averagePrice: { type: Number, default: 0 },
+      conversionRate: { type: Number, default: 0 }
+    },
+    
+    // Display order for frontend
+    sortOrder: { 
+      type: Number, 
+      default: 0 
+    }
+  },
+  { 
+    timestamps: true 
+  }
+);
+
+// Generate slug from name before saving
+categorySchema.pre("save", function (next) {
+  if (this.isModified("name")) {
+    this.slug = this.name
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '');
+    console.log(`📂 Category slug generated: ${this.slug}`);
+  }
+  next();
+});
+
+const Category = mongoose.model("Category", categorySchema);
+export default Category;
+
+
+================================================================================
+
+File: backend\models\commission.model.js (starts at line 3532)
+
+import mongoose from "mongoose";
+
+const commissionSchema = new mongoose.Schema(
+  {
+    // Commission structure
+    name: { 
+      type: String, 
+      required: true,
+      trim: true 
+    },
+    description: String,
+    
+    // Commission type
+    type: {
+      type: String,
+      enum: ["percentage", "fixed", "tiered"],
+      required: true
+    },
+    
+    // Commission rates
+    rate: { 
+      type: Number, 
+      required: true 
+    }, // Percentage (0-100) or fixed amount
+    
+    // Tiered commission structure
+    tiers: [{
+      minAmount: { type: Number, required: true },
+      maxAmount: Number,
+      rate: { type: Number, required: true }
+    }],
+    
+    // Applicable categories
+    categories: [{ 
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: "Category" 
+    }],
+    
+    // Applicable sellers (if specific)
+    sellers: [{ 
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: "Seller" 
+    }],
+    
+    // Commission validity
+    isActive: { 
+      type: Boolean, 
+      default: true 
+    },
+    validFrom: { 
+      type: Date, 
+      default: Date.now 
+    },
+    validUntil: Date,
+    
+    // Economic tracking
+    analytics: {
+      totalCommissionEarned: { type: Number, default: 0 },
+      totalTransactions: { type: Number, default: 0 },
+      averageCommissionPerTransaction: { type: Number, default: 0 }
+    }
+  },
+  { 
+    timestamps: true 
+  }
+);
+
+const Commission = mongoose.model("Commission", commissionSchema);
+export default Commission;
+
+
+================================================================================
+
+File: backend\models\coupon.model.js (starts at line 3601)
+
+import mongoose from "mongoose";
+
+const couponSchema = new mongoose.Schema(
+  {
+    // Coupon identification
+    code: { 
+      type: String, 
+      required: true, 
+      unique: true,
+      uppercase: true,
+      trim: true 
+    },
+    name: { 
+      type: String, 
+      required: true,
+      trim: true 
+    },
+    description: String,
+    
+    // Discount details
+    type: {
+      type: String,
+      enum: ["percentage", "fixed", "free_shipping"],
+      required: true
+    },
+    value: { 
+      type: Number, 
+      required: true 
+    }, // Percentage (0-100) or fixed amount
+    
+    // Usage limits
+    maxUses: { 
+      type: Number, 
+      default: null 
+    }, // null = unlimited
+    usedCount: { 
+      type: Number, 
+      default: 0 
+    },
+    maxUsesPerUser: { 
+      type: Number, 
+      default: 1 
+    },
+    
+    // Validity period
+    validFrom: { 
+      type: Date, 
+      required: true 
+    },
+    validUntil: { 
+      type: Date, 
+      required: true 
+    },
+    
+    // Conditions
+    minOrderAmount: { 
+      type: Number, 
+      default: 0 
+    },
+    maxDiscountAmount: Number, // Cap for percentage discounts
+    
+    // Applicable items/categories
+    applicableCategories: [{ 
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: "Category" 
+    }],
+    applicableItems: [{ 
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: "Item" 
+    }],
+    applicableSellers: [{ 
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: "Seller" 
+    }],
+    
+    // Status
+    isActive: { 
+      type: Boolean, 
+      default: true 
+    },
+    
+    // Creator (admin or seller)
+    createdBy: { 
+      type: mongoose.Schema.Types.ObjectId, 
+      refPath: "creatorModel" 
+    },
+    creatorModel: {
+      type: String,
+      enum: ["Admin", "Seller"]
+    },
+    
+    // Analytics
+    analytics: {
+      totalUsage: { type: Number, default: 0 },
+      totalDiscount: { type: Number, default: 0 },
+      totalRevenue: { type: Number, default: 0 },
+      conversionRate: { type: Number, default: 0 }
+    }
+  },
+  { 
+    timestamps: true,
+    indexes: [
+      { code: 1 },
+      { validFrom: 1, validUntil: 1 },
+      { isActive: 1 }
+    ]
+  }
+);
+
+const Coupon = mongoose.model("Coupon", couponSchema);
+export default Coupon;
+
+
+================================================================================
+
+File: backend\models\inventory.model.js (starts at line 3712)
+
+import mongoose from "mongoose";
+
+// Advanced inventory tracking system
+const inventorySchema = new mongoose.Schema(
+  {
+    // Item reference
+    item_id: { 
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: "Item", 
+      required: true,
+      unique: true 
+    },
+    
+    // Current stock levels
+    currentStock: { 
+      type: Number, 
+      required: true,
+      min: 0 
+    },
+    reservedStock: { 
+      type: Number, 
+      default: 0,
+      min: 0 
+    }, // Stock in pending orders
+    availableStock: { 
+      type: Number, 
+      required: true,
+      min: 0 
+    }, // currentStock - reservedStock
+    
+    // Stock thresholds
+    minStockLevel: { 
+      type: Number, 
+      default: 5 
+    }, // Reorder point
+    maxStockLevel: { 
+      type: Number, 
+      default: 1000 
+    },
+    reorderQuantity: { 
+      type: Number, 
+      default: 50 
+    },
+    
+    // Cost tracking for profitability analysis
+    costPrice: { 
+      type: Number, 
+      required: true 
+    }, // What seller paid for the item
+    sellingPrice: { 
+      type: Number, 
+      required: true 
+    }, // Current selling price
+    
+    // Stock movements history
+    movements: [{
+      type: {
+        type: String,
+        enum: ["in", "out", "adjustment", "reserved", "unreserved"],
+        required: true
+      },
+      quantity: { 
+        type: Number, 
+        required: true 
+      },
+      reason: String,
+      reference: String, // Order ID, adjustment reason, etc.
+      date: { 
+        type: Date, 
+        default: Date.now 
+      },
+      balanceAfter: { 
+        type: Number, 
+        required: true 
+      }
+    }],
+    
+    // Inventory status
+    status: {
+      type: String,
+      enum: ["active", "low_stock", "out_of_stock", "discontinued"],
+      default: "active"
+    },
+    
+    // Location tracking (if multiple warehouses)
+    location: {
+      warehouse: String,
+      section: String,
+      shelf: String,
+      bin: String
+    },
+    
+    // Supplier information
+    supplier: {
+      name: String,
+      contact: String,
+      leadTime: { type: Number, default: 7 }, // Days
+      minOrderQuantity: { type: Number, default: 1 }
+    },
+    
+    // Analytics for this item
+    analytics: {
+      totalSold: { type: Number, default: 0 },
+      totalRevenue: { type: Number, default: 0 },
+      averageSalesPerDay: { type: Number, default: 0 },
+      turnoverRate: { type: Number, default: 0 }, // How fast inventory moves
+      profitMargin: { type: Number, default: 0 }, // (selling - cost) / selling * 100
+      
+      // Seasonal patterns
+      seasonalDemand: [{
+        month: { type: Number, min: 1, max: 12 },
+        averageSales: { type: Number, default: 0 }
+      }],
+      
+      // Forecasting
+      predictedDemand: { type: Number, default: 0 }, // Next 30 days
+      reorderDate: Date // When to reorder based on current sales velocity
+    },
+    
+    // Alerts and notifications
+    alerts: [{
+      type: {
+        type: String,
+        enum: ["low_stock", "out_of_stock", "overstock", "slow_moving", "reorder_needed"]
+      },
+      message: String,
+      isActive: { type: Boolean, default: true },
+      createdAt: { type: Date, default: Date.now }
+    }],
+    
+    // Last updated information
+    lastStockUpdate: { 
+      type: Date, 
+      default: Date.now 
+    },
+    lastSale: Date,
+    lastRestock: Date
+  },
+  { 
+    timestamps: true,
+    indexes: [
+      { item_id: 1 },
+      { status: 1 },
+      { currentStock: 1 },
+      { "analytics.turnoverRate": -1 }
+    ]
+  }
+);
+
+// Update available stock whenever current or reserved stock changes
+inventorySchema.pre("save", function (next) {
+  this.availableStock = this.currentStock - this.reservedStock;
+  
+  // Update status based on stock levels
+  if (this.currentStock === 0) {
+    this.status = "out_of_stock";
+  } else if (this.currentStock <= this.minStockLevel) {
+    this.status = "low_stock";
+  } else {
+    this.status = "active";
+  }
+  
+  // Calculate profit margin
+  if (this.sellingPrice > 0) {
+    this.analytics.profitMargin = ((this.sellingPrice - this.costPrice) / this.sellingPrice) * 100;
+  }
+  
+  console.log(`📦 Inventory updated for item: ${this.item_id}, Available: ${this.availableStock}`);
+  next();
+});
+
+const Inventory = mongoose.model("Inventory", inventorySchema);
+export default Inventory;
+
+
+================================================================================
+
+File: backend\models\items.model.js (starts at line 3885)
+
+import mongoose from "mongoose";
+
+const itemSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    quantity: {
+        type: Number,
+        required: true
+    },
+    
+    status: {
+        type: String,
+        enum: ['available', 'sold', 'reserved'],
+        default: 'available'
+    },
+    expiresAt: {
+        type: Date,
+        default: null
+
+       
+    },
+   
+    store_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Store', // Assuming you have a store model
+        required: true
+    },
+    description: {
+        type: String,
+        default: ''
+    },
+    //at the item every item has a price
+    price: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Price', // Assuming you have a price model
+        required: true
+    }
+
+},{timestamps: true});
+
+const Item = mongoose.model('Item', itemSchema);
+
+export default Item;
+
+
+================================================================================
+
+File: backend\models\location.model.js (starts at line 3930)
+
+import mongoose from "mongoose";
+
+// Model to represent Rwandan administrative divisions
+const locationSchema = new mongoose.Schema(
+  {
+    name: { 
+      type: String, 
+      required: true, 
+      trim: true 
+    },
+    type: {
+      type: String,
+      enum: ["province", "district", "sector", "cell"],
+      required: true
+    },
+    
+    // Parent-child relationship for hierarchy
+    parent: { 
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: "Location", 
+      default: null 
+    },
+    
+    // Unique identifier for each level (e.g., "Kigali", "Gasabo", "Remera", "Giporoso")
+    slug: { 
+      type: String, 
+      required: true, 
+      unique: true, 
+      lowercase: true 
+    },
+    
+    // For cells, we might store coordinates for future radius-based delivery
+    coordinates: {
+      latitude: Number,
+      longitude: Number
+    },
+    
+    // Metadata
+    population: Number,
+    area: Number, // in km²
+    
+    // For easy lookup of full path
+    fullPath: { 
+      type: String, 
+      unique: true 
+    } // e.g., "Kigali/Gasabo/Remera/Giporoso"
+  },
+  { 
+    timestamps: true,
+    indexes: [
+      { type: 1, name: 1 },
+      { parent: 1 },
+      { fullPath: 1 }
+    ]
+  }
+);
+
+// Pre-save hook to generate slug and fullPath
+locationSchema.pre("save", async function (next) {
+  if (this.isModified("name") || this.isModified("parent")) {
+    this.slug = this.name
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '');
+
+    if (this.parent) {
+      const parentLocation = await mongoose.model("Location").findById(this.parent);
+      if (parentLocation) {
+        this.fullPath = `${parentLocation.fullPath}/${this.name}`;
+      } else {
+        this.fullPath = this.name; // Should not happen if parent is valid
+      }
+    } else {
+      this.fullPath = this.name;
+    }
+    console.log(`📍 Location path generated: ${this.fullPath}`);
+  }
+  next();
+});
+
+const Location = mongoose.model("Location", locationSchema);
+export default Location;
+
+
+================================================================================
+
+File: backend\models\notification.schema.js (starts at line 4012)
+
+import mongoose from "mongoose";
+
+const notificationSchema = new mongoose.Schema({
+    title: {
+        type: String,
+        default: 'Notification of VirMar',
+        trim: true
+    },
+    message: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    recipientId: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        refPath: 'recipientModel'
+    },
+    recipientModel: {
+        type: String,
+        required: true,
+        enum: ['Buyer', 'Seller']
+    },
+    status: {
+        type: Boolean,
+        default: false
+    }
+}, { timestamps: true });
+
+const Notification = mongoose.model('Notification', notificationSchema);
+
+// Export the model and create the collection
+export default Notification;
+
+
+
+================================================================================
+
+File: backend\models\order.model.js (starts at line 4046)
+
+import mongoose from "mongoose";
+
+const orderSchema = new mongoose.Schema(
+  {
+    // Order identification
+    orderNumber: { 
+      type: String, 
+      unique: true, 
+      required: true 
+    },
+    
+    // Parties involved
+    buyer_id: { 
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: "Buyer", 
+      required: true 
+    },
+    seller_id: { 
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: "Seller", 
+      required: true 
+    },
+    
+    // Order items - array of items in this order
+    items: [{
+      item_id: { 
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: "Item", 
+        required: true 
+      },
+      quantity: { 
+        type: Number, 
+        required: true, 
+        min: 1 
+      },
+      unitPrice: { 
+        type: Number, 
+        required: true 
+      },
+      totalPrice: { 
+        type: Number, 
+        required: true 
+      }
+    }],
+    
+    // Financial breakdown
+    subtotal: { 
+      type: Number, 
+      required: true 
+    },
+    platformFee: { 
+      type: Number, 
+      required: true, 
+      default: 0 
+    },
+    shippingCost: { 
+      type: Number, 
+      default: 0 
+    },
+    tax: { 
+      type: Number, 
+      default: 0 
+    },
+    discount: { 
+      type: Number, 
+      default: 0 
+    },
+    totalAmount: { 
+      type: Number, 
+      required: true 
+    },
+    
+    // Order lifecycle status
+    status: {
+      type: String,
+      enum: [
+        "pending",           // Order created, awaiting payment
+        "confirmed",         // Payment confirmed, processing
+        "processing",        // Seller preparing order
+        "shipped",          // Order shipped
+        "delivered",        // Order delivered
+        "completed",        // Order completed successfully
+        "cancelled",        // Order cancelled
+        "refunded",         // Order refunded
+        "disputed"          // Order in dispute
+      ],
+      default: "pending"
+    },
+    
+    // Payment information
+    paymentMethod: {
+      type: String,
+      enum: ["wallet", "mobile_money", "credit_card", "bank_transfer"],
+      required: true
+    },
+    paymentStatus: {
+      type: String,
+      enum: ["pending", "completed", "failed", "refunded"],
+      default: "pending"
+    },
+    
+    // Shipping information - Updated for Rwandan hierarchy
+    shippingAddress: {
+      province: { type: mongoose.Schema.Types.ObjectId, ref: "Location", required: true },
+      district: { type: mongoose.Schema.Types.ObjectId, ref: "Location", required: true },
+      sector: { type: mongoose.Schema.Types.ObjectId, ref: "Location", required: true },
+      cell: { type: mongoose.Schema.Types.ObjectId, ref: "Location", required: true },
+      streetAddress: String, // Specific street/house number
+      notes: String // Any delivery notes
+    },
+    
+    // Selected delivery option for this order
+    selectedDeliveryOption: {
+      type: {
+        type: String,
+        enum: ["seller_delivery", "buyer_pickup", "third_party_courier"],
+        required: true
+      },
+      providerName: String, // If third_party_courier
+      cost: { type: Number, default: 0 }
+    },
+    
+    // Tracking information
+    trackingNumber: String,
+    shippingProvider: String, // This will be the seller_delivery or third_party_courier name
+    estimatedDelivery: Date,
+    actualDelivery: Date,
+    
+    // Economic analytics fields
+    economicMetrics: {
+      // Revenue distribution
+      sellerRevenue: { type: Number, default: 0 },
+      platformRevenue: { type: Number, default: 0 },
+      taxRevenue: { type: Number, default: 0 },
+      
+      // Cost analysis
+      processingCost: { type: Number, default: 0 },
+      shippingCost: { type: Number, default: 0 },
+      
+      // Profitability metrics
+      grossMargin: { type: Number, default: 0 },
+      netMargin: { type: Number, default: 0 }
+    },
+    
+    // Order notes and communication
+    notes: String,
+    cancelReason: String,
+    
+    // Timestamps for analytics
+    confirmedAt: Date,
+    shippedAt: Date,
+    deliveredAt: Date,
+    completedAt: Date
+  },
+  { 
+    timestamps: true,
+    // Add indexes for better query performance
+    indexes: [
+      { buyer_id: 1, createdAt: -1 },
+      { seller_id: 1, createdAt: -1 },
+      { status: 1 },
+      { orderNumber: 1 }
+    ]
+  }
+);
+
+// Generate unique order number before saving
+orderSchema.pre("save", async function (next) {
+  if (this.isNew) {
+    // Generate order number: ORD-YYYYMMDD-XXXXX
+    const date = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+    const randomNum = Math.floor(Math.random() * 99999).toString().padStart(5, '0');
+    this.orderNumber = `ORD-${date}-${randomNum}`;
+    
+    // Calculate economic metrics
+    this.economicMetrics.sellerRevenue = this.subtotal - this.platformFee;
+    this.economicMetrics.platformRevenue = this.platformFee;
+    this.economicMetrics.taxRevenue = this.tax;
+    
+    console.log(`📦 Order number generated: ${this.orderNumber}`);
+  }
+  next();
+});
+
+const Order = mongoose.model("Order", orderSchema);
+export default Order;
+
+
+================================================================================
+
+File: backend\models\payout.model.js (starts at line 4232)
+
+import mongoose from "mongoose";
+
+const payoutSchema = new mongoose.Schema(
+  {
+    // Payout recipient
+    seller_id: { 
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: "Seller", 
+      required: true 
+    },
+    
+    // Payout details
+    amount: { 
+      type: Number, 
+      required: true 
+    },
+    currency: { 
+      type: String, 
+      default: "RWF" 
+    },
+    
+    // Payout period
+    periodStart: { 
+      type: Date, 
+      required: true 
+    },
+    periodEnd: { 
+      type: Date, 
+      required: true 
+    },
+    
+    // Orders included in this payout
+    orders: [{ 
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: "Order" 
+    }],
+    
+    // Financial breakdown
+    grossSales: { 
+      type: Number, 
+      required: true 
+    },
+    platformFees: { 
+      type: Number, 
+      required: true 
+    },
+    refunds: { 
+      type: Number, 
+      default: 0 
+    },
+    adjustments: { 
+      type: Number, 
+      default: 0 
+    },
+    netAmount: { 
+      type: Number, 
+      required: true 
+    },
+    
+    // Payout status
+    status: {
+      type: String,
+      enum: ["pending", "processing", "completed", "failed", "cancelled"],
+      default: "pending"
+    },
+    
+    // Payment method for payout
+    payoutMethod: {
+      type: String,
+      enum: ["bank_transfer", "mobile_money", "wallet"],
+      required: true
+    },
+    
+    // Bank details (if bank transfer)
+    bankDetails: {
+      accountName: String,
+      accountNumber: String,
+      bankName: String,
+      routingNumber: String
+    },
+    
+    // Mobile money details
+    mobileMoneyDetails: {
+      phoneNumber: String,
+      provider: String
+    },
+    
+    // Processing information
+    processedAt: Date,
+    transactionId: String, // External payment processor transaction ID
+    failureReason: String,
+    
+    // Notes
+    notes: String
+  },
+  { 
+    timestamps: true,
+    indexes: [
+      { seller_id: 1, createdAt: -1 },
+      { status: 1 },
+      { periodStart: 1, periodEnd: 1 }
+    ]
+  }
+);
+
+const Payout = mongoose.model("Payout", payoutSchema);
+export default Payout;
+
+
+================================================================================
+
+File: backend\models\price.schema.js (starts at line 4339)
+
+import mongoose from "mongoose";
+
+const priceSchema = new mongoose.Schema({
+  reservedPrice: { type: Number, required: true },
+  soldAtPrice: { type: Number, default: null },
+  demandPrice: { type: Number, default: null },
+  sellingPrice: { type: Number, default: null },
+  discountPrice: { type: Number, default: null },
+
+  priceHistory: [{ price: Number, date: Date }],
+  demandScore: { type: Number, default: 0 },
+  stockQuantity: { type: Number, default: 1 },
+  priceType: { type: String, enum: ['fixed', 'negotiable', 'dynamic'], default: 'fixed' }
+});
+
+
+const Price = mongoose.model('Price', priceSchema);
+
+export default Price;
+
+
+
+================================================================================
+
+File: backend\models\review.model.js (starts at line 4359)
+
+import mongoose from "mongoose";
+
+const reviewSchema = new mongoose.Schema(
+  {
+    // Review parties
+    buyer_id: { 
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: "Buyer", 
+      required: true 
+    },
+    seller_id: { 
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: "Seller", 
+      required: true 
+    },
+    item_id: { 
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: "Item", 
+      required: true 
+    },
+    order_id: { 
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: "Order", 
+      required: true 
+    },
+    
+    // Review content
+    rating: { 
+      type: Number, 
+      required: true, 
+      min: 1, 
+      max: 5 
+    },
+    title: { 
+      type: String, 
+      trim: true,
+      maxlength: 100 
+    },
+    comment: { 
+      type: String, 
+      trim: true,
+      maxlength: 1000 
+    },
+    
+    // Review media
+    images: [String], // Array of image URLs
+    
+    // Review verification
+    isVerifiedPurchase: { 
+      type: Boolean, 
+      default: true 
+    },
+    
+    // Moderation
+    status: {
+      type: String,
+      enum: ["pending", "approved", "rejected", "flagged"],
+      default: "pending"
+    },
+    moderationNotes: String,
+    
+    // Helpfulness tracking
+    helpfulVotes: { 
+      type: Number, 
+      default: 0 
+    },
+    totalVotes: { 
+      type: Number, 
+      default: 0 
+    },
+    
+    // Seller response
+    sellerResponse: {
+      message: String,
+      respondedAt: Date
+    }
+  },
+  { 
+    timestamps: true,
+    indexes: [
+      { item_id: 1, status: 1, createdAt: -1 },
+      { seller_id: 1, createdAt: -1 },
+      { buyer_id: 1, createdAt: -1 }
+    ]
+  }
+);
+
+// Prevent duplicate reviews for same order-item combination
+reviewSchema.index({ buyer_id: 1, order_id: 1, item_id: 1 }, { unique: true });
+
+const Review = mongoose.model("Review", reviewSchema);
+export default Review;
+
+
+================================================================================
+
+File: backend\models\sellers.model.js (starts at line 4451)
+
+import mongoose from "mongoose";
+import bcrypt from "bcryptjs";
+
+const sellersSchema = new mongoose.Schema(
+  {
+    name: { type: String, required: true, trim: true },
+    fullname: { type: String, trim: true },
+    email: { type: String, required: true, unique: true, trim: true },
+    phone: { type: String, unique: true, trim: true },
+    store: { type: mongoose.Schema.Types.ObjectId, ref: "Store" },
+    password: { type: String, required: true, minlength: 6 },
+    role: { type: String, enum: ["seller", "admin"], default: "seller" },
+    isActive: { type: Boolean, default: true },
+    isVerified: { type: Boolean, default: false },
+    transactions: [
+      { type: mongoose.Schema.Types.ObjectId, ref: "Transaction" },
+    ],
+    paymentMethods: [
+      {
+        type: String,
+        enum: ["cash", "credit_card", "mobile_money", "bank_transfer"],
+        default: "cash",
+      },
+    ],
+    notifications: [
+      { type: mongoose.Schema.Types.ObjectId, ref: "Notification" },
+    ],
+    wallet: { type: mongoose.Schema.Types.ObjectId, ref: "Wallet" },
+  },
+  { timestamps: true }
+);
+
+sellersSchema.pre("save", async function (next) {
+  if (this.isModified("password")) {
+    try {
+      const salt = await bcrypt.genSalt(10);
+      this.password = await bcrypt.hash(this.password, salt);
+      console.log("password is hashed");
+      next();
+    } catch (err) {
+      next(err);
+      console.log(`error in handling pre save ${err}`);
+    }
+  }
+});
+
+const Seller = mongoose.model("Seller", sellersSchema);
+export default Seller;
+
+
+
+================================================================================
+
+File: backend\models\store.schema.js (starts at line 4500)
+
+import mongoose from "mongoose";
+
+const storeSchema = new mongoose.Schema(
+  {
+    name: { type: String, required: true, trim: true },
+    seller_id: { type: mongoose.Schema.Types.ObjectId, ref: "Seller", required: true },
+    description: { type: String, trim: true },
+    
+    // Store's physical location (base for delivery calculations)
+    location: {
+      province: { type: mongoose.Schema.Types.ObjectId, ref: "Location", required: true },
+      district: { type: mongoose.Schema.Types.ObjectId, ref: "Location", required: true },
+      sector: { type: mongoose.Schema.Types.ObjectId, ref: "Location", required: true },
+      cell: { type: mongoose.Schema.Types.ObjectId, ref: "Location", required: true }
+    },
+    
+    // Seller's defined delivery coverage
+    deliveryCoverage: {
+      type: {
+        type: String,
+        enum: ["radius_cells", "specific_cells", "specific_sectors", "specific_districts", "specific_provinces", "national"],
+        default: "radius_cells" // Default to a small radius around the store
+      },
+      // For "radius_cells": number of cells away from store's cell
+      // For "specific_cells", "specific_sectors", etc.: array of Location IDs
+      value: mongoose.Schema.Types.Mixed, // Can be a Number (radius) or Array of ObjectIds
+      
+      // Optional: flat rate for delivery within coverage
+      deliveryFee: { type: Number, default: 0 }
+    },
+    
+    // Delivery options offered by the seller
+    deliveryOptions: [{
+      type: {
+        type: String,
+        enum: ["seller_delivery", "buyer_pickup", "third_party_courier"],
+        required: true
+      },
+      // If third_party_courier, specify provider (e.g., "Kigali Express")
+      providerName: String,
+      // Additional costs or notes for this option
+      cost: { type: Number, default: 0 },
+      notes: String
+    }],
+
+    isActive: { type: Boolean, default: true },
+    products: [{ type: mongoose.Schema.Types.ObjectId, ref: "Item" }],
+    reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: "Review" }],
+    averageRating: { type: Number, default: 0 },
+    contactEmail: { type: String, trim: true },
+    contactPhone: { type: String, trim: true },
+  },
+  { timestamps: true }
+);
+
+const Store = mongoose.model("Store", storeSchema);
+export default Store;
+
+
+================================================================================
+
+File: backend\models\transaction.schema.js (starts at line 4557)
+
+import mongoose from "mongoose";
+
+const transactionSchema = new mongoose.Schema(
+  {
+    type: {
+      type: String,
+      enum: ["purchase", "return", "deposit", "withdrawal", "transfer"],
+      required: true,
+    },
+    item_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Item",
+      // Only required for purchase/return
+    },
+    from_user_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      // Who is sending money/items
+    },
+    to_user_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      // Who is receiving money/items
+    },
+    quantity: Number,
+    totalPrice: Number,
+    transactionDate: {
+      type: Date,
+      default: Date.now,
+    },
+    status: {
+      type: String,
+      enum: ["pending", "completed", "cancelled"],
+      default: "pending",
+    },
+  },
+  { timestamps: true }
+);
+
+
+const Transaction = mongoose.model("Transaction", transactionSchema);
+export default Transaction;
+
+
+
+================================================================================
+
+File: backend\models\wallet.schema.js (starts at line 4600)
+
+import mongoose from "mongoose";
+// import Wallet from './wallet.schema.js';
+
+const walletSchema = new mongoose.Schema({
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    refPath: "ownerModel",
+  },
+  ownerModel: {
+    type: String,
+    required: true,
+    enum: ["Seller", "Buyer"],
+  },
+  balance: { type: Number, default: 0 },
+  currency: { type: String, default: "RWF" },
+});
+
+
+const Wallet = mongoose.model("Wallet", walletSchema);
+export default Wallet;
+
+
+
+================================================================================
+
+File: backend\routes\buyer.routes.js (starts at line 4622)
+
+import express from "express";
+import protectBuyerRoute from "../configs/middleware/potect.buyerRoute.js";
+import {
+  withdrawFromWallet,
+  addItemToCart,
+  depositToWallet,
+  getCartItems,
+  getUserProfile,
+  login,
+  logout,
+  register,
+} from "../controllers/buyer.controllers.js";
+// 📦 Order Controller Imports
+import {
+  createOrderFromCart,
+  getBuyerOrders,
+  cancelOrder
+} from "../controllers/order.controllers.js";
+// bbb brb 
+
+const BuyerRoutes = express.Router();
+
+BuyerRoutes.post("/register", register);
+BuyerRoutes.post("/login", login);
+BuyerRoutes.get("/logout", logout);
+BuyerRoutes.get("/profile", protectBuyerRoute, getUserProfile);
+
+// cart and buying activities
+BuyerRoutes.post("/cart/:cartId/item", protectBuyerRoute, addItemToCart);
+BuyerRoutes.get("/cart", protectBuyerRoute, getCartItems);
+
+// 🛍️ Create Order (from Cart)
+BuyerRoutes.post('/order', protectBuyerRoute, createOrderFromCart); // POST /api/buyer/order
+
+// 📜 Get All Buyer Orders
+BuyerRoutes.get('/orders', protectBuyerRoute, getBuyerOrders); // GET /api/buyer/orders
+
+// ❌ Cancel an Order
+BuyerRoutes.patch('/order/:orderId/cancel', protectBuyerRoute, cancelOrder); // PATCH /api/buyer/order/:orderId/cancel
+
+
+// BuyerRoutes.get('/checkout',protect)
+
+//wallet meaning money routes
+BuyerRoutes.post("/deposit", protectBuyerRoute, depositToWallet);
+BuyerRoutes.post("/withdrawal",protectBuyerRoute, withdrawFromWallet)
+
+export default BuyerRoutes;
+
+
+
+================================================================================
+
+File: backend\routes\public.routes.js (starts at line 4671)
+
+// routes/public.routes.js
+
+import express from "express";
+import Seller from "../models/sellers.model.js";
+import Item from "../models/items.model.js";
+import Buyer from "../models/buyer.model.js";
+import protectRoutes from "../configs/middleware/protectRoutes.js";
+
+const publicRouter = express.Router();
+
+// Get random sellers, all products (populated), and buyers
+publicRouter.get("/", async (req, res) => {
+  try {
+    const info = await Seller.find({ isActive: true });
+    const products = await Item.find({})
+      .populate("price")          // ✅ Add price details
+      .populate("store_id");      // ✅ Optionally populate store if needed
+
+    const buyer = await Buyer.find();
+
+    if (!info || !products) {
+      return res.status(404).json({ message: "No sellers or products found" });
+    }
+
+    // Optionally randomize sellers and products
+    const randomSellers = info.sort(() => 0.5 - Math.random()).slice(0, 5);
+
+    // Remove password field from sellers
+    randomSellers.forEach((seller) => {
+      seller.password = null;
+    });
+
+    res.status(200).json({
+      seller: randomSellers,
+      product: products,
+      buyers: buyer,
+    });
+  } catch (error) {
+    console.error("Error in public route:", error);
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// Authenticated /Info route
+publicRouter.get("/Info", protectRoutes, async (req, res) => {
+  const { role } = req.user;
+  try {
+    if (role === "buyer") {
+      // Logic for buyer-specific info
+      return res.status(200).json({ message: "You are a buyer" });
+    } else if (role === "seller") {
+      // Logic for seller-specific info
+      return res.status(200).json({ message: "You are a seller" });
+    } else {
+      return res.status(400).json({ message: "Invalid user role" });
+    }
+  } catch (error) {
+    console.error("Error in /Info route:", error);
+    res.status(500).json({ message: error.message });
+  }
+});
+
+export default publicRouter;
+
+
+
+================================================================================
+
+File: backend\routes\seller.routes.js (starts at line 4735)
+
+import express from "express";
+import protectSellerRoute from "../configs/middleware/protect.sellerRoute.js";
+import {
+  register,
+  login,
+  logout,
+  getUserProfile,
+  addItemToStore,
+  getStoreItems,
+  updateItem,
+  deleteItem,
+} from "../controllers/seller.controllers.js";
+
+const sellerRoutes = express.Router();
+
+sellerRoutes.post("/register", register);
+sellerRoutes.post("/login", login);
+sellerRoutes.get("/logout", logout);
+sellerRoutes.get("/profile", protectSellerRoute, getUserProfile);
+
+// Items CRUD
+sellerRoutes.post("/store/:storeId/item", protectSellerRoute, addItemToStore);
+sellerRoutes.get("/store/:storeId/items", protectSellerRoute, getStoreItems);
+sellerRoutes.patch("/item/:itemId", protectSellerRoute, updateItem);
+sellerRoutes.delete("/item/:itemId", protectSellerRoute, deleteItem);
+
+export default sellerRoutes;
+
+
+
+================================================================================
+
+File: backend\routes\transact.routes.js (starts at line 4763)
+
+// manages all of the wallet operations
+
+import express from "express";
+import { createTransaction } from "../controllers/transact.controllers.js";
+import { cancelOrder } from "../controllers/order.controllers.js";
+import protectBuyerRoute from "../configs/middleware/potect.buyerRoute.js";
+import protectRoutes from "../configs/middleware/protectRoutes.js";
+
+
+const transactRoutes = express.Router();
+
+transactRoutes.post("/createtransaction", createTransaction);
+transactRoutes.post('/cancel/:orderId',protectRoutes, cancelOrder)
+export default transactRoutes;
+
+
+
+================================================================================
+
+File: backend\utils\email.notification.js (starts at line 4778)
+
+import nodemailer from 'nodemailer';
+// 
+import dotenv from 'dotenv';  
+
+dotenv.config();
+
+// Accept a Notification object and send an email using its data
+export async function sendEmailNotification(title, message, recipientEmail) {
+  console.log('EMAIL:', process.env.EMAIL, 'PASSWORD:', process.env.PASSWORD); // don't push this to production logs
+
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.EMAIL,
+      pass: process.env.PASSWORD
+    }
+  });
+  
+
+  const mailOptions = {
+    from: process.env.EMAIL,
+    to: recipientEmail,          // expects email field
+    replyTo: process.env.EMAIL,               // optional
+    subject: title,
+    text: message
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    console.log('✅ Email sent successfully');
+  } catch (error) {
+    console.error('❌ Error sending email:', error);
+  }
+}
+
+
+
+================================================================================
+
+File: backend\utils\initiate.payment.js (starts at line 4813)
+
+
+
+
+// still in development too
+
+
+================================================================================
+
+File: backend\utils\momoService.js (starts at line 4817)
+
+import dotenv from 'dotenv';
+import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
+
+dotenv.config();
+
+const subscriptionKey = process.env.MTNSUBSCRIPTIONKEY;
+const apiUser = process.env.MTNAPIUSER;
+const apiKey = process.env.MTNAPIKEY;
+const targetEnvironment = 'sandbox';
+
+if (!subscriptionKey || !apiUser || !apiKey) {
+  throw new Error('Missing MTN credentials in environment variables');
+}
+
+let accessToken = null;
+let tokenExpiry = 0;
+
+// 🔑 Generate Access Token
+async function getAccessToken() {
+  const credentials = Buffer.from(`${apiUser}:${apiKey}`).toString('base64');
+  const url = 'https://sandbox.momodeveloper.mtn.com/collection/token/';
+
+  try {
+    const response = await axios.post(url, {}, {
+      headers: {
+        Authorization: `Basic ${credentials}`,
+        'Ocp-Apim-Subscription-Key': subscriptionKey,
+        'X-Target-Environment': targetEnvironment,
+      },
+    });
+
+    accessToken = response.data.access_token;
+    tokenExpiry = Date.now() + 3600 * 1000; // 1 hour validity
+    console.log('🔐 MoMo access token refreshed');
+    return accessToken;
+  } catch (error) {
+    console.error('❌ Token fetch failed:', error.response?.data || error.message);
+    return null;
+  }
+}
+
+// 🔁 Refresh Token if Expired
+async function refreshTokenIfNeeded() {
+  if (!accessToken || Date.now() >= tokenExpiry) {
+    await getAccessToken();
+  }
+  return accessToken;
+}
+
+// 💰 Check Account Balance
+async function checkBalance() {
+  const token = await refreshTokenIfNeeded();
+  if (!token) throw new Error('Token fetch failed');
+
+  const url = 'https://sandbox.momodeveloper.mtn.com/collection/v1_0/account/balance';
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'X-Target-Environment': targetEnvironment,
+      'Ocp-Apim-Subscription-Key': subscriptionKey,
+    },
+  };
+
+  try {
+    const response = await axios.post(url, {}, config);
+    return response.data;
+  } catch (error) {
+    console.error('💸 Balance check failed:', error.response?.data || error.message);
+    throw error;
+  }
+}
+
+// 📥 Initiate Payment
+async function initiatePayment(partyId, externalId, amount, currency = 'EUR') {
+  const token = await refreshTokenIfNeeded();
+  if (!token) throw new Error('Token fetch failed');
+
+  const referenceId = uuidv4();
+  const body = {
+    amount,
+    currency,
+    externalId,
+    payer: {
+      partyIdType: 'MSISDN',
+      partyId,
+    },
+    payerMessage: 'Payment initiated',
+    payeeNote: 'VirMar Marketplace',
+  };
+
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'X-Reference-Id': referenceId,
+      'X-Target-Environment': targetEnvironment,
+      'Ocp-Apim-Subscription-Key': subscriptionKey,
+      'Content-Type': 'application/json',
+    },
+  };
+
+  try {
+    await axios.post(
+      'https://sandbox.momodeveloper.mtn.com/collection/v1_0/requesttopay',
+      body,
+      config
+    );
+    console.log('📌 Payment reference ID:', referenceId);
+    return { referenceId };
+  } catch (error) {
+    console.error('🚫 Payment initiation failed:', error.response?.data || error.message);
+    throw error;
+  }
+}
+
+export { checkBalance, initiatePayment };
+// to intergrate momo payment
+
+
+
+================================================================================
+
+File: backend\utils\notification.maker.js (starts at line 4935)
+
+// backend/utils/notifications.js
+import Notification from '../models/notification.schema.js';
+
+  
+export async function generateNotification(title, message, recipientId, recipientModel) {
+    const notification = new Notification({ title, message, recipientId, recipientModel });
+    
+    await notification.save();
+    return notification;
+  }
+
+
+================================================================================
+
+File: backend\utils\redis.connect.js (starts at line 4945)
+
+// redis.connect.js
+import { createClient } from 'redis';
+// import dotenv from 'dotenv'
+
+// dotenv.config()
+// wrong algorithm or connection
+
+const redisClient = createClient({
+  url: process.env.REDIS_URL,
+});
+
+redisClient.on('error', (err) => console.error('❌ Redis Client Error:', err));
+redisClient.on('connect', () => console.log('🔌 Redis client connecting...'));
+redisClient.on('ready', () => console.log('✅ Redis client connected and ready!'));
+
+export default redisClient;
+
+
+
+================================================================================
+
+File: backend\utils\requests.validate.js (starts at line 4962)
+
+
+
+
+
+async function validateInput(req,res,next) {
+    next()
+}
+
+
+================================================================================
+
+File: backend\utils\transaction.init.js (starts at line 4969)
+
+
+
+export const verifyTransaction = async (transactionId) => {
+  
+
+};
+// this also can make me feel comfortable if populated with codes
+
+
+
+================================================================================
+
+File: frontend\VirMar-RWANDA\eslint.config.js (starts at line 4977)
+
+import js from '@eslint/js'
+import globals from 'globals'
+import reactHooks from 'eslint-plugin-react-hooks'
+import reactRefresh from 'eslint-plugin-react-refresh'
+import { defineConfig, globalIgnores } from 'eslint/config'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{js,jsx}'],
+    extends: [
+      js.configs.recommended,
+      reactHooks.configs['recommended-latest'],
+      reactRefresh.configs.vite,
+    ],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        ecmaFeatures: { jsx: true },
+        sourceType: 'module',
+      },
+    },
+    rules: {
+      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+    },
+  },
+])
+
+
+
+================================================================================
+
+File: frontend\VirMar-RWANDA\index.html (starts at line 5007)
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VirMar</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
+
+
+================================================================================
+
+File: frontend\VirMar-RWANDA\package.json (starts at line 5021)
+
+{
+  "name": "virmar-rwanda",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^3.22.0",
+    "axios": "^1.10.0",
+    "chart.js": "^4.5.0",
+    "react": "^19.1.0",
+    "react-chartjs-2": "^5.3.0",
+    "react-dom": "^19.1.0",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.6.3",
+    "recharts": "^3.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.29.0",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.5.2",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.29.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.2.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.11",
+    "vite": "^7.0.2"
+  }
+}
+
+
+
+================================================================================
+
+File: frontend\VirMar-RWANDA\README.md (starts at line 5059)
+
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+
+================================================================================
+
+File: frontend\VirMar-RWANDA\vite.config.js (starts at line 5072)
+
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react()],
+})
+
+
+
+================================================================================
+
+File: frontend\VirMar-RWANDA\src\app.jsx (starts at line 5080)
+
+// src/App.jsx
+import React from 'react';
+import  AppRouter from "./router"
+
+
+// Global App wrapper using Navigation Context
+function App() {
+  return (
+<>
+<AppRouter />
+</>
+  );
+}
+
+export default App;
+
+
+
+================================================================================
+
+File: frontend\VirMar-RWANDA\src\index.css (starts at line 5096)
+
+/* 
+this will contain main styles for all the routes
+*/
+
+/* 
+FOR EXAMPLE
+
+*FONTS
+*COLORS
+*CUSTOMS
+*ANIMATION
+*CALCULATION
+
+*/
+*{
+    box-sizing: border-box;
+}
+
+.navbar{
+    background-color: rgba(0, 0, 0, 0.8);
+
+    color: red;
+    position: fixed;
+    top: 1px;
+    left: 1px;
+    right: 1px;
+    padding: 20px;
+    display: flex;
+    border-radius: 15px;
+    justify-content: space-between;
+    box-shadow: 0px 0px 10px  rgba(255, 255, 200, 0.8);
+
+}
+.navbar div{
+    margin: 3px;
+    border: 2px solid white;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: none;
+    cursor: pointer;
+}
+.navbar div:hover{
+    background: rgba(0, 0, 0, 0.3);
+}
+.navbar:hover{
+    background: #000;
+
+}
+/* how to check the scrolling of the window in css */
+nav{
+        display: flex;
+}
+.body{
+    height: 100vh;
+}
+.body div{
+    height: 100vh;
+}
+.body :nth-child(1){
+    
+    margin-top: 80px;
+}
+
+
+
+================================================================================
+
+File: frontend\VirMar-RWANDA\src\index.js (starts at line 5160)
+
+/**
+ * Handling what i do not know yet
+ * entry point
+ */
+
+
+================================================================================
+
+File: frontend\VirMar-RWANDA\src\main.jsx (starts at line 5164)
+
+// index.js
+
+import React, { StrictMode } from "react";
+import ReactDOM from "react-dom/client";
+import App from "./app.jsx"; // Make sure your file is named 'App.js' with a capital A
+import "./index.css"
+
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+<StrictMode>
+    <App />
+</StrictMode>
+    
+  
+);
+
+
+
+================================================================================
+
+File: frontend\VirMar-RWANDA\src\router.jsx (starts at line 5181)
+
+// src/router.jsx
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import react from "react"
+import LandingPage from './public/pages/LandingPage';
+
+function AppRouter() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="*" element={<LandingPage />} />
+        {/* Seller and Public routes later */}
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+
+export default AppRouter
+
+
+================================================================================
+
+File: frontend\VirMar-RWANDA\src\public\components\Body.jsx (starts at line 5199)
+
+import React from 'react'
+
+function Body() {
+  return (
+    <div className='body'>
+        <div>sectio</div>
+        <div>
+        <div>card</div>
+        <div>card</div>
+        <div>card</div>
+        <div>card</div>
+        <div>card</div>
+        </div>
+        <div>section</div>
+
+    </div>
+  )
+}
+
+export default Body
+
+
+================================================================================
+
+File: frontend\VirMar-RWANDA\src\public\components\Footer.jsx (starts at line 5219)
+
+import React from 'react'
+
+function Footer() {
+  return (
+    <div>
+        footer lngoeihrgwothg
+
+    </div>
+  )
+}
+
+export default Footer
+
+
+================================================================================
+
+File: frontend\VirMar-RWANDA\src\public\components\NavBar.jsx (starts at line 5231)
+
+import React from 'react'
+import { Link } from 'react-router-dom'
+
+function NavBar() {
+  return (
+    <div className='navbar'>
+       <nav className='links'>
+         <div><Link>home</Link></div>
+        <div><Link>about</Link></div>
+        <div><Link>contact</Link></div>
+        <div><Link>market</Link></div>
+        <div><Link>blog</Link></div>
+       </nav>
+       <nav className="icons">
+        <div>btns</div>
+        <div>btns</div>
+        <div>btns</div>
+       </nav>
+    </div>
+  )
+}
+
+export default NavBar
+
+
+================================================================================
+
+File: frontend\VirMar-RWANDA\src\public\pages\LandingPage.jsx (starts at line 5254)
+
+import React from 'react'
+import NavBar from "../components/NavBar"
+import Body from '../components/Body'
+import Footer from '../components/Footer'
+
+
+function LandingPage() {
+  return (
+    <div>
+      <NavBar></NavBar>
+      <Body></Body>
+      <Footer></Footer>
+
+    </div>
+  )
+}
+
+export default LandingPage
+
+
+================================================================================

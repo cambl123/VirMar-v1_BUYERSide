@@ -5,10 +5,10 @@
 */
 
 // transactionService.js
-import createNotification from "../utils/notification.maker.js";
-import Transaction from "../models/Transaction.js";
-import Item from "../models/Item.js";
-import Seller from "../models/Seller.js";
+import generateNotification from "../utils/notification.maker.js";
+import Transaction from "../models/transaction.schema.js";
+import Item from "../models/items.model.js";
+import Seller from "../models/sellers.model.js";
 
 export async function createTransaction({
   item_id,
@@ -48,7 +48,7 @@ export async function createTransaction({
     });
 
     // ✅ Notify seller
-    await createNotification({
+    await generateNotification({
       title: "New Transaction",
       message: "A new transaction has been requested",
       recipientId: seller_id,
@@ -62,3 +62,46 @@ export async function createTransaction({
     return { success: false, error: error.message };
   }
 }
+import Wallet from "../models/wallet.schema.js";
+
+// Deposit funds to buyer wallet
+export const depositFunds = async (req, res) => {
+  try {
+    const buyerId = req.user.id; // Assuming user is authenticated and user id is here
+    const { amount } = req.body;
+
+    if (!amount || amount <= 0) {
+      return res.status(400).json({ message: "Invalid deposit amount" });
+    }
+
+    // Find buyer's wallet
+    const wallet = await Wallet.findOne({ owner: buyerId, ownerModel: "Buyer" });
+    if (!wallet) {
+      return res.status(404).json({ message: "Wallet not found" });
+    }
+
+    // Add funds to wallet balance
+    wallet.balance += amount;
+    await wallet.save();
+
+    // Create a transaction record
+    const transaction = await Transaction.create({
+      type: "deposit",
+      from_user_id: null, // Platform or external source
+      to_user_id: buyerId,
+      totalPrice: amount,
+      status: "completed",
+      transactionDate: new Date(),
+    });
+
+    return res.status(200).json({
+      message: "Deposit successful",
+      newBalance: wallet.balance,
+      transaction,
+    });
+
+  } catch (error) {
+    console.error("Deposit funds error:", error);
+    return res.status(500).json({ message: "Server error during deposit" });
+  }
+};

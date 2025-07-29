@@ -133,32 +133,32 @@ export const getUserProfile = async (req, res) => {
 
 //cart activities
 
-export const addItemToCart = async (req, res) => {
-  // when the item is added to cart
-  const product_id = req.params;
-  const { quantity } = req.body;
-  try {
-    const userid = req.user.id;
-    if (!userid) {
-      return res.status(404).json({ message: "not authorized" });
-    }
-    const buyer = await Buyer.findById(userid);
-    //updating the item status to reserved
-    //update the quantity
+// export const addItemToCart = async (req, res) => {
+//   // when the item is added to cart
+//   const product_id = req.params;
+//   const { quantity } = req.body;
+//   try {
+//     const userid = req.user.id;
+//     if (!userid) {
+//       return res.status(404).json({ message: "not authorized" });
+//     }
+//     const buyer = await Buyer.findById(userid);
+//     //updating the item status to reserved
+//     //update the quantity
 
-    await Item.findByIdAndUpdate(product_id, {
-      status: "reserved",
-      quantity: quantity,
-    });
-    console;
-    buyer.cart.push(product_id);
-    await buyer.save();
-    res.status(200).json({ message: "successfully added item to cart" });
-  } catch (error) {
-    console.log(`error adding item to cart ${error}`);
-    res.statue(500).json({ message: "error adding item to cart" });
-  }
-};
+//     await Item.findByIdAndUpdate(product_id, {
+//       status: "reserved",
+//       quantity: quantity,
+//     });
+//     console;
+//     buyer.cart.push(product_id);
+//     await buyer.save();
+//     res.status(200).json({ message: "successfully added item to cart" });
+//   } catch (error) {
+//     console.log(`error adding item to cart ${error}`);
+//     res.statue(500).json({ message: "error adding item to cart" });
+//   }
+// };
 
 export const getCartItems = async (req, res) => {
   const info = req.user.id;
@@ -277,3 +277,38 @@ export const deleteCartItem = async (req,res) =>{
 
   }
 }
+
+// backend/controllers/cart.controller.js
+
+
+export const addItemToCart = async (req, res) => {
+  const buyerId = req.user.id;
+  const { itemId, quantity } = req.body;
+
+  try {
+    const item = await Item.findById(itemId);
+    if (!item || item.quantity < quantity) {
+      return res.status(400).json({ message: "Item unavailable or insufficient quantity" });
+    }
+
+    const buyer = await Buyer.findById(buyerId);
+    if (!buyer) {
+      return res.status(404).json({ message: "Buyer not found" });
+    }
+
+    // Optionally check if item already in cart to update quantity instead of pushing again
+    const existingIndex = buyer.cart.findIndex(id => id.toString() === itemId);
+    if (existingIndex >= 0) {
+      // if you store quantities, update it here
+      // assuming cart only stores item IDs for now, skip or extend as needed
+    } else {
+      buyer.cart.push(itemId);
+    }
+
+    await buyer.save();
+
+    res.status(200).json({ message: "Item added to cart" });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to add item to cart", error: error.message });
+  }
+};

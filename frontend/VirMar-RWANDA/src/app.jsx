@@ -1,14 +1,11 @@
-// src/App.jsx
 import React from 'react';
-import  AppRouter from "./router"
+import MainRouter from './router';
 
-
-// Global App wrapper using Navigation Context
 function App() {
   return (
-<>
-<AppRouter />
-</>
+    <div>
+      <MainRouter />
+    </div>
   );
 }
 
