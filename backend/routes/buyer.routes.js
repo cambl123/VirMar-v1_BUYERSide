@@ -9,6 +9,7 @@ import {
   login,
   logout,
   register,
+  walletInfo,
 } from "../controllers/buyer.controllers.js";
 // 📦 Order Controller Imports
 import {
@@ -44,5 +45,18 @@ BuyerRoutes.patch('/order/:orderId/cancel', protectBuyerRoute, cancelOrder); // 
 //wallet meaning money routes
 BuyerRoutes.post("/deposit", protectBuyerRoute, depositToWallet);
 BuyerRoutes.post("/withdrawal",protectBuyerRoute, withdrawFromWallet)
+BuyerRoutes.get('/wallet',protectBuyerRoute,walletInfo)
+
+// wish list controllers still in production
+BuyerRoutes.get('/wishlist',protectBuyerRoute,async (req,res)=>{
+  try {
+    return res.status(200).json({message:'wishlist'})
+  
+    
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({message:error.message})
+  }
+    })
 
 export default BuyerRoutes;

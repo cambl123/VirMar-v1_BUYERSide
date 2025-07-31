@@ -5,13 +5,13 @@ const locationSchema = new mongoose.Schema(
   {
     name: { 
       type: String, 
-      required: true, 
+      // required: true, 
       trim: true 
     },
     type: {
       type: String,
       enum: ["province", "district", "sector", "cell"],
-      required: true
+      // required: true
     },
     
     // Parent-child relationship for hierarchy
@@ -24,7 +24,7 @@ const locationSchema = new mongoose.Schema(
     // Unique identifier for each level (e.g., "Kigali", "Gasabo", "Remera", "Giporoso")
     slug: { 
       type: String, 
-      required: true, 
+      // required: true, 
       unique: true, 
       lowercase: true 
     },

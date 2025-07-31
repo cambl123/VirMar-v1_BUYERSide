@@ -31,24 +31,34 @@ export const createOrderFromCart = async (req, res) => {
   session.startTransaction();
 
   try {
-    // Step 1: Get buyer and validate
-    const buyer = await Buyer.findById(buyerId).populate('cart').session(session);
+    // Step 1: Get buyer and cart items, populating necessary fields
+    const buyer = await Buyer.findById(buyerId).populate({
+      path: 'cart',
+      populate: {
+        path: 'price store_id' // Deep populate price and store info
+      }
+    }).session(session);
+
     if (!buyer || buyer.cart.length === 0) {
       await session.abortTransaction();
       return res.status(400).json({ message: "Cart is empty" });
     }
 
-    // Step 2: Group cart items by seller (marketplace requirement)
+    // Step 2: Group cart items by seller and calculate total value
     const itemsBySeller = {};
     let totalCartValue = 0;
 
-    for (const itemId of buyer.cart) {
-      const item = await Item.findById(itemId).populate('store_id').session(session);
+    for (const item of buyer.cart) { // Loop through populated cart items directly
       if (!item || item.quantity <= 0) {
         await session.abortTransaction();
         return res.status(400).json({ 
           message: `Item ${item?.name || 'unknown'} is not available` 
         });
+      }
+
+      if (!item.price || typeof item.price.reservedPrice !== 'number') {
+        await session.abortTransaction();
+        return res.status(400).json({ message: `Item ${item.name} has an invalid price.` });
       }
 
       const sellerId = item.store_id.seller_id.toString();
@@ -59,11 +69,11 @@ export const createOrderFromCart = async (req, res) => {
       itemsBySeller[sellerId].push({
         item,
         quantity: 1, // Default quantity, can be modified
-        unitPrice: item.price,
-        totalPrice: item.price
+        unitPrice: item.price.reservedPrice,
+        totalPrice: item.price.reservedPrice
       });
       
-      totalCartValue += item.price;
+      totalCartValue += item.price.reservedPrice;
     }
 
     // Step 3: Apply coupon if provided

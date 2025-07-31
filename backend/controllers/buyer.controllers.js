@@ -312,3 +312,23 @@ export const addItemToCart = async (req, res) => {
     res.status(500).json({ message: "Failed to add item to cart", error: error.message });
   }
 };
+
+
+export const walletInfo = async (req,res) =>{
+  const userId = req.user.id
+  try {
+    const buyer = await Buyer.findById(userId);
+    const wallet = await Wallet.findById(buyer.wallet_id);  
+
+    if (!buyer || !wallet) {
+      return res.status(404).json({ message: "Buyer or wallet not found" });
+    }
+
+    res.status(200).json({ balance: wallet.balance });
+  } catch (error) {
+    console.error("Error fetching wallet info:", error);
+    res.status(500).json({ message: "Failed to fetch wallet info" });
+  }
+};
+
+//

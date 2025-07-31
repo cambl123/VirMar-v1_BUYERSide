@@ -1,0 +1,277 @@
+/* src/seller/styles/product.css */
+.product-section {
+  margin-bottom: 40px;
+}
+
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.add-btn {
+  background-color: #2f80ed;
+  color: white;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.add-btn:hover {
+  background-color: #1c60d6;
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.product-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 280px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #222;
+}
+
+.product-price {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #4caf50; /* nice green for price */
+  margin-bottom: 0.5rem;
+}
+
+.product-description {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1rem;
+  min-height: 40px; /* to keep consistent height */
+}
+
+.product-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+/* Base button styles */
+.btn {
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Edit button - blue style */
+.btn-edit {
+  background-color: #1e90ff;
+  color: white;
+}
+
+.btn-edit:hover {
+  background-color: #1c7ed6;
+}
+
+/* Delete button - red style */
+.btn-delete {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #c0392b;
+}
+
+
+/* Product form styling */
+.product-form {
+  background-color: #fefefe;
+  border: 1px solid #ccc;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  max-width: 480px;
+}
+
+.product-form label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.product-form input,
+.product-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #bbb;
+  font-size: 1rem;
+  margin-top: 0.25rem;
+  resize: vertical;
+}
+
+.form-buttons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.btn-save {
+  background-color: #1e90ff;
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-save:hover {
+  background-color: #1c7ed6;
+}
+
+.btn-cancel {
+  background-color: #ccc;
+  color: #333;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-cancel:hover {
+  background-color: #aaa;
+}
+.modal-overlay {
+  position: fixed; /* stay over everything */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(30, 30, 30, 0.5); /* dark overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; /* super high priority */
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(30, 30, 30, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-box {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 480px;
+  width: 90%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  position: relative;
+}
+
+.modal-animate {
+  animation: scaleIn 0.3s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    background-color: rgba(30, 30, 30, 0);
+  }
+  to {
+    background-color: rgba(30, 30, 30, 0.5);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(30, 30, 30, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-box {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 480px;
+  width: 90%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  position: relative;
+}
+
+.modal-animate {
+  animation: scaleIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    background-color: rgba(30, 30, 30, 0);
+  }
+  to {
+    background-color: rgba(30, 30, 30, 0.5);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

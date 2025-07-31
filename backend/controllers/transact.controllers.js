@@ -5,7 +5,7 @@
 */
 
 // transactionService.js
-import generateNotification from "../utils/notification.maker.js";
+import { generateNotification } from "../utils/notification.maker.js";
 import Transaction from "../models/transaction.schema.js";
 import Item from "../models/items.model.js";
 import Seller from "../models/sellers.model.js";

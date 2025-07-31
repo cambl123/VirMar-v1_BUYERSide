@@ -9,7 +9,10 @@ const itemSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    
+    seller_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Seller", // ✅ This is what allows .populate("seller_id")
+  },
     status: {
         type: String,
         enum: ['available', 'sold', 'reserved'],

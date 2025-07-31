@@ -1,0 +1,100 @@
+/* seller-global.css */
+
+/* Variables for colors and fonts - adjust as per your theme */
+:root {
+  --brand-color: #4a90e2; /* example brand blue */
+  --brand-hover: #357ABD;
+  --background-light: #f7fafc;
+  --background-dark: #1a202c;
+  --text-primary: #2d3748;
+  --text-secondary: #718096;
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
+  --navbar-height: 64px; /* Adjust to your navbar height */
+}
+
+/* Global body for seller area */
+.seller-root {
+  padding-top: var(--navbar-height);
+  background-color: var(--background-light);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-primary);
+}
+
+/* Buttons */
+.seller-btn {
+  background-color: var(--brand-color);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+  box-shadow: 0 2px 6px rgba(74, 144, 226, 0.4);
+}
+
+.seller-btn:hover {
+  background-color: var(--brand-hover);
+}
+
+/* Cards */
+.seller-card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 1.2rem;
+  margin-bottom: 1.5rem;
+  transition: box-shadow var(--transition-speed);
+}
+
+.seller-card:hover {
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+}
+
+/* Headings */
+.seller-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--brand-color);
+}
+
+/* Layout tweaks */
+.seller-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Responsive Grid for product or stats */
+.seller-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap: 1.5rem;
+}
+
+/* Notifications style */
+.seller-notification {
+  background-color: #edf2f7;
+  border-left: 4px solid var(--brand-color);
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Links */
+.seller-link {
+  color: var(--brand-color);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+.seller-link:hover {
+  color: var(--brand-hover);
+  text-decoration: underline;
+}

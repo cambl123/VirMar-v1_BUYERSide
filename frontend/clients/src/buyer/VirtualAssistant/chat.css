@@ -1,0 +1,19 @@
+/* src/buyer/components/VirtualAssistant/chat.css */
+
+.chat-bubble {
+  max-width: 80%;
+  padding: 8px 12px;
+  margin: 6px 0;
+  border-radius: 12px;
+}
+
+.chat-bubble.user {
+  align-self: flex-end;
+  background-color: #dbf4ff;
+  text-align: right;
+}
+
+.chat-bubble.assistant {
+  align-self: flex-start;
+  background-color: #f3f4f6;
+}

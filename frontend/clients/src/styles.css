@@ -1,0 +1,50 @@
+/* VirMar Styles */
+
+/* Fonts */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    color: #212121;
+    margin: 0;
+}
+
+/* Colors */
+:root {
+    --primary-color: #009688;
+    --accent-yellow: #ffca28;
+    --error-color: #e53935;
+    --background-color: #ffffff;
+    --text-default: #212121;
+}
+
+/* Global Styles */
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-yellow);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #00796b;
+    transform: scale(1.05);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}

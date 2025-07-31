@@ -6,7 +6,7 @@ dotenv.config();
 
 // Accept a Notification object and send an email using its data
 export async function sendEmailNotification(title, message, recipientEmail) {
-  console.log('EMAIL:', process.env.EMAIL, 'PASSWORD:', process.env.PASSWORD); // don't push this to production logs
+  console.log('sending email'); // don't push this to production logs
 
   const transporter = nodemailer.createTransport({
     service: 'gmail',
