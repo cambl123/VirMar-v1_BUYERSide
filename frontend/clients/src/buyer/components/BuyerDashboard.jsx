@@ -20,7 +20,7 @@ import {
 } from '@chakra-ui/react';
 import { StarIcon } from '@chakra-ui/icons';
 import axios from 'axios';
-import BuyerNavbar from './BuyerNavBar';
+import BuyerNavbar from './BuyerNavbar';
 import AssistantWidget from "../VirtualAssistant/AssistantWadget";
 
 const BuyerDashboard = () => {
