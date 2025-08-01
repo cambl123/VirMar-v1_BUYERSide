@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import ChatMessageList from './ChatMessageList';
 import ChatInputBox from './ChatInputBox';
 import useOrderChatSocket from './useOrderChatSocket';  // <-- use the socket hook
-import './chat.css'; 
+import './Chat.css'; 
 
 const OrderChatPage = ({ orderId }) => {
   const [messages, setMessages] = useState([]);

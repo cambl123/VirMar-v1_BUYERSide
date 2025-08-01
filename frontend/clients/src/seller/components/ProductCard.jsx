@@ -1,5 +1,5 @@
 import React from 'react';
-import './product.css';
+import './Product.css';
 
 const ProductCard = ({ product, onEdit, onDelete }) => {
   return (

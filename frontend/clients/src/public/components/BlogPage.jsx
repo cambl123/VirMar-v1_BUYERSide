@@ -19,7 +19,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import './blog.css';
 
-// Replace with real API or backend-connected data later
+// Replace with real API or backend-connected data later C:\Users\HIRWA\Desktop\VirMar-RWANDA\frontend\clients\src\public\components\BlogPage.jsx
 const mockPosts = [
   {
     id: 1,
