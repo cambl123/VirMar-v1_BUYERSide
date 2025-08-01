@@ -15,7 +15,7 @@ import DashboardLinks from './DashboardLinks';
 import Product from './Product';
 import DashboardCharts from './DashboardCharts';
 import DashboardNotifications from './DashboardNotifications';
-import '../styles/dashboard.css';
+import '../styles/DashBoard.css';
 
 const SellerDashboard = () => {
   const isMobile = useBreakpointValue({ base: true, md: false });
