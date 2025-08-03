@@ -1,7 +1,9 @@
-// src/shared/socket.js ✅ CORRECT
+// src/shared/socket.js
 import { io } from "socket.io-client";
+import { API_BASE_URL } from "../configs/api.config"; // Adjust the import path as necessary
 
-const socket = io("http://localhost:5000", {
+// Use the dynamic base URL for the socket connection
+const socket = io(API_BASE_URL, {
   withCredentials: true,
 });
 

@@ -9,34 +9,51 @@ import {
   ModalCloseButton,
   ModalBody,
   ModalFooter,
-  Input,
   NumberInput,
   NumberInputField,
   useDisclosure,
   useToast,
 } from '@chakra-ui/react';
 import axios from 'axios';
+import { API_BASE_URL } from '../../configs/api.config'; // Correct path to your config file
+import { useAuth } from '../../context/AuthContext'; // Assuming AuthContext is in src/context
 
 function AddToCartModal({ product }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [quantity, setQuantity] = useState(1);
+  const [loading, setLoading] = useState(false);
   const toast = useToast();
+  const { user } = useAuth(); // Get the authenticated user from your AuthContext
 
   const handleAddToCart = async () => {
+    if (!user || !user.cartId) {
+      toast({
+        title: 'Error',
+        description: 'You must be logged in to add items to your cart.',
+        status: 'error',
+        duration: 3000,
+        isClosable: true,
+      });
+      return;
+    }
+    
+    setLoading(true);
+
     try {
+      // Use the dynamic API_BASE_URL and the correct route from your backend files
       const response = await axios.post(
-        'http://localhost:5000/api/buyer/cart',
+        `${API_BASE_URL}/api/buyer/cart/${user.cartId}/item`,
         {
           productId: product._id,
           quantity: quantity,
         },
         {
-          withCredentials: true, // Ensure cookies/token are sent
+          withCredentials: true,
         }
       );
 
       toast({
-        title: 'Added to Cart',
+        title: 'Success!',
         description: response.data.message || 'Item added successfully.',
         status: 'success',
         duration: 3000,
@@ -52,12 +69,14 @@ function AddToCartModal({ product }) {
         duration: 3000,
         isClosable: true,
       });
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <>
-      <Button colorScheme="teal" mt={3} onClick={onOpen}>
+      <Button colorScheme="teal" mt={3} onClick={onOpen} disabled={loading}>
         Add to Cart
       </Button>
 
@@ -77,7 +96,7 @@ function AddToCartModal({ product }) {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={handleAddToCart}>
+            <Button colorScheme="blue" mr={3} onClick={handleAddToCart} isLoading={loading}>
               Confirm
             </Button>
             <Button variant="ghost" onClick={onClose}>

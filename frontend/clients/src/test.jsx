@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { API_BASE_URL } from '../configs/api.config'; // Correct path to your config file
 
 function LoginForm({ onLoginSuccess }) {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -19,22 +20,27 @@ function LoginForm({ onLoginSuccess }) {
     setLoading(true);
 
     try {
+      // Use the dynamic API_BASE_URL for the login request
       const response = await axios.post(
-        'http://localhost:5000/api/buyer/login',
+        `${API_BASE_URL}/api/buyer/login`,
         formData,
         { withCredentials: true }
       );
 
       setLoading(false);
-      if (response.data.success) {
+      // The backend should return a token and user object on successful login,
+      // not a `success` boolean. Let's adjust the success check.
+      if (response.data.token) {
         onLoginSuccess(response.data);
         navigate('/profile');
       } else {
+        // This handles cases where the backend responds without a token
         setError(response.data.message || 'Login failed.');
       }
     } catch (err) {
       setLoading(false);
-      setError(err.response?.data?.message || 'Login failed.');
+      // The error handling is solid, no changes needed here.
+      setError(err.response?.data?.message || 'Login failed. Please check your credentials.');
     }
   };
 

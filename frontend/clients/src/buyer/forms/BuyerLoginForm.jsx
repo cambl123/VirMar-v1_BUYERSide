@@ -13,6 +13,7 @@ import {
 } from '@chakra-ui/react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { API_BASE_URL } from '../../configs/api.config'; // Adjust the import path as necessary
 
 const BuyerLoginForm = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -43,7 +44,7 @@ const BuyerLoginForm = () => {
 
     try {
       const { data } = await axios.post(
-        'http://localhost:5000/api/buyer/login',
+        `${API_BASE_URL}/api/buyer/login`, // Corrected API URL
         formData,
         {
           withCredentials: true,
@@ -51,6 +52,7 @@ const BuyerLoginForm = () => {
       );
 
       // OPTIONAL: If backend sends token in response
+      // This part depends on your backend's authentication strategy (e.g., JWT)
       if (data.token) {
         localStorage.setItem('buyerToken', data.token);
       }

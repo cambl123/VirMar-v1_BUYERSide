@@ -24,34 +24,10 @@ import {
   HStack,
   Spinner,
   useToast,
+  Center,
 } from '@chakra-ui/react';
 import axios from 'axios';
-
-const mockOrders = [
-  {
-    id: 'ORD123456',
-    date: '2025-07-01T10:30:00Z',
-    status: 'Pending',
-    total: 35000,
-    items: [
-      { name: 'iPhone 15 Pro Max', qty: 1, price: 1500000 },
-      { name: 'Phone Case', qty: 2, price: 5000 },
-    ],
-    shippingAddress: 'Kigali, Rwanda',
-    paymentMethod: 'MoMo',
-  },
-  {
-    id: 'ORD654321',
-    date: '2025-06-15T15:45:00Z',
-    status: 'Delivered',
-    total: 720000,
-    items: [
-      { name: 'MacBook Pro 16" M3', qty: 1, price: 3200000 },
-    ],
-    shippingAddress: 'Kigali, Rwanda',
-    paymentMethod: 'Credit Card',
-  },
-];
+import { API_BASE_URL } from '../../configs/api.config'; // Adjust path if needed
 
 const statusColor = {
   Pending: 'yellow',
@@ -63,29 +39,32 @@ const statusColor = {
 const BuyerOrders = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isCancelling, setIsCancelling] = useState({}); // Track cancellation state per order
   const [selectedOrder, setSelectedOrder] = useState(null);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast();
 
+  const fetchOrders = async () => {
+    setLoading(true);
+    try {
+      const res = await axios.get(`${API_BASE_URL}/api/buyer/orders`, { withCredentials: true });
+      setOrders(res.data.orders);
+    } catch (error) {
+      toast({
+        title: 'Failed to load orders',
+        description: error.response?.data?.message || 'There was an error fetching your orders.',
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
+      // Set orders to an empty array to show "No orders found."
+      setOrders([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchOrders = async () => {
-      try {
-        // TODO: Replace mockOrders with API call
-        // const res = await axios.get('http://localhost:5000/api/buyer/orders', { withCredentials: true });
-        // setOrders(res.data.orders);
-        setOrders(mockOrders);
-      } catch (error) {
-        toast({
-          title: 'Failed to load orders',
-          description: error.message,
-          status: 'error',
-          duration: 5000,
-          isClosable: true,
-        });
-      } finally {
-        setLoading(false);
-      }
-    };
     fetchOrders();
   }, []);
 
@@ -94,23 +73,51 @@ const BuyerOrders = () => {
     onOpen();
   };
 
-  const handleCancelOrder = (orderId) => {
-    // TODO: call API to cancel order here
-    toast({
-      title: 'Order cancelled',
-      description: `Order ${orderId} has been cancelled.`,
-      status: 'success',
-      duration: 3000,
-      isClosable: true,
-    });
-    setOrders((prev) =>
-      prev.map((order) =>
-        order.id === orderId ? { ...order, status: 'Cancelled' } : order
-      )
-    );
+  const handleCancelOrder = async (orderId) => {
+    setIsCancelling((prev) => ({ ...prev, [orderId]: true }));
+    try {
+      // Use the correct backend route to cancel the order
+      const res = await axios.patch(
+        `${API_BASE_URL}/api/buyer/order/${orderId}/cancel`,
+        {},
+        { withCredentials: true }
+      );
+
+      toast({
+        title: 'Order cancelled',
+        description: res.data.message || `Order ${orderId} has been cancelled.`,
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+      });
+
+      // Update the local state to reflect the cancelled status
+      setOrders((prev) =>
+        prev.map((order) =>
+          order.id === orderId ? { ...order, status: 'Cancelled' } : order
+        )
+      );
+    } catch (error) {
+      console.error('Cancel order error:', error);
+      toast({
+        title: 'Failed to cancel order',
+        description: error.response?.data?.message || 'Please try again later.',
+        status: 'error',
+        duration: 3000,
+        isClosable: true,
+      });
+    } finally {
+      setIsCancelling((prev) => ({ ...prev, [orderId]: false }));
+    }
   };
 
-  if (loading) return <Spinner size="xl" mx="auto" mt={20} display="block" />;
+  if (loading) {
+    return (
+      <Center mt={20}>
+        <Spinner size="xl" thickness="4px" />
+      </Center>
+    );
+  }
 
   return (
     <Box maxW="900px" mx="auto" mt={10} p={6}>
@@ -153,6 +160,7 @@ const BuyerOrders = () => {
                       size="sm"
                       colorScheme="red"
                       onClick={() => handleCancelOrder(order.id)}
+                      isLoading={isCancelling[order.id]}
                     >
                       Cancel
                     </Button>
@@ -172,7 +180,9 @@ const BuyerOrders = () => {
           <ModalCloseButton />
           <ModalBody>
             {!selectedOrder ? (
-              <Spinner size="lg" />
+              <Center>
+                <Spinner size="lg" />
+              </Center>
             ) : (
               <Box>
                 <Text>

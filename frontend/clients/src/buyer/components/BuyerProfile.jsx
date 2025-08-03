@@ -12,6 +12,7 @@ import {
   useToast,
 } from '@chakra-ui/react';
 import axios from 'axios';
+import { API_BASE_URL } from '../../configs/api.config'; // Adjust the path as necessary
 
 const BuyerProfile = () => {
   const [buyer, setBuyer] = useState(null);
@@ -22,7 +23,7 @@ const BuyerProfile = () => {
   useEffect(() => {
     const fetchBuyerProfile = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/buyer/profile', {
+        const res = await axios.get(`${API_BASE_URL}/api/buyer/profile`, {
           withCredentials: true,
         });
 

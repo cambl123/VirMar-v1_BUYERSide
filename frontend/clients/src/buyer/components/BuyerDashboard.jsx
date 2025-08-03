@@ -1,3 +1,4 @@
+// src/buyer/components/BuyerDashboard.jsx
 import React, { useEffect, useState } from 'react';
 import {
   Box,
@@ -21,11 +22,12 @@ import {
 import { StarIcon } from '@chakra-ui/icons';
 import axios from 'axios';
 import BuyerNavbar from './BuyerNavbar';
-import AssistantWidget from "../VirtualAssistant/AssistantWadget";
+import AssistantWidget from '../VirtualAssistant/AssistantWadget';
+import { API_BASE_URL } from '../../configs/api.config'; // Correct path to your config file
 
 const BuyerDashboard = () => {
   const [products, setProducts] = useState([]);
-  const [buyer, setBuyer] = useState({ name: 'Camble 👋', walletBalance: 0 });
+  const [buyer, setBuyer] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const toast = useToast();
@@ -37,13 +39,16 @@ const BuyerDashboard = () => {
       setLoading(true);
       try {
         const [productsRes, buyerRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/public/'),
-          axios.get('http://localhost:5000/api/buyer/profile', { withCredentials: true }),
+          // Use the dynamic API_BASE_URL for public routes
+          axios.get(`${API_BASE_URL}/api/public/`),
+          // Use the dynamic API_BASE_URL for protected buyer routes
+          axios.get(`${API_BASE_URL}/api/buyer/profile`, { withCredentials: true }),
         ]);
 
         setProducts(productsRes.data.products || []);
         setBuyer(buyerRes.data.buyer || {});
-        setCartId(buyerRes.data.buyer.cart);
+        // Correctly set cartId assuming the backend returns it
+        setCartId(buyerRes.data.buyer?.cartId);
       } catch (err) {
         console.error(err);
         setError('Failed to load data. Please try again.');
@@ -66,7 +71,7 @@ const BuyerDashboard = () => {
     if (!cartId) {
       toast({
         title: 'Cart not found.',
-        description: 'Please refresh the page or try again later.',
+        description: 'Please refresh the page or ensure you are logged in.',
         status: 'error',
         duration: 3000,
         isClosable: true,
@@ -75,8 +80,9 @@ const BuyerDashboard = () => {
     }
 
     try {
+      // Use the dynamic API_BASE_URL for the cart request
       await axios.post(
-        `http://localhost:5000/api/buyer/cart/${cartId}/item`,
+        `${API_BASE_URL}/api/buyer/cart/${cartId}/item`,
         { productId, quantity: 1 },
         { withCredentials: true }
       );
@@ -103,30 +109,47 @@ const BuyerDashboard = () => {
     setWishlist((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
+  if (loading) {
+    return (
+      <Center mt={10}>
+        <Spinner size="xl" thickness="4px" color="teal.400" />
+      </Center>
+    );
+  }
+
+  if (error) {
+    return (
+      <Center mt={6} color="red.500">
+        <Text fontSize="lg">{error}</Text>
+      </Center>
+    );
+  }
+
   return (
     <Box p={6}>
       <BuyerNavbar />
       <Heading size="lg" mb={4}>
-        Welcome back, <Text as="span" color="teal.500">{buyer.name || 'Buyer'}!</Text>
+        Welcome back,{' '}
+        <Text as="span" color="teal.500">
+          {buyer?.name || 'Buyer'}!
+        </Text>
       </Heading>
 
       <Text fontSize="md" mb={6}>
         Wallet Balance:{' '}
         <Text as="span" color="green.500" fontWeight="bold">
-          {buyer.walletBalance ? `frw ${buyer.walletBalance} RWF` : 'N/A'}
+          {buyer?.walletBalance ? `frw ${buyer.walletBalance} RWF` : 'N/A'}
         </Text>
       </Text>
 
-      <Heading size="md" mb={3}>Available Products</Heading>
+      <Heading size="md" mb={3}>
+        Available Products
+      </Heading>
 
-      {loading ? (
-        <Center mt={10}>
-          <Spinner size="xl" thickness="4px" color="teal.400" />
+      {products.length === 0 ? (
+        <Center mt={6} color="gray.500">
+          No products available at the moment.
         </Center>
-      ) : error ? (
-        <Center color="red.500">{error}</Center>
-      ) : products.length === 0 ? (
-        <Center mt={6} color="gray.500">No products available at the moment.</Center>
       ) : (
         <Box overflowX="auto" borderRadius="lg" boxShadow="md">
           <Table variant="simple">
@@ -205,7 +228,6 @@ const BuyerDashboard = () => {
           </Table>
         </Box>
       )}
-
       <AssistantWidget />
     </Box>
   );

@@ -13,6 +13,7 @@ import {
 } from '@chakra-ui/react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { API_BASE_URL } from '../../configs/api.config'; // Adjust the import path as necessary
 
 const BuyerRegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -58,7 +59,7 @@ const BuyerRegisterForm = () => {
 
     try {
       const response = await axios.post(
-        'http://localhost:5000/api/buyer/register',
+        `${API_BASE_URL}/api/buyer/register`, // Corrected API URL
         formData,
         { withCredentials: true }
       );

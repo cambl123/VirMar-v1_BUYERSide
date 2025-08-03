@@ -1,6 +1,7 @@
 // src/buyer/hooks/useDepositFunds.js
 import { useState } from "react";
 import axios from "axios";
+import { API_BASE_URL } from "../../configs/api.config"; // Adjust the import path as necessary
 
 const useDepositFunds = () => {
   const [loading, setLoading] = useState(false);
@@ -14,9 +15,10 @@ const useDepositFunds = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/transactions/deposit",
+        // Corrected URL: using API_BASE_URL and the correct path /api/transact/deposit
+        `${API_BASE_URL}/api/transact/deposit`,
         { amount },
-        { withCredentials: true } // send cookies if using sessions/auth
+        { withCredentials: true }
       );
       setSuccessMsg(response.data.message);
       setLoading(false);

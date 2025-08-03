@@ -16,8 +16,10 @@ import {
   Th,
   Td,
   useColorModeValue,
+  Center,
 } from '@chakra-ui/react';
 import axios from 'axios';
+import { API_BASE_URL } from '../../configs/api.config'; // Adjust path as needed
 
 const BuyerWallet = () => {
   const [walletBalance, setWalletBalance] = useState(null);
@@ -27,32 +29,32 @@ const BuyerWallet = () => {
   const [transactions, setTransactions] = useState([]);
   const toast = useToast();
 
-  // Fetch wallet balance & history
+  const fetchWalletData = async () => {
+    try {
+      const [balanceRes, transactionsRes] = await Promise.all([
+        axios.get(`${API_BASE_URL}/api/buyer/profile`, { withCredentials: true }),
+        axios.get(`${API_BASE_URL}/api/transaction/transactions`, { withCredentials: true }),
+      ]);
+      setWalletBalance(balanceRes.data.buyer.walletBalance);
+      setTransactions(transactionsRes.data.transactions);
+    } catch (err) {
+      toast({
+        title: 'Failed to fetch wallet info',
+        description: err.response?.data?.message || err.message,
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
+      // Clear data on error
+      setWalletBalance(null);
+      setTransactions([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Fetch wallet balance & history on component mount
   useEffect(() => {
-    const fetchWalletData = async () => {
-      try {
-        // 👇 Replace this with your backend wallet endpoint
-        const res = await axios.get('http://localhost:5000/api/buyer/wallet', {
-          withCredentials: true,
-        });
-
-        // 👉 Expected response:
-        // { walletBalance: 5000, transactions: [ { id, type, amount, date } ] }
-        setWalletBalance(res.data.walletBalance);
-        setTransactions(res.data.transactions);
-      } catch (err) {
-        toast({
-          title: 'Failed to fetch wallet info',
-          description: err.response?.data?.message || err.message,
-          status: 'error',
-          duration: 5000,
-          isClosable: true,
-        });
-      } finally {
-        setLoading(false);
-      }
-    };
-
     fetchWalletData();
   }, []);
 
@@ -71,9 +73,8 @@ const BuyerWallet = () => {
     setIsDepositing(true);
 
     try {
-      // 👇 Replace this with your MoMo deposit route
       const res = await axios.post(
-        'http://localhost:5000/api/buyer/wallet/deposit',
+        `${API_BASE_URL}/api/transaction/deposit`,
         { amount: Number(amount) },
         { withCredentials: true }
       );
@@ -87,8 +88,7 @@ const BuyerWallet = () => {
       });
 
       setAmount('');
-      // Re-fetch balance
-      setWalletBalance(prev => prev + Number(amount));
+      await fetchWalletData(); // Re-fetch all data to ensure consistency
     } catch (err) {
       toast({
         title: 'Deposit Failed',
@@ -104,9 +104,9 @@ const BuyerWallet = () => {
 
   if (loading) {
     return (
-      <Box p={10} textAlign="center">
+      <Center p={10}>
         <Spinner size="xl" />
-      </Box>
+      </Center>
     );
   }
 
@@ -116,7 +116,7 @@ const BuyerWallet = () => {
 
       <VStack align="start" spacing={4} mb={8}>
         <Text fontSize="xl">
-          <strong>Current Balance:</strong> {walletBalance} RWF
+          <strong>Current Balance:</strong> {walletBalance?.toLocaleString() || 'N/A'} RWF
         </Text>
 
         <HStack>
@@ -142,24 +142,26 @@ const BuyerWallet = () => {
         {transactions.length === 0 ? (
           <Text>No transactions found.</Text>
         ) : (
-          <Table variant="simple" bg={useColorModeValue('white', 'gray.700')} borderRadius="md" overflow="hidden">
-            <Thead bg={useColorModeValue('gray.100', 'gray.600')}>
-              <Tr>
-                <Th>Type</Th>
-                <Th>Amount</Th>
-                <Th>Date</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              {transactions.map((tx) => (
-                <Tr key={tx._id}>
-                  <Td>{tx.type}</Td>
-                  <Td>{tx.amount} RWF</Td>
-                  <Td>{new Date(tx.date).toLocaleString()}</Td>
+          <Box overflowX="auto" bg={useColorModeValue('white', 'gray.700')} borderRadius="md" shadow="md">
+            <Table variant="simple" size="md">
+              <Thead bg={useColorModeValue('gray.100', 'gray.600')}>
+                <Tr>
+                  <Th>Type</Th>
+                  <Th>Amount</Th>
+                  <Th>Date</Th>
                 </Tr>
-              ))}
-            </Tbody>
-          </Table>
+              </Thead>
+              <Tbody>
+                {transactions.map((tx) => (
+                  <Tr key={tx._id}>
+                    <Td>{tx.type}</Td>
+                    <Td>{tx.amount?.toLocaleString()} RWF</Td>
+                    <Td>{new Date(tx.date).toLocaleString()}</Td>
+                  </Tr>
+                ))}
+              </Tbody>
+            </Table>
+          </Box>
         )}
       </Box>
     </Box>

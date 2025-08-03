@@ -1,19 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import {
   Box, Heading, Table, Thead, Tbody, Tr, Th, Td,
-  Spinner, Center, Badge, Button, useToast
+  Spinner, Center, Badge, Button, useToast, Text
 } from '@chakra-ui/react';
 import axios from 'axios';
-import BuyerNavbar from '../components/BuyerNavBar';
+// Corrected import to match the standard PascalCase naming convention
+import BuyerNavbar from '../components/BuyerNavbar'; 
+
+import { API_BASE_URL } from '../../configs/api.config'; // Adjust the import path as necessary
 
 const BuyerOrders = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const toast = useToast();
 
+  // Helper function to format currency
+  const formatCurrency = (amount) => {
+    return new Intl.NumberFormat('en-RW', {
+      style: 'currency',
+      currency: 'RWF'
+    }).format(amount);
+  };
+
   const fetchOrders = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/buyer/orders', {
+      const res = await axios.get(`${API_BASE_URL}/api/buyer/orders`, {
         withCredentials: true,
       });
       setOrders(res.data.orders);
@@ -33,7 +44,7 @@ const BuyerOrders = () => {
   const cancelOrder = async (orderId) => {
     try {
       await axios.patch(
-        `http://localhost:5000/api/buyer/order/${orderId}/cancel`,
+        `${API_BASE_URL}/api/buyer/order/${orderId}/cancel`,
         { reason: "Changed my mind" }, // You can prompt for input later
         { withCredentials: true }
       );
@@ -66,6 +77,10 @@ const BuyerOrders = () => {
 
       {loading ? (
         <Center><Spinner size="xl" /></Center>
+      ) : orders.length === 0 ? (
+        <Center p={10}>
+          <Text fontSize="lg" color="gray.500">You have not placed any orders yet.</Text>
+        </Center>
       ) : (
         <Table variant="simple">
           <Thead>
@@ -90,10 +105,10 @@ const BuyerOrders = () => {
                     {order.status}
                   </Badge>
                 </Td>
-                <Td>{order.totalAmount} RWF</Td>
+                <Td>{formatCurrency(order.totalAmount)}</Td>
                 <Td>{new Date(order.createdAt).toLocaleDateString()}</Td>
                 <Td>
-                  {["pending", "confirmed"].includes(order.status) && (
+                  {order.status === "pending" && (
                     <Button
                       size="sm"
                       colorScheme="red"

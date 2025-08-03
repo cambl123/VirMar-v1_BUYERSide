@@ -1,5 +1,3 @@
-// src/components/seller/marketplace/SummaryCards.jsx
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import {
@@ -14,6 +12,7 @@ import {
   Center,
   Text,
 } from '@chakra-ui/react';
+import { API_BASE_URL } from '../../../apiConfig'; // Adjust the import path as necessary
 
 /**
  * SummaryCards Component
@@ -27,10 +26,18 @@ const SummaryCards = () => {
 
   const cardBg = useColorModeValue('white', 'gray.800');
 
+  // Helper function to format currency
+  const formatCurrency = (amount) => {
+    return new Intl.NumberFormat('en-RW', {
+      style: 'currency',
+      currency: 'RWF'
+    }).format(amount);
+  };
+
   useEffect(() => {
     const fetchSummary = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/public/market-summary');
+        const res = await axios.get(`${API_BASE_URL}/api/public/market-summary`);
         setData(res.data);
       } catch (err) {
         setError('Failed to load summary metrics.');
@@ -59,31 +66,32 @@ const SummaryCards = () => {
     );
   }
 
+  // Use the fetched data to populate the cards
   const summaryData = [
     {
       label: 'Active Buyers',
-      value: data.activeBuyers.toLocaleString(),
-      helpText: data.growth.buyers,
+      value: data.activeBuyers?.toLocaleString() || 'N/A',
+      helpText: data.growth?.buyers || '',
     },
     {
       label: 'Total Orders',
-      value: data.totalOrders.toLocaleString(),
-      helpText: data.growth.orders,
+      value: data.totalOrders?.toLocaleString() || 'N/A',
+      helpText: data.growth?.orders || '',
     },
     {
       label: 'Sales Volume',
-      value: `RWF ${data.salesVolume.toLocaleString()}`,
-      helpText: data.growth.sales,
+      value: formatCurrency(data.salesVolume),
+      helpText: data.growth?.sales || '',
     },
     {
       label: 'Active Sellers',
-      value: data.activeSellers.toLocaleString(),
-      helpText: data.growth.sellers,
+      value: data.activeSellers?.toLocaleString() || 'N/A',
+      helpText: data.growth?.sellers || '',
     },
     {
       label: 'Top Trending Category',
-      value: data.topCategory,
-      helpText: data.growth.category,
+      value: data.topCategory || 'N/A',
+      helpText: data.growth?.category || '',
     },
   ];
 

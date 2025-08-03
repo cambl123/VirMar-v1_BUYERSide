@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { Bell } from 'lucide-react';
 import axios from 'axios';
+import { API_BASE_URL } from '../../configs/api.config'; // Adjust the import path as necessary
 
 const DashboardNotifications = () => {
   const bg = useColorModeValue('white', 'gray.900');
@@ -25,8 +26,7 @@ const DashboardNotifications = () => {
         setLoading(true);
         setError(null);
 
-        // Replace this URL with your real backend notifications endpoint
-        const res = await axios.get('http://localhost:5000/api/seller/notifications', { withCredentials: true });
+        const res = await axios.get(`${API_BASE_URL}/api/seller/notifications`, { withCredentials: true });
         setNotifications(res.data.notifications || []);
       } catch (err) {
         setError(err.message || 'Failed to load notifications');
@@ -88,14 +88,14 @@ const DashboardNotifications = () => {
       <VStack spacing={4} align="stretch">
         {notifications.map((note) => (
           <Box
-            key={note.id}
+            key={note._id}
             p={3}
             bg={useColorModeValue('gray.50', 'gray.800')}
             borderRadius="md"
           >
             <Text fontWeight="medium">{note.message}</Text>
             <Text fontSize="sm" color="gray.500">
-              {note.time}
+              {new Date(note.createdAt).toLocaleString()}
             </Text>
           </Box>
         ))}

@@ -12,6 +12,7 @@ import {
   useToast,
 } from '@chakra-ui/react';
 import axios from 'axios';
+import { API_BASE_URL } from '../../../configs/api.config'; // Adjust the import path as necessary
 
 const BuyerInsightsModule = () => {
   const [insights, setInsights] = useState([]);
@@ -22,15 +23,11 @@ const BuyerInsightsModule = () => {
     const fetchBuyerInsights = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:5000/api/seller/analytics/buyer-insights',
+          `${API_BASE_URL}/api/seller/analytics/buyer-insights`,
           { withCredentials: true }
         );
 
-        // Example expected response format:
-        // { data: [{ label: 'Returning Buyers', value: 74 }, ...] }
-        if (Array.isArray(response.data)) {
-          setInsights(response.data);
-        } else if (Array.isArray(response.data.data)) {
+        if (Array.isArray(response.data.data)) {
           setInsights(response.data.data);
         } else {
           throw new Error('Unexpected data format from server.');
@@ -69,13 +66,17 @@ const BuyerInsightsModule = () => {
         </Center>
       ) : (
         <VStack spacing={3} align="stretch">
-          {insights.map((item, i) => (
-            <Box key={i}>
-              <Text fontWeight="semibold">{item.label}</Text>
-              <Progress value={item.value} colorScheme="green" borderRadius="sm" />
-              <Text fontSize="sm" color="gray.500">{item.value}%</Text>
-            </Box>
-          ))}
+          {insights.length > 0 ? (
+            insights.map((item, i) => (
+              <Box key={i}>
+                <Text fontWeight="semibold">{item.label}</Text>
+                <Progress value={item.value} colorScheme="green" borderRadius="sm" />
+                <Text fontSize="sm" color="gray.500">{item.value}%</Text>
+              </Box>
+            ))
+          ) : (
+            <Text color="gray.500">No buyer insights available.</Text>
+          )}
         </VStack>
       )}
     </Box>
