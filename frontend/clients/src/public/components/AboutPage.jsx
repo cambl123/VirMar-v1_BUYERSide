@@ -1,12 +1,13 @@
+// src/publicPages/AboutUs.jsx
 import React from 'react';
 import {
   Box,
   Container,
   Heading,
   Text,
-  SimpleGrid, 
+  SimpleGrid,
   VStack,
-  HStack,   
+  HStack,
   Avatar,
   Icon,
   useColorModeValue,
@@ -14,23 +15,14 @@ import {
 import { FaLightbulb, FaUsers, FaHandshake } from 'react-icons/fa';
 import Navbar from './Navbar';
 import Footer from './Footer';
-
+// comment
 const teamMembers = [
   {
     name: 'Camble Isaac',
     role: 'Founder & CEO',
-    imageUrl: './assets/profile.jpg',
-  }
-  // {
-  //   name: 'Jane Doe',
-  //   role: 'Lead Developer',
-  //   imageUrl: 'https://i.pravatar.cc/150?img=47',
-  // },
-  // {
-  //   name: 'John Smith',
-  //   role: 'Product Manager',
-  //   imageUrl: 'https://i.pravatar.cc/150?img=33',
-  // },
+    imageUrl: '/assets/profile.jpg', // ✅ Image must be in public/assets folder
+  },
+  // Add more team members here if needed
 ];
 
 const coreValues = [
@@ -72,9 +64,9 @@ const AboutUs = () => {
         </Heading>
 
         <Text fontSize="xl" color={textColor} maxW="3xl" mx="auto" mb={16} textAlign="center">
-          VirMar is Rwanda’s first virtual market which is  camble first invention marketplace built with love and technology to
-          empower buyers and sellers across the country. We strive to bring transparency,
-          ease, and innovation to everyday commerce.
+          VirMar is Rwanda’s first virtual market — Camble’s first invention marketplace —
+          built with love and technology to empower buyers and sellers across the country.
+          We strive to bring transparency, ease, and innovation to everyday commerce.
         </Text>
 
         <SimpleGrid columns={[1, null, 3]} spacing={10} mb={20}>
