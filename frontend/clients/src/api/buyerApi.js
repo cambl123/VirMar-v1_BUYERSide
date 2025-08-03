@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { API_BASE_URL } from '../apiConfig';
 
-const API_BASE_URL = 'http://localhost:5000/api/buyer';
+const API_BASE_URL = `${API_BASE_URL}/api/buyer`//'http://localhost:5000/api/buyer';
 
 export const registerBuyer = (data) => {
   return axios.post(`${API_BASE_URL}/register`, data, { withCredentials: true });

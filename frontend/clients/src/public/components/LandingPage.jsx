@@ -255,7 +255,7 @@ const LandingPage = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               <Text color={'gray.500'} fontSize={'xl'} maxW={'3xl'}>
-                Join Rwanda&apos;s most trusted marketplace where innovation meets security. Connect with verified sellers,
+                Join Rwanda&apos;s most trusted marketplace where innovation meets security. my names are HIRWA Cambridge Isaac christian i created this site it is a homemade, come and
                 discover unique products, and experience seamless transactions with our advanced escrow system.
               </Text>
             </MotionBox>

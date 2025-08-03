@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { API_BASE_URL } from '../apiConfig';
 
-const API_URL = 'http://localhost:5000/api/escrow';
+const API_URL = `${API_BASE_URL}/api/escrow`//'http://localhost:5000/api/escrow';
 
 const start = (productId, amount, token) => {
     return axios.post(

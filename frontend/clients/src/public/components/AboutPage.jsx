@@ -19,7 +19,7 @@ const teamMembers = [
   {
     name: 'Camble Isaac',
     role: 'Founder & CEO',
-    imageUrl: 'https://i.pravatar.cc/150?img=12',
+    imageUrl: './assets/profile.jpg',
   }
   // {
   //   name: 'Jane Doe',

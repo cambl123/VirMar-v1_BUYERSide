@@ -1,6 +1,6 @@
 import axios from 'axios';
-
-const API_URL = 'http://localhost:5000/api/wallet';
+import { API_BASE_URL } from '../config/apiConfig';
+const API_URL = `${API_BASE_URL}/api/wallet`//'http://localhost:5000/api/wallet';
 
 const getBalance = (token) => {
     return axios.get(`${API_URL}/balance`, {

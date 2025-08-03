@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { API_BASE_URL } from '../apiConfig';
 
-const API_URL = 'http://localhost:5000/api/products';
+const API_URL = `${API_BASE_URL}/api/products`//'http://localhost:5000/api/products';
 
 const getAll = () => {
     return axios.get(API_URL);
