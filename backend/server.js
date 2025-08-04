@@ -7,6 +7,7 @@ import cookieParser from "cookie-parser";
 import http from "http";
 import path from "path";
 import { fileURLToPath } from "url";
+import { Server } from "socket.io"; // ✅ ESM-compatible Socket.IO import
 
 import connectDB from "./configs/mongo.connect.js";
 import { initSocketServer } from "./sockets/sockets.js"; // Socket.IO re-enabled
@@ -25,12 +26,22 @@ connectDB();
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(
-  cors({
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
-    credentials: true,
-  })
-);
+
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://virmar.onrender.com'
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('CORS policy violation: ' + origin));
+    }
+  },
+  credentials: true
+}));
 
 // ===============================
 // ✅ API Routes - All re-enabled
@@ -60,7 +71,6 @@ app.use("/api/transaction", transactRoutes);
 // app.use("/api/analytics", analyticsRoutes);
 // app.use("/api/shipping", shippingRoutes);
 
-
 // ===============================
 // ✅ Serve Vite Frontend (Dist Folder) - Wildcard route removed
 // ===============================
@@ -77,7 +87,7 @@ app.use(express.static(distPath));
 //    Your frontend might not load correctly without a fallback,
 //    but the server should start without the TypeError.
 
-// ===============================
+// ==============================
 // ✅ Global Error Handler
 // ===============================
 app.use((err, req, res, next) => {
@@ -90,6 +100,14 @@ app.use((err, req, res, next) => {
 // ===============================
 // ✅ Initialize Socket.IO - Re-enabled
 // ===============================
+const io = new Server(server, {
+  cors: {
+    origin: ['http://localhost:5173', 'https://virmar.onrender.com'],
+    methods: ['GET', 'POST'],
+    credentials: true
+  }
+});
+
 initSocketServer(server);
 
 // ===============================
